@@ -1,3 +1,3 @@
-#Teste victor- oi vitoria :)
+#Teste Jogo Plataforma Victor
 
 print("testando jogo")
