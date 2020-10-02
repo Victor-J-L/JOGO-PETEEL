@@ -1,3 +1,7 @@
-#Teste Jogo Plataforma Victor
+import pygame
 
-print("testando jogo")
+def main():
+    pygame.init()
+    pygame.display.set_mode ([300, 300])
+
+main()
