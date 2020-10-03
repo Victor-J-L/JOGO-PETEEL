@@ -1,7 +1,7 @@
 import pygame
+pygame.init()
 
 def main():
-    pygame.init()
     pygame.display.set_mode ([300, 300])
 
 main()
