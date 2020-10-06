@@ -24,7 +24,7 @@ def main():
         tela.blit(sup,[50,50])  
         tela.blit(sup2,[100,100]) 
         pygame.display.update()
-    pygame.quit()
+    pygame.quit() 
 
 
 main()
