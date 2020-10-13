@@ -21,19 +21,19 @@ def main():
     botao = pygame.Rect((200, 362, 100, 50))
 
     #IMAGENS
-    pag_inicial = pygame.image.load("Imagens/Página inicial/paginainicial.png")
+    pag_inicial = pygame.image.load("Imagens/Página inicial/paginicial.png")
     sp_paginicial = pygame.sprite.Sprite()
     sp_paginicial.pag_inicial = pag_inicial
     sp_paginicial.rect = pag_inicial.get_rect()
-    sp_paginicial.rect.top = 0
-    sp_paginicial.rect.left = 0
+    sp_paginicial.rect.top = -26
+    sp_paginicial.rect.left = -16
     botaoplay = pygame.image.load("Imagens/Página inicial/play.png")
     sp_play = pygame.sprite.Sprite()
     sp_play.botaoplay = botaoplay
     sp_play.rect = botaoplay.get_rect()
-    sp_play.rect.top = 340
-    sp_play.rect.bottom = 399
-    sp_play.rect.left = 201
+    sp_play.rect.top = 342
+    sp_play.rect.bottom = 391
+    sp_play.rect.left = 199
     sp_play.rect.right = 301
 
     sair = False
@@ -47,12 +47,13 @@ def main():
         tela.fill(cor_azul)
         (xmouse, ymouse) = pygame.mouse.get_pos()
          
-        if xmouse >= sp_play.rect.left and xmouse <= sp_play.rect.right and ymouse <= sp_play.rect.bottom and ymouse >= sp_play.rect.top:
+        if xmouse >= sp_play.rect.left and xmouse <= sp_play.rect.right and ymouse <= 351 and ymouse >= 295:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 sp_paginicial.rect.left = 800
                 sp_play.rect.left = 800
 
 
+        
         tela.blit(sp_paginicial.pag_inicial, sp_paginicial.rect)
         tela.blit(sp_play.botaoplay, sp_play.rect)
         
