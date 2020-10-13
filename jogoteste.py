@@ -4,7 +4,7 @@ import pygame
 
 def main():
     pygame.init()
-    tela = pygame.display.set_mode([600,450])
+    tela = pygame.display.set_mode([500,650])
     pygame.display.set_caption("Jogo Iniciante")
     relogio = pygame.time.Clock()
     cor_branca = (255,255,255)
