@@ -5,34 +5,57 @@ def main():
     tela = pygame.display.set_mode([500,650])
     pygame.display.set_caption("Página Inicial")
     relogio = pygame.time.Clock()
+
+    #CORES
     cor_azul = (181,244,253)
     cor_branca = (255,255,255)
     cor_preta = (0,0,0)
     cor_marrom = (126,89,1)
     cor_amarela = (251,222,19)
 
+    #OBJETOS
     nome = pygame.Rect((20,20,460,196))
     quadrado = pygame.Rect((50,231,400,196))
     personagem1 = pygame.Rect((100, 442, 100, 188))
     personagem2 = pygame.Rect((300, 442, 100, 188))
     botao = pygame.Rect((200, 362, 100, 50))
 
+    #IMAGENS
+    pag_inicial = pygame.image.load("Imagens/Página inicial/paginainicial.png")
+    sp_paginicial = pygame.sprite.Sprite()
+    sp_paginicial.pag_inicial = pag_inicial
+    sp_paginicial.rect = pag_inicial.get_rect()
+    sp_paginicial.rect.top = 0
+    sp_paginicial.rect.left = 0
+    botaoplay = pygame.image.load("Imagens/Página inicial/play.png")
+    sp_play = pygame.sprite.Sprite()
+    sp_play.botaoplay = botaoplay
+    sp_play.rect = botaoplay.get_rect()
+    sp_play.rect.top = 340
+    sp_play.rect.bottom = 399
+    sp_play.rect.left = 201
+    sp_play.rect.right = 301
+
     sair = False
     while sair != True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sair = True
+        
 
         relogio.tick(30)
         tela.fill(cor_azul)
-        
+        (xmouse, ymouse) = pygame.mouse.get_pos()
          
-        pygame.draw.rect(tela, cor_marrom, quadrado)
-        pygame.draw.rect(tela, cor_amarela, nome)
-        pygame.draw.rect(tela, cor_branca, personagem1)
-        pygame.draw.rect(tela, cor_branca, personagem2)
-        pygame.draw.rect(tela, cor_preta, botao)
+        if xmouse >= sp_play.rect.left and xmouse <= sp_play.rect.right and ymouse <= sp_play.rect.bottom and ymouse >= sp_play.rect.top:
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                sp_paginicial.rect.left = 800
+                sp_play.rect.left = 800
 
+
+        tela.blit(sp_paginicial.pag_inicial, sp_paginicial.rect)
+        tela.blit(sp_play.botaoplay, sp_play.rect)
+        
         pygame.display.update()
     pygame.quit()
 main() 
