@@ -75,6 +75,7 @@ def main():
             audio_explosao.play()
             audio_explosao.set_volume(0.01)
             (ret.left, ret.top) = (xant, yant)
+            pygame.time.delay(000)
             ret2.left= 800
             ret3.left= 800
             ret4.left= 800

@@ -2,7 +2,7 @@
 import pygame
 def main():
     pygame.init()
-    tela = pygame.display.set_mode([300, 300])
+    tela = pygame.display.set_mode([450, 650])
     pygame.display.set_caption("Iniciando o pygame")
     relogio = pygame.time.Clock()
    
