@@ -55,7 +55,7 @@ def main():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 pygame.mouse.set_pos(20,20)
                 main()
-
+        
 
         relogio.tick(150)
         tela.fill(cor_branca)
