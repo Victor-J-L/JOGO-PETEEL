@@ -765,12 +765,14 @@ main()
 
 #COLISÃO COM IMAGENS E VELOCIDADE
 
+'''deu merda na colisão de não ultrapassar, deu merda no oldx'''
+
 import pygame
 import random
 def main():
     #as definições dos objetos (variaveis)
     pygame.init()
-    tela = pygame.display.set_mode([300, 300])
+    tela = pygame.display.set_mode([600, 600])
     pygame.display.set_caption("Iniciando o Pygame")
     relogio = pygame.time.Clock() #isso fica dentro do main, consigo capturar info de atualização da tela, o tempo.
     
@@ -825,16 +827,132 @@ def main():
                     vy = 0
                 if event.key == pygame.K_UP:
                     vy = 0
-              
-        tela.fill(cor_branca) #sempre cuidar com a ordem das coisas que poe na tela
-        tela.blit(imagem, (x,y)) #poe posição da tua imagem e faz aparecer
+
+        if sprite.rect.colliderect(ret):
+            sprite.rect.left = oldx
         
-        #(x,y) = pygame.mouse.get_pos() #variavel receb posição do mouse
-        pygame.draw.rect(tela, cor_vermelha, ret)
         x += vx #nao sei pq ele fez isso
         y += vy
         relogio.tick(30)
+        tela.fill(cor_branca) #sempre cuidar com a ordem das coisas que poe na tela
+        #tela.blit(imagem, (x,y)) #poe posição da tua imagem e faz aparecer
+        pygame.draw.rect(tela, cor_vermelha, ret)
+        oldx = sprite.rect.left #pra ele nao ultrapassar
+        tela.blit(sprite.image, sprite.rect) #passa a imagem e o retangulo do sprite
+        #(x,y) = pygame.mouse.get_pos() #variavel receb posição do mouse
+        sprite.rect.move_ip(vx, vy) #faz o sprite se mover
         pygame.display.update() 
   
     pygame.quit()
 main() 
+
+#CRIAÇÃO JOGO ESPACIAL 
+
+import pygame 
+import random
+
+
+class Recs(objeto):
+    def _init_(self, numeroinicial):
+        self.lista = []
+        for x in range (numeroinicial):
+            leftrandom = random.randrange(2, 560)
+            toprandom = random.randrange(-580, -10)
+            width = random.randrange(10,30)
+            height = random.randrange(15,30)
+            self.lista.append(pygame.Rect(leftrandom, toprandom, width, height ))
+    
+    def mover(self):
+        for retangulo in self.lista:
+            retangulo.move_ip(0,2)
+
+    def cor(self, superficie):
+        for retangulo in self.lista:
+            pygame.draw.rect(superficie, (165,214,254), retangulo)
+
+class Player(pygame.sprite.Sprite): #passando para a classe player um sprite
+    def _init_(self, imagem): #self parametro base de todas as classes
+        self.imagem = imagem 
+        self.rect = self.imagem.get_rect()
+        self.rect.top, self.rect.left = (100,200)
+
+    def mover(self, vx, vy):
+        self.rect.move_ip(vx, vy)
+
+    def update(self, superficie):
+        superficie.blit(self.imagem, self.rect)
+    
+def main():
+    import pygame
+    
+    #DECLARAÇÃO VARIAVEIS OBJETOS
+
+    pygame.init()
+    tela = pygame.display.set_mode((480,300))
+    sair = False
+    relogio = pygame.time.Clock()
+
+    img_nave = pygame.load("imagens/nave.png").convert_alpha()
+    jogador = Player(img_nave) #define que essa imagem da nave vai ser o jogador
+
+    imagem_fundo = pygame.load("imagens/fundo.png").convert_alpha()
+
+    vx, vy = 0,0
+    velocidade = 10
+    leftpress, rightpress, uppress, downpress = False, False, False, False #nenhuma teclapressionada
+
+    ret = Recs(30)
+
+    while sair != True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sair = True
+            
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_LEFT:
+                    leftpress = True
+                    vx = velocidade
+                if event.key == pygame.K_RIGHT:
+                    rightpress = True
+                    vx = velocidade
+                if event.key == pygame.K_UP:
+                    uppress = True
+                    vy = velocidade
+                if event.key == pygame.K_DOWN:
+                    downpress = True
+                    vy = velocidade
+
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_LEFT:
+                    leftpress = False
+                    if rightpress:vx = velocidade
+                    else:vx = 0
+                    
+                if event.key == pygame.K_RIGHT:
+                    rightpress = False
+                    if leftpress:vx = -velocidade
+                    else:vx = 0
+                    
+                if event.key == pygame.K_UP:
+                    uppress = False
+                    if downpress:vy = velocidade
+                    vy = 0
+                    
+                if event.key == pygame.K_DOWN:
+                    downpress = False
+                    if uppress:vy = -velocidade
+                    vy = 0
+                    
+
+        relogio.tick(20)
+        tela.blit(imagem_fundo,(0,0))
+        ret.mover()
+        Recs.cor(tela)
+        jogador.update(tela) #jogador vai receber atualização da tela
+        jogador.mover(vx, vy)
+
+        pygame.display.update()
+
+    pygame.quit()
+
+main()

@@ -1,5 +1,3 @@
-#COLISÃO COM IMAGENS 
-
 import pygame
 import random
 def main():
@@ -21,9 +19,19 @@ def main():
 
     imagem = pygame.image.load("testando.jpg") #poe nome da img
     (x,y) = (150,150) #posição da imagem
+
     ret = pygame.Rect(250,300,20,500)
+    sprite = pygame.sprite.Sprite()
+    sprite.image = imagem #o sprite recebe a imagem
+    sprite.rect = imagem.get_rect() #cria uma area retangular em volta da imagem que compara a colisão da area com outro obj
+    #tipo retangulo invisivel
+    sprite.rect.top = 50 
+    sprite.rect.left = 50
+
     vx = 0 #atribuimos variavel velocidade 
     vy = 0
+
+
     sair = False
     while sair != True:
 
@@ -50,15 +58,20 @@ def main():
                     vy = 0
                 if event.key == pygame.K_UP:
                     vy = 0
-              
-        tela.fill(cor_branca) #sempre cuidar com a ordem das coisas que poe na tela
-        tela.blit(imagem, (x,y)) #poe posição da tua imagem e faz aparecer
+
+        if sprite.rect.colliderect(ret):
+            sprite.rect.left = oldx
         
-        #(x,y) = pygame.mouse.get_pos() #variavel receb posição do mouse
-        pygame.draw.rect(tela, cor_vermelha, ret)
         x += vx #nao sei pq ele fez isso
         y += vy
         relogio.tick(30)
+        tela.fill(cor_branca) #sempre cuidar com a ordem das coisas que poe na tela
+        #tela.blit(imagem, (x,y)) #poe posição da tua imagem e faz aparecer
+        pygame.draw.rect(tela, cor_vermelha, ret)
+        oldx = sprite.rect.left #pra ele nao ultrapassar
+        tela.blit(sprite.image, sprite.rect) #passa a imagem e o retangulo do sprite
+        #(x,y) = pygame.mouse.get_pos() #variavel receb posição do mouse
+        sprite.rect.move_ip(vx, vy) #faz o sprite se mover
         pygame.display.update() 
   
     pygame.quit()
