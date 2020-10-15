@@ -870,6 +870,16 @@ class Recs(objeto):
         for retangulo in self.lista:
             pygame.draw.rect(superficie, (165,214,254), retangulo)
 
+    def recriar(self):
+        for x in range (len(self.lista)): #len captura tamanho da lista?
+            if self.lista[x].top>481:
+                leftrandom = random.randrange(2, 560)
+                toprandom = random.randrange(-580, -10)
+                width = random.randrange(10,30)
+                height = random.randrange(15,30)
+                self.lista[x] = (pygame.Rect(leftrandom, toprandom, width, height ))
+    
+
 class Player(pygame.sprite.Sprite): #passando para a classe player um sprite
     def _init_(self, imagem): #self parametro base de todas as classes
         self.imagem = imagem 
@@ -881,7 +891,14 @@ class Player(pygame.sprite.Sprite): #passando para a classe player um sprite
 
     def update(self, superficie):
         superficie.blit(self.imagem, self.rect)
-    
+
+
+def colisao(Player, Recs):
+    for rec in recs.lista:
+        if player.rect.collidirect(rec):
+            return True
+    return False
+
 def main():
     import pygame
     
@@ -896,60 +913,90 @@ def main():
     jogador = Player(img_nave) #define que essa imagem da nave vai ser o jogador
 
     imagem_fundo = pygame.load("imagens/fundo.png").convert_alpha()
+    imagem_explosao = pygame.load("imagens/explosao.png").convert_alpha()
+
+    som_explosao = pygame.mixer.sound("audios/explosao.ogg")
+    som_mov =  pygame.mixer.sound("audios/som2.wav")
+
+    pygame.mixer.music.load("audios/musica.mp3)")
+    pygame.mixer.music.play(3) #quanto quer executar
 
     vx, vy = 0,0
     velocidade = 10
     leftpress, rightpress, uppress, downpress = False, False, False, False #nenhuma teclapressionada
 
+    texto = pygame.font.SysFont("Arial", 15, True, False)
+
+
     ret = Recs(30)
+    colidiu = False
 
     while sair != True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sair = True
-            
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_LEFT:
-                    leftpress = True
-                    vx = velocidade
-                if event.key == pygame.K_RIGHT:
-                    rightpress = True
-                    vx = velocidade
-                if event.key == pygame.K_UP:
-                    uppress = True
-                    vy = velocidade
-                if event.key == pygame.K_DOWN:
-                    downpress = True
-                    vy = velocidade
 
-            if event.type == pygame.KEYUP:
-                if event.key == pygame.K_LEFT:
-                    leftpress = False
-                    if rightpress:vx = velocidade
-                    else:vx = 0
-                    
-                if event.key == pygame.K_RIGHT:
-                    rightpress = False
-                    if leftpress:vx = -velocidade
-                    else:vx = 0
-                    
-                if event.key == pygame.K_UP:
-                    uppress = False
-                    if downpress:vy = velocidade
-                    vy = 0
-                    
-                if event.key == pygame.K_DOWN:
-                    downpress = False
-                    if uppress:vy = -velocidade
-                    vy = 0
-                    
+            if colidiu == False:
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_LEFT:
+                        leftpress = True
+                        vx = velocidade
+                    if event.key == pygame.K_RIGHT:
+                        rightpress = True
+                        vx = velocidade
+                    if event.key == pygame.K_UP:
+                        uppress = True
+                        vy = velocidade
+                        som_mov.play()
+                    if event.key == pygame.K_DOWN:
+                        downpress = True
+                        vy = velocidade
+
+                if event.type == pygame.KEYUP:
+                    if event.key == pygame.K_LEFT:
+                        leftpress = False
+                        if rightpress:vx = velocidade
+                        else:vx = 0
+                        
+                    if event.key == pygame.K_RIGHT:
+                        rightpress = False
+                        if leftpress:vx = -velocidade
+                        else:vx = 0
+                        
+                    if event.key == pygame.K_UP:
+                        uppress = False
+                        if downpress:vy = velocidade
+                        vy = 0
+                        
+                    if event.key == pygame.K_DOWN:
+                        downpress = False
+                        if uppress:vy = -velocidade
+                        vy = 0
+        
+        if colisao(Player, ret):
+            colidiu = True
+            jogador.imagem = imagem_explosao
+            pygame.mixer.music.stop()
+            som_explosao.play()
+            
+
+        if colisao == False:
+            ret.mover()
+            jogador.mover(vx, vy)
+            tela.blit(imagem_fundo,(0,0))
+            segundos = pygame.time.get_ticks()/1000
+            segundos = str(segundos)
+            contador = texto.render("Pontuação: {}".format(segundos), 0, (255,255,255))
+            tela.blit(contador, (300,10)) #posição entre parenteses
+            
 
         relogio.tick(20)
-        tela.blit(imagem_fundo,(0,0))
-        ret.mover()
-        Recs.cor(tela)
+        #tela.blit(imagem_fundo,(0,0))
+        #ret.mover()
+        ret.cor(tela)
+        ret.recriar()
         jogador.update(tela) #jogador vai receber atualização da tela
-        jogador.mover(vx, vy)
+        #jogador.mover(vx, vy)
 
         pygame.display.update()
 
