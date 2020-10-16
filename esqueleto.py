@@ -27,6 +27,7 @@ def main():
     sp_paginicial.rect = pag_inicial.get_rect()
     sp_paginicial.rect.top = -26
     sp_paginicial.rect.left = -16
+
     botaoplay = pygame.image.load("Imagens/Página inicial/play.png")
     sp_play = pygame.sprite.Sprite()
     sp_play.botaoplay = botaoplay
@@ -35,6 +36,9 @@ def main():
     sp_play.rect.bottom = 391
     sp_play.rect.left = 199
     sp_play.rect.right = 301
+
+    fundo = pygame.image.load("Imagens/Backgroundalternativo.png")
+    
 
     sair = False
     while sair != True:
@@ -53,9 +57,10 @@ def main():
                 sp_play.rect.left = 800
 
 
-        
+        tela.blit(fundo, (0,0))
         tela.blit(sp_paginicial.pag_inicial, sp_paginicial.rect)
         tela.blit(sp_play.botaoplay, sp_play.rect)
+        
         
         pygame.display.update()
     pygame.quit()
