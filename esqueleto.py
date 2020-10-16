@@ -3,7 +3,7 @@ import pygame
 def main():
     pygame.init()
     tela = pygame.display.set_mode([500,650])
-    pygame.display.set_caption("Página Inicial")
+    pygame.display.set_caption("Jogo PETEEL")
     relogio = pygame.time.Clock()
 
     #CORES
@@ -21,7 +21,7 @@ def main():
     botao = pygame.Rect((200, 362, 100, 50))
 
     #IMAGENS
-    pag_inicial = pygame.image.load("Imagens/Página inicial/paginicial3.png")
+    pag_inicial = pygame.image.load("Imagens/Página inicial/paginicial.png")
     sp_paginicial = pygame.sprite.Sprite()
     sp_paginicial.pag_inicial = pag_inicial
     sp_paginicial.rect = pag_inicial.get_rect()
