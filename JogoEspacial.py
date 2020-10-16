@@ -29,6 +29,8 @@ class Ret(object):
                 height = random.randrange(15, 30)
                 self.lista[x] = (pygame.Rect(leftrandom, toprandom, width, height))
 
+
+
 class Player(pygame.sprite.Sprite):
     def __init__(self, imagem):
         self.imagem = imagem
@@ -40,6 +42,12 @@ class Player(pygame.sprite.Sprite):
 
     def update (self, sup):
         sup.blit(self.imagem, self.rect)
+
+def colisao(player, ret):
+    for ret in ret.lista:
+        if player.rect.colliderect(ret):
+            return True
+    return False
 
 def main ():
     import pygame
@@ -54,14 +62,21 @@ def main ():
     vx, vy = 0,0
     velocidade = 8
     leftpress, rightpress, uppress, downpress = False, False, False, False
+    colidiu = False
 
     #Imagens
     img_nave = pygame.image.load("nave.png").convert_alpha()
     jogador = Player(img_nave)
     fundo = pygame.image.load("fundo.png").convert_alpha()
+    explosao = pygame.image.load("explosao.png").convert_alpha()
 
     #Objetos
     ret= Ret(30)
+
+    #Sons e musica
+    pygame.mixer.music.load("musica de fundo.mp3")
+    pygame.mixer.music.play(50)
+    som_explosao = pygame.mixer.Sound("explosao.ogg")
 
 
     while sair != True:
@@ -69,48 +84,58 @@ def main ():
             if event.type == pygame.QUIT:
                 sair = True
             
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_LEFT:
-                    leftpress = True
-                    vx = -velocidade
-                if event.key == pygame.K_RIGHT:
-                    rightpress = True
-                    vx = velocidade
-                if event.key == pygame.K_DOWN:
-                    downpress = True
-                    vy = velocidade
-                if event.key == pygame.K_UP:
-                    uppress = True
-                    vy = -velocidade
-            
-            if event.type == pygame.KEYUP:
-                if event.key == pygame.K_LEFT:
-                    leftpress = False
-                    if rightpress: vx = velocidade
-                    else: vx = 0
-                if event.key == pygame.K_RIGHT:
-                    rightpress = False
-                    if leftpress: vx = -velocidade
-                    else: vx = 0
-                    vx = 0
-                if event.key == pygame.K_DOWN:
-                    downpress = False
-                    if uppress: vy = -velocidade
-                    else: vy = 0
-                if event.key == pygame.K_UP:
-                    uppress = False
-                    if downpress: vy = velocidade
-                    else: vy = 0
+            if colidiu == False:
+
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_LEFT:
+                        leftpress = True
+                        vx = -velocidade
+                    if event.key == pygame.K_RIGHT:
+                        rightpress = True
+                        vx = velocidade
+                    if event.key == pygame.K_DOWN:
+                        downpress = True
+                        vy = velocidade
+                    if event.key == pygame.K_UP:
+                        uppress = True
+                        vy = -velocidade
                 
+                if event.type == pygame.KEYUP:
+                    if event.key == pygame.K_LEFT:
+                        leftpress = False
+                        if rightpress: vx = velocidade
+                        else: vx = 0
+                    if event.key == pygame.K_RIGHT:
+                        rightpress = False
+                        if leftpress: vx = -velocidade
+                        else: vx = 0
+                        vx = 0
+                    if event.key == pygame.K_DOWN:
+                        downpress = False
+                        if uppress: vy = -velocidade
+                        else: vy = 0
+                    if event.key == pygame.K_UP:
+                        uppress = False
+                        if downpress: vy = velocidade
+                        else: vy = 0
+                
+        if colisao(jogador, ret):
+            colidiu = True
+            jogador.imagem = explosao
+            pygame.mixer.music.stop()
+            som_explosao.play()
+                
+        if colidiu == False:
+            ret.mover()
+            jogador.mover(vx,vy)
 
                 
         relogio.tick(50)
         tela.blit(fundo, (0, 0))
-        ret.mover()
         ret.cor(tela)
         ret.recriar()
         jogador.update(tela)
-        jogador.mover(vx,vy)
+        
         
 
         pygame.display.update()
