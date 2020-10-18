@@ -21,7 +21,7 @@ def main():
     botao = pygame.Rect((200, 362, 100, 50))
 
     #IMAGENS
-    pag_inicial = pygame.image.load("Imagens/Página inicial/paginicial.png")
+    pag_inicial = pygame.image.load("Imagens/Página inicial/paginainicial.png")
     sp_paginicial = pygame.sprite.Sprite()
     sp_paginicial.pag_inicial = pag_inicial
     sp_paginicial.rect = pag_inicial.get_rect()
@@ -62,6 +62,6 @@ def main():
         tela.blit(sp_play.botaoplay, sp_play.rect)
         
         
-        pygame.display.update()
-    pygame.quit()
+        pygame.display.update() 
+    pygame.quit() 
 main() 
