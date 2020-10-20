@@ -37,7 +37,7 @@ def main():
     sp_play.rect.left = 199
     sp_play.rect.right = 301
 
-    fundo = pygame.image.load("Imagens/Primeira Fase/fundo1_1.png")
+    fundo = pygame.image.load("Imagens/Primeira Fase/fundo1desfocado.png")
     
 
     sair = False
