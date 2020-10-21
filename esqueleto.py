@@ -38,7 +38,15 @@ def main():
     sp_play.rect.right = 301
 
     fundo = pygame.image.load("Imagens/Primeira Fase/fundo12desfocado.png")
-    
+
+    p1frente = pygame.image.load("Imagens/personagem/personagem1frente.png") #personagem1frente
+    sp_p1frente = pygame.sprite.Sprite()
+    sp_p1frente.p1frente = p1frente 
+    sp_p1frente.rect = p1frente.get_rect()
+    sp_p1frente.rect.top = 400
+    sp_p1frente.rect.bottom = 575
+    sp_p1frente.rect.left = 200
+    sp_p1frente.rect.right = 210
 
     sair = False
     while sair != True:
@@ -60,6 +68,7 @@ def main():
         tela.blit(fundo, (0,0))
         tela.blit(sp_paginicial.pag_inicial, sp_paginicial.rect)
         tela.blit(sp_play.botaoplay, sp_play.rect)
+        tela.blit(sp_p1frente.p1frente, sp_p1frente.rect)
         
         
         pygame.display.update() 
