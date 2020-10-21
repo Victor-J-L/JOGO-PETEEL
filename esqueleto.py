@@ -61,6 +61,36 @@ def main():
     sp_p2frente.rect.left = 200
     sp_p2frente.rect.right = 405
 
+    #Plataforma Primeira Fase
+    plataforma1 = pygame.image.load("Imagens/Primeira Fase/plataforma.png") #personagem2frente
+    sp_plataforma1 = pygame.sprite.Sprite()
+    sp_plataforma1.plataforma1 = plataforma1 
+    sp_plataforma1.rect = plataforma1.get_rect()
+    sp_plataforma1.rect.top = 200
+    sp_plataforma1.rect.left = 200
+
+    #Bolinha Primeira Fase
+    bolinha = pygame.image.load("Imagens/Primeira Fase/bolinha.png") #personagem2frente
+    sp_bolinha = pygame.sprite.Sprite()
+    sp_bolinha.bolinha = bolinha 
+    sp_bolinha.rect = bolinha.get_rect()
+    sp_bolinha.rect.top = 120
+    sp_bolinha.rect.bottom = 200
+    sp_bolinha.rect.left = 250
+    sp_bolinha.rect.right = 300
+
+    #Íncone final primeira fase
+    inconefinal1 = pygame.image.load("Imagens/Primeira Fase/iconefinal.png") #personagem2frente
+    sp_inconefinal1 = pygame.sprite.Sprite()
+    sp_inconefinal1.inconefinal1 = inconefinal1 
+    sp_inconefinal1.rect = inconefinal1.get_rect()
+    sp_inconefinal1.rect.top = 120
+    sp_inconefinal1.rect.bottom = 200
+    sp_inconefinal1.rect.left = 280
+    sp_inconefinal1.rect.right = 300
+
+
+
     sair = False
     while sair != True:
         for event in pygame.event.get():
@@ -79,6 +109,9 @@ def main():
                 fundo = pygame.image.load("Imagens/Primeira Fase/fundo1_1.png")
 
         tela.blit(fundo, (0,0))
+        tela.blit(sp_bolinha.bolinha, sp_bolinha.rect)
+        tela.blit(sp_plataforma1.plataforma1, sp_plataforma1.rect)
+        tela.blit(sp_inconefinal1.inconefinal1, sp_inconefinal1.rect)
         tela.blit(sp_paginicial.pag_inicial, sp_paginicial.rect)
         tela.blit(sp_play.botaoplay, sp_play.rect)
         tela.blit(sp_p1frente.p1frente, sp_p1frente.rect)
