@@ -39,6 +39,8 @@ def main():
 
     fundo = pygame.image.load("Imagens/Primeira Fase/fundo12desfocado.png")
 
+    #PERSONAGEM 1
+
     p1frente = pygame.image.load("Imagens/personagem/personagem1frente.png") #personagem1frente
     sp_p1frente = pygame.sprite.Sprite()
     sp_p1frente.p1frente = p1frente 
@@ -47,6 +49,17 @@ def main():
     sp_p1frente.rect.bottom = 575
     sp_p1frente.rect.left = 200
     sp_p1frente.rect.right = 210
+
+    #PERSONAGEM 2
+
+    p2frente = pygame.image.load("Imagens/personagem/personagem2frente.png") #personagem2frente
+    sp_p2frente = pygame.sprite.Sprite()
+    sp_p2frente.p1frente = p2frente 
+    sp_p2frente.rect = p2frente.get_rect()
+    sp_p2frente.rect.top = 400
+    sp_p2frente.rect.bottom = 575
+    sp_p2frente.rect.left = 200
+    sp_p2frente.rect.right = 405
 
     sair = False
     while sair != True:
@@ -69,6 +82,7 @@ def main():
         tela.blit(sp_paginicial.pag_inicial, sp_paginicial.rect)
         tela.blit(sp_play.botaoplay, sp_play.rect)
         tela.blit(sp_p1frente.p1frente, sp_p1frente.rect)
+        tela.blit(sp_p2frente.p1frente, sp_p2frente.rect)
         
         
         pygame.display.update() 
