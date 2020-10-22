@@ -35,7 +35,7 @@ def main():
     sp_play.rect.top = 342
     sp_play.rect.bottom = 391
     sp_play.rect.left = 199
-    sp_play.rect.right = 301
+    sp_play.rect.right = 314
 
     fundo = pygame.image.load("Imagens/Primeira Fase/fundo123desfocado.png")
 
