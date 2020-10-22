@@ -37,7 +37,7 @@ def main():
     sp_play.rect.left = 199
     sp_play.rect.right = 301
 
-    fundo = pygame.image.load("Imagens/Primeira Fase/fundo12desfocado.png")
+    fundo = pygame.image.load("Imagens/Primeira Fase/fundo123desfocado.png")
 
     #PERSONAGEM 1
 
@@ -109,9 +109,9 @@ def main():
                 fundo = pygame.image.load("Imagens/Primeira Fase/fundo1_1.png")
 
         tela.blit(fundo, (0,0))
-        tela.blit(sp_bolinha.bolinha, sp_bolinha.rect)
-        tela.blit(sp_plataforma1.plataforma1, sp_plataforma1.rect)
-        tela.blit(sp_inconefinal1.inconefinal1, sp_inconefinal1.rect)
+        #tela.blit(sp_bolinha.bolinha, sp_bolinha.rect)
+        #tela.blit(sp_plataforma1.plataforma1, sp_plataforma1.rect)
+        #tela.blit(sp_inconefinal1.inconefinal1, sp_inconefinal1.rect)
         tela.blit(sp_paginicial.pag_inicial, sp_paginicial.rect)
         tela.blit(sp_play.botaoplay, sp_play.rect)
         tela.blit(sp_p1frente.p1frente, sp_p1frente.rect)
