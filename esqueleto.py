@@ -21,7 +21,7 @@ def main():
     botao = pygame.Rect((200, 362, 100, 50))
 
     #IMAGENS
-    pag_inicial = pygame.image.load("Imagens/Página inicial/paginainicial.png")
+    pag_inicial = pygame.image.load("Imagens/Página inicial/paginainicial2.png")
     sp_paginicial = pygame.sprite.Sprite()
     sp_paginicial.pag_inicial = pag_inicial
     sp_paginicial.rect = pag_inicial.get_rect()
@@ -35,9 +35,9 @@ def main():
     sp_play.rect.top = 342
     sp_play.rect.bottom = 391
     sp_play.rect.left = 199
-    sp_play.rect.right = 301
+    sp_play.rect.right = 314
 
-    fundo = pygame.image.load("Imagens/Primeira Fase/fundo12desfocado.png")
+    fundo = pygame.image.load("Imagens/Primeira Fase/fundo123desfocado.png")
 
     #PERSONAGEM 1
 
