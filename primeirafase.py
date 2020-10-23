@@ -114,7 +114,7 @@ def main():
                 sp_personagem.personagem = personagem 
                 sp_personagem.rect = personagem.get_rect()
                 sp_personagem.rect.top = 480
-                sp_personagem.rect.left = 228
+                sp_personagem.rect.left = 800
 
         if xmouse >= sp_p2frente.rect.left and xmouse <= sp_p2frente.rect.right and ymouse <= sp_p2frente.rect.bottom and ymouse >= sp_p2frente.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN:
@@ -123,7 +123,7 @@ def main():
                 sp_personagem.personagem = personagem 
                 sp_personagem.rect = personagem.get_rect()
                 sp_personagem.rect.top = 480
-                sp_personagem.rect.left = 200
+                sp_personagem.rect.left = 800
     
         if xmouse >= sp_play.rect.left and xmouse <= sp_play.rect.right and ymouse <= 351 and ymouse >= 295:
             if event.type == pygame.MOUSEBUTTONDOWN:
@@ -131,6 +131,8 @@ def main():
                 sp_play.rect.left = 800
                 sp_p1frente.rect.left = 800
                 sp_p2frente.rect.left = 800
+                sp_personagem.rect.top = 480
+                sp_personagem.rect.left = 228
                 fundo = pygame.image.load("Imagens/Primeira Fase/fundo1_1.png")
                 pygame.display.update()
                 pygame.display.flip()
