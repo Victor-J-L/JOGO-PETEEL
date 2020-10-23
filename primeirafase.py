@@ -61,14 +61,12 @@ def main():
     sp_p2frente.rect.left = 200
     sp_p2frente.rect.right = 405
 
-    '''#PERSONAGEM 
-
-    personagem = pygame.image.load("Imagens/personagem/personagem2frente_min.png") #personagem1frente
+    personagem = pygame.image.load("Imagens/personagem/personagem1frente.png")
     sp_personagem = pygame.sprite.Sprite()
     sp_personagem.personagem = personagem 
     sp_personagem.rect = personagem.get_rect()
-    sp_personagem.rect.top = 470
-    sp_personagem.rect.left = 900'''
+    sp_personagem.rect.top = 800
+    sp_personagem.rect.left = 200
 
     #Plataforma Primeira Fase
     plataforma1 = pygame.image.load("Imagens/Primeira Fase/plataforma.png") #personagem2frente
@@ -98,8 +96,6 @@ def main():
     sp_inconefinal1.rect.left = 280
     sp_inconefinal1.rect.right = 300
 
-
-
     sair = False
     while sair != True:
         for event in pygame.event.get():
@@ -117,8 +113,8 @@ def main():
                 sp_personagem = pygame.sprite.Sprite()
                 sp_personagem.personagem = personagem 
                 sp_personagem.rect = personagem.get_rect()
-                sp_personagem.rect.top = 400
-                sp_personagem.rect.left = 200
+                sp_personagem.rect.top = 480
+                sp_personagem.rect.left = 228
 
         if xmouse >= sp_p2frente.rect.left and xmouse <= sp_p2frente.rect.right and ymouse <= sp_p2frente.rect.bottom and ymouse >= sp_p2frente.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN:
@@ -126,9 +122,9 @@ def main():
                 sp_personagem = pygame.sprite.Sprite()
                 sp_personagem.personagem = personagem 
                 sp_personagem.rect = personagem.get_rect()
-                sp_personagem.rect.top = 400
+                sp_personagem.rect.top = 480
                 sp_personagem.rect.left = 200
-         
+    
         if xmouse >= sp_play.rect.left and xmouse <= sp_play.rect.right and ymouse <= 351 and ymouse >= 295:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 sp_paginicial.rect.left = 800
@@ -136,8 +132,11 @@ def main():
                 sp_p1frente.rect.left = 800
                 sp_p2frente.rect.left = 800
                 fundo = pygame.image.load("Imagens/Primeira Fase/fundo1_1.png")
-                tela.blit(sp_personagem.personagem, sp_personagem.rect)
                 pygame.display.update()
+                pygame.display.flip()
+                tela.blit(sp_personagem.personagem, sp_personagem.rect)
+
+        
 
 
         tela.blit(fundo, (0,0))
@@ -148,6 +147,7 @@ def main():
         tela.blit(sp_play.botaoplay, sp_play.rect)
         tela.blit(sp_p1frente.p1frente, sp_p1frente.rect)
         tela.blit(sp_p2frente.p1frente, sp_p2frente.rect)
+        tela.blit(sp_personagem.personagem, sp_personagem.rect)
         
         
         pygame.display.update() 
