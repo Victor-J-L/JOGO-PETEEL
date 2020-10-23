@@ -61,6 +61,15 @@ def main():
     sp_p2frente.rect.left = 200
     sp_p2frente.rect.right = 405
 
+    '''#PERSONAGEM 
+
+    personagem = pygame.image.load("Imagens/personagem/personagem2frente_min.png") #personagem1frente
+    sp_personagem = pygame.sprite.Sprite()
+    sp_personagem.personagem = personagem 
+    sp_personagem.rect = personagem.get_rect()
+    sp_personagem.rect.top = 470
+    sp_personagem.rect.left = 900'''
+
     #Plataforma Primeira Fase
     plataforma1 = pygame.image.load("Imagens/Primeira Fase/plataforma.png") #personagem2frente
     sp_plataforma1 = pygame.sprite.Sprite()
@@ -101,12 +110,35 @@ def main():
         relogio.tick(30)
         tela.fill(cor_azul)
         (xmouse, ymouse) = pygame.mouse.get_pos()
+
+        if xmouse >= sp_p1frente.rect.left and xmouse <= sp_p1frente.rect.right and ymouse <= sp_p1frente.rect.bottom and ymouse >= sp_p1frente.rect.top:
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                personagem = pygame.image.load("Imagens/personagem/personagem1frente_min.png") #personagem1frente
+                sp_personagem = pygame.sprite.Sprite()
+                sp_personagem.personagem = personagem 
+                sp_personagem.rect = personagem.get_rect()
+                sp_personagem.rect.top = 400
+                sp_personagem.rect.left = 200
+
+        if xmouse >= sp_p2frente.rect.left and xmouse <= sp_p2frente.rect.right and ymouse <= sp_p2frente.rect.bottom and ymouse >= sp_p2frente.rect.top:
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                personagem = pygame.image.load("Imagens/personagem/personagem2frente_min.png") #personagem1frente
+                sp_personagem = pygame.sprite.Sprite()
+                sp_personagem.personagem = personagem 
+                sp_personagem.rect = personagem.get_rect()
+                sp_personagem.rect.top = 400
+                sp_personagem.rect.left = 200
          
         if xmouse >= sp_play.rect.left and xmouse <= sp_play.rect.right and ymouse <= 351 and ymouse >= 295:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 sp_paginicial.rect.left = 800
                 sp_play.rect.left = 800
+                sp_p1frente.rect.left = 800
+                sp_p2frente.rect.left = 800
                 fundo = pygame.image.load("Imagens/Primeira Fase/fundo1_1.png")
+                tela.blit(sp_personagem.personagem, sp_personagem.rect)
+                pygame.display.update()
+
 
         tela.blit(fundo, (0,0))
         #tela.blit(sp_bolinha.bolinha, sp_bolinha.rect)
