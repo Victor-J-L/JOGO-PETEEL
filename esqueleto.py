@@ -45,10 +45,10 @@ def main():
     sp_p1frente = pygame.sprite.Sprite()
     sp_p1frente.p1frente = p1frente 
     sp_p1frente.rect = p1frente.get_rect()
-    sp_p1frente.rect.top = 200
-    sp_p1frente.rect.bottom = 375
+    sp_p1frente.rect.top = 400
+    sp_p1frente.rect.bottom = 575
     sp_p1frente.rect.left = 200
-    sp_p1frente.rect.right = 800
+    sp_p1frente.rect.right = 210
 
     #PERSONAGEM 2
 
@@ -56,19 +56,28 @@ def main():
     sp_p2frente = pygame.sprite.Sprite()
     sp_p2frente.p1frente = p2frente 
     sp_p2frente.rect = p2frente.get_rect()
-    sp_p2frente.rect.top = 200
-    sp_p2frente.rect.bottom = 375
+    sp_p2frente.rect.top = 400
+    sp_p2frente.rect.bottom = 575
     sp_p2frente.rect.left = 200
-    sp_p2frente.rect.right = 800
+    sp_p2frente.rect.right = 405
 
-    #PERSONAGEM 
-
-    personagem = pygame.image.load("Imagens/personagem/personagem2frente_min.png") #personagem1frente
+    #PERSONAGEM
+    
+    personagem = pygame.image.load("Imagens/personagem/personagem1frente_min.png")
     sp_personagem = pygame.sprite.Sprite()
     sp_personagem.personagem = personagem 
     sp_personagem.rect = personagem.get_rect()
-    sp_personagem.rect.top = 470
-    sp_personagem.rect.left = 900
+    sp_personagem.rect.top = 800
+    sp_personagem.rect.left = 200
+
+    #SELECAO PERSONAGEM
+
+    selecao = pygame.image.load("Imagens/personagem/selecao.png")
+    sp_selecao = pygame.sprite.Sprite()
+    sp_selecao.selecao = selecao 
+    sp_selecao.rect = selecao.get_rect()
+    sp_selecao.rect.top = 470
+    sp_selecao.rect.right = 800
 
     #Plataforma Primeira Fase
     plataforma1 = pygame.image.load("Imagens/Primeira Fase/plataforma.png") #personagem2frente
@@ -89,16 +98,14 @@ def main():
     sp_bolinha.rect.right = 300
 
     #Íncone final primeira fase
-    iconefinal1 = pygame.image.load("Imagens/Primeira Fase/iconefinal.png") #personagem2frente
-    sp_iconefinal1 = pygame.sprite.Sprite()
-    sp_iconefinal1.iconefinal1 = iconefinal1 
-    sp_iconefinal1.rect = iconefinal1.get_rect()
-    sp_iconefinal1.rect.top = 120
-    sp_iconefinal1.rect.bottom = 200
-    sp_iconefinal1.rect.left = 250
-    sp_iconefinal1.rect.right = 300
-
-
+    inconefinal1 = pygame.image.load("Imagens/Primeira Fase/iconefinal.png") #personagem2frente
+    sp_inconefinal1 = pygame.sprite.Sprite()
+    sp_inconefinal1.inconefinal1 = inconefinal1 
+    sp_inconefinal1.rect = inconefinal1.get_rect()
+    sp_inconefinal1.rect.top = 120
+    sp_inconefinal1.rect.bottom = 200
+    sp_inconefinal1.rect.left = 280
+    sp_inconefinal1.rect.right = 300
 
     sair = False
     while sair != True:
@@ -110,41 +117,55 @@ def main():
         relogio.tick(30)
         tela.fill(cor_azul)
         (xmouse, ymouse) = pygame.mouse.get_pos()
-         
+
+        if xmouse >= sp_p1frente.rect.left and xmouse <= sp_p1frente.rect.right and ymouse <= sp_p1frente.rect.bottom and ymouse >= sp_p1frente.rect.top:
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                personagem = pygame.image.load("Imagens/personagem/personagem1frente_min.png") #personagem1frente
+                sp_personagem = pygame.sprite.Sprite()
+                sp_personagem.personagem = personagem 
+                sp_personagem.rect = personagem.get_rect()
+                sp_personagem.rect.top = 480
+                sp_personagem.rect.left = 800
+
+                sp_selecao.rect.right = 217
+
+        if xmouse >= sp_p2frente.rect.left and xmouse <= sp_p2frente.rect.right and ymouse <= sp_p2frente.rect.bottom and ymouse >= sp_p2frente.rect.top:
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                personagem = pygame.image.load("Imagens/personagem/personagem2frente_min.png") #personagem1frente
+                sp_personagem = pygame.sprite.Sprite()
+                sp_personagem.personagem = personagem 
+                sp_personagem.rect = personagem.get_rect()
+                sp_personagem.rect.top = 480
+                sp_personagem.rect.left = 800
+
+                sp_selecao.rect.right = 412
+    
         if xmouse >= sp_play.rect.left and xmouse <= sp_play.rect.right and ymouse <= 351 and ymouse >= 295:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 sp_paginicial.rect.left = 800
                 sp_play.rect.left = 800
-                p1frente = pygame.image.load("Imagens/personagem/personagem1frente.png") #personagem1frente
-                sp_p2frente.rect.right = 405
-                sp_p1frente.rect.right = 210
+                sp_p1frente.rect.left = 800
+                sp_p2frente.rect.left = 800
+                sp_personagem.rect.top = 480
+                sp_personagem.rect.left = 228
+                sp_selecao.rect.right = 800
+                fundo = pygame.image.load("Imagens/Primeira Fase/fundo1_1.png")
 
-        if xmouse >= sp_p1frente.rect.left and xmouse <= sp_p1frente.rect.right and ymouse <= sp_p1frente.rect.bottom and ymouse >= sp_p1frente.rect.top:
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                sp_p2frente.rect.right = 900
-                sp_p1frente.rect.right = 900
-                personagem = pygame.image.load("Imagens/personagem/personagem1frente.png")
-                sp_personagem.rect.left = 370
-                fundo = pygame.image.load("Imagens/Primeira Fase/fundo1_1.png") 
-                
-
-        if xmouse >= sp_p2frente.rect.left and xmouse <= sp_p2frente.rect.right and ymouse <= sp_p2frente.rect.bottom and ymouse >= sp_p2frente.rect.top:
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                sp_p2frente.rect.right = 900
-                sp_p1frente.rect.right = 900
-                personagem = pygame.image.load("Imagens/personagem/personagem2frente_min.png")
-                sp_personagem.rect.left = 370
-                fundo = pygame.image.load("Imagens/Primeira Fase/fundo1_1.png") 
+        
 
 
         tela.blit(fundo, (0,0))
-        tela.blit(sp_personagem.personagem, sp_personagem.rect)
+        #tela.blit(sp_bolinha.bolinha, sp_bolinha.rect)
+        #tela.blit(sp_plataforma1.plataforma1, sp_plataforma1.rect)
+        #tela.blit(sp_inconefinal1.inconefinal1, sp_inconefinal1.rect)
         tela.blit(sp_paginicial.pag_inicial, sp_paginicial.rect)
         tela.blit(sp_play.botaoplay, sp_play.rect)
         tela.blit(sp_p1frente.p1frente, sp_p1frente.rect)
         tela.blit(sp_p2frente.p1frente, sp_p2frente.rect)
+        tela.blit(sp_personagem.personagem, sp_personagem.rect)
+        tela.blit(sp_selecao.selecao, sp_selecao.rect)
         
         
         pygame.display.update() 
     pygame.quit() 
-main() 
+main()
