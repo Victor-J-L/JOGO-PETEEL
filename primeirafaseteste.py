@@ -1,6 +1,6 @@
 import pygame 
+pygame.init()
 
-vec = pygame.math.Vector2
 
 class Personagem1(pygame.sprite.Sprite):
     def __init__(self):
@@ -29,30 +29,33 @@ class Personagem(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.top = 800
         self.rect.left = 200
-        self.pos = vec(self.rect.left, self.rect.top)
-        self.vel = vec(0, 0)
-        self.acc = vec(0, 0)
+        self.(pos_x,pos_y) = (self.rect.left, self.rect.top)
+        self.(vel_x,vel_y) = (0, 0)
+        self.(acc_x,acc_y) = (0, 0)
 
     def update(self):
-        self.acc = vec(0, 0)
-        keys = pygame.key.get_pressed()
-        if keys[pygame.K_LEFT]:
-            self.acc.x = -0.5
-        if keys[pygame.K_RIGHT]:
-            self.acc.x = 0.5
+            self.(acc_x,acc_y) = (0, 0)
+            keys = pg.key.get_pressed()
+            if keys[pg.K_LEFT]:
+                self.acc_x = -0.5
+            if keys[pg.K_RIGHT]:
+                self.acc_x = 0.5
 
-        # apply friction
-        self.acc += self.vel * (-0.12)
-        # equations of motion
-        self.vel += self.acc
-        self.pos += self.vel + 0.5 * self.acc
-        # wrap around the sides of the screen
-        if self.pos.x > 500:
-            self.pos.x = 0
-        if self.pos.x < 0:
-            self.pos.x = self.rect.left
+            # apply friction
+            self.(acc_x,acc_y) += self.(vel_x,vel_y) * 0.12
+            # equations of motion
+            self.(vel_x,vel_y) += self.(acc_x,acc_y)
+            self.(pos_x,pos_y) +=self.(vel_x,vel_y) + 0.5 * self.(acc_x,acc_y)
+            # wrap around the sides of the screen
+            #if self.pos.x > WIDTH:
+             #   self.pos.x = 0
+            #if self.pos.x < 0:
+             #   self.pos.x = WIDTH
 
-        (self.rect.left, self.rect.top) = self.pos
+            #self.rect.center = self.pos
+
+
+    
 
 class Selecao(pygame.sprite.Sprite):
     def __init__(self):
@@ -178,9 +181,7 @@ def main():
                 personagem.rect.left = 228
                 selecao.rect.right = 800
                 fundo = pygame.image.load("Imagens/Primeira Fase/fundo1_1.png")
-
         
-
         all_sprites.update
         all_sprites.draw(tela)
         tela.blit(fundo, (0,0))
