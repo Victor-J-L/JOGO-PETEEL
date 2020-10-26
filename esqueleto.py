@@ -1,11 +1,10 @@
-import pygame
-import random 
-
+import pygame 
+from spritesjogopeteel import *
 def main():
     pygame.init()
     tela = pygame.display.set_mode([500,650])
     pygame.display.set_caption("Jogo PETEEL")
-    relogio = pygame.time.Clock()
+    clock = pygame.time.Clock()
 
     #CORES
     cor_azul = (181,244,253)
@@ -13,13 +12,6 @@ def main():
     cor_preta = (0,0,0)
     cor_marrom = (126,89,1)
     cor_amarela = (251,222,19)
-
-    #OBJETOS
-    nome = pygame.Rect((20,20,460,196))
-    quadrado = pygame.Rect((50,231,400,196))
-    personagem1 = pygame.Rect((100, 442, 100, 188))
-    personagem2 = pygame.Rect((300, 442, 100, 188))
-    botao = pygame.Rect((200, 362, 100, 50))
 
     #IMAGENS
     pag_inicial = pygame.image.load("Imagens/Página inicial/paginainicial2.png")
@@ -108,14 +100,14 @@ def main():
     sp_inconefinal1.rect.left = 280
     sp_inconefinal1.rect.right = 300
 
-    sair = False
-    while sair != True:
+    running = True
+    while running == True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                sair = True
+                running = False
         
 
-        relogio.tick(30)
+        clock.tick(30)
         tela.fill(cor_azul)
         (xmouse, ymouse) = pygame.mouse.get_pos()
 
