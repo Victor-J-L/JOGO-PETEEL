@@ -38,7 +38,7 @@ def main():
     sp_play.rect.right = 314
 
     fundo = pygame.image.load("Imagens/Primeira Fase/fundo123desfocado.png")
-
+    all_sprites = pygame.sprite.Group()
     #PERSONAGEM 1
 
     p1frente = pygame.image.load("Imagens/personagem/personagem1frente.png") #personagem1frente
@@ -61,14 +61,18 @@ def main():
     sp_p2frente.rect.left = 200
     sp_p2frente.rect.right = 405
 
-    #PERSONAGEM
+    class personagem(pygame.sprite.Sprite):
+        def personagem(self, personagem, game):
+            personagem.groups = game.all_sprites
+            pygame.sprite.Sprite.personagem(self, self.groups)
+            personagem.image = pygame.image.load("Imagens/personagem/personagem1frente_min.png")
+            personagem.rect = personagem.image.get_rect()
+            personagem.rect.top = 800
+            personagem.rect.left = 200
     
-    personagem = pygame.image.load("Imagens/personagem/personagem1frente_min.png")
-    sp_personagem = pygame.sprite.Sprite()
-    sp_personagem.personagem = personagem 
-    sp_personagem.rect = personagem.get_rect()
-    sp_personagem.rect.top = 800
-    sp_personagem.rect.left = 200
+
+    #personagem = personagem() ???????
+
 
     #SELECAO PERSONAGEM
 
@@ -120,24 +124,18 @@ def main():
 
         if xmouse >= sp_p1frente.rect.left and xmouse <= sp_p1frente.rect.right and ymouse <= sp_p1frente.rect.bottom and ymouse >= sp_p1frente.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN:
-                personagem = pygame.image.load("Imagens/personagem/personagem1frente_min.png") #personagem1frente
-                sp_personagem = pygame.sprite.Sprite()
-                sp_personagem.personagem = personagem 
-                sp_personagem.rect = personagem.get_rect()
-                sp_personagem.rect.top = 480
-                sp_personagem.rect.left = 800
-
+                personagem.image = pygame.image.load("Imagens/personagem/personagem1frente_min.png") #personagem1frente
+                personagem.rect = personagem.image.get_rect()
+                personagem.rect.top = 480
+                personagem.rect.left = 800
                 sp_selecao.rect.right = 217
 
         if xmouse >= sp_p2frente.rect.left and xmouse <= sp_p2frente.rect.right and ymouse <= sp_p2frente.rect.bottom and ymouse >= sp_p2frente.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN:
-                personagem = pygame.image.load("Imagens/personagem/personagem2frente_min.png") #personagem1frente
-                sp_personagem = pygame.sprite.Sprite()
-                sp_personagem.personagem = personagem 
-                sp_personagem.rect = personagem.get_rect()
-                sp_personagem.rect.top = 480
-                sp_personagem.rect.left = 800
-
+                personagem.image = pygame.image.load("Imagens/personagem/personagem2frente_min.png") #personagem1frente
+                personagem.rect = personagem.image.get_rect()
+                personagem.rect.top = 480
+                personagem.rect.left = 800
                 sp_selecao.rect.right = 412
     
         if xmouse >= sp_play.rect.left and xmouse <= sp_play.rect.right and ymouse <= 351 and ymouse >= 295:
@@ -146,13 +144,15 @@ def main():
                 sp_play.rect.left = 800
                 sp_p1frente.rect.left = 800
                 sp_p2frente.rect.left = 800
-                sp_personagem.rect.top = 480
-                sp_personagem.rect.left = 228
+                personagem.rect.top = 480
+                personagem.rect.left = 228
                 sp_selecao.rect.right = 800
                 fundo = pygame.image.load("Imagens/Primeira Fase/fundo1_1.png")
 
         
 
+        all_sprites.update()
+        all_sprites.draw(tela)
 
         tela.blit(fundo, (0,0))
         #tela.blit(sp_bolinha.bolinha, sp_bolinha.rect)
@@ -162,7 +162,7 @@ def main():
         tela.blit(sp_play.botaoplay, sp_play.rect)
         tela.blit(sp_p1frente.p1frente, sp_p1frente.rect)
         tela.blit(sp_p2frente.p1frente, sp_p2frente.rect)
-        tela.blit(sp_personagem.personagem, sp_personagem.rect)
+        #tela.blit(sp_personagem.personagem, sp_personagem.rect)
         tela.blit(sp_selecao.selecao, sp_selecao.rect)
         
         
