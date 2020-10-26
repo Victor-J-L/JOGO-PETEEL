@@ -35,10 +35,10 @@ class Personagem(pygame.sprite.Sprite):
 
     def update(self):
         self.acc = vec(0, 0)
-        keys = pg.key.get_pressed()
-        if keys[pg.K_LEFT]:
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_LEFT]:
             self.acc.x = -0.5
-        if keys[pg.K_RIGHT]:
+        if keys[pygame.K_RIGHT]:
             self.acc.x = 0.5
 
         # apply friction
