@@ -223,7 +223,7 @@ def main():
 
         colisao_chao = pygame.sprite.collide_rect(personagem, ochao)
         if colisao_chao:
-            personagem.pos.y = 475
+            personagem.pos.y = 510
             personagem.vel.y = 0
         
         #Desenhar
