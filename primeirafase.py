@@ -27,11 +27,11 @@ class Personagem(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.image.load("Imagens/personagem/personagem1frente_min.png")
         self.rect = self.image.get_rect()
-        self.rect.center= (261,510)
+        self.rect.center= (800,800)
         self.rect.top = 800
         self.rect.left = 228
         self.rect.right = 228
-        self.pos = vec(228,200)
+        self.pos = vec(800,800)
         self.vel = vec(0, 0)
         self.acc = vec(0, 0)
 
@@ -178,11 +178,12 @@ def main():
                 personagem1.rect.left = 800
                 personagem2.rect.left = 800
                 personagem.rect.center = (228,200)
+                personagem.pos = vec(228,200)
                 selecao.rect.right = 800
                 fundo = pygame.image.load("Imagens/Primeira Fase/fundo1_1.png")
 
        #Código Movimento do personagem
-        personagem.acc = vec(0, 0.5)
+        personagem.acc = vec(0, 0.2)
         keys = pygame.key.get_pressed()
         if keys[pygame.K_LEFT]:
             personagem.acc.x = -0.5
