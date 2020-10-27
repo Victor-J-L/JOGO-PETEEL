@@ -183,7 +183,7 @@ def main():
                 fundo = pygame.image.load("Imagens/Primeira Fase/fundo1_1.png")
 
        #Código Movimento do personagem
-        personagem.acc = vec(0, 0.4)
+        personagem.acc = vec(0, 0.35)
         keys = pygame.key.get_pressed()
         if keys[pygame.K_LEFT]:
             personagem.acc.x = -0.5
