@@ -27,16 +27,16 @@ class Personagem(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.image.load("Imagens/personagem/personagem1frente_min.png")
         self.rect = self.image.get_rect()
-        self.rect.center= (261,510)
+        self.rect.center= (400,100)
         self.rect.top = 800
         self.rect.left = 228
         self.rect.right = 228
-        self.pos = vec(261, 510)
+        self.pos = vec(800,800)
         self.vel = vec(0, 0)
         self.acc = vec(0, 0)
 
     def update(self):
-        self.acc = vec(0, 0.5)
+        self.acc = vec(0, 0)
         keys = pygame.key.get_pressed()
         if keys[pygame.K_LEFT]:
             self.acc.x = -0,5
@@ -44,7 +44,7 @@ class Personagem(pygame.sprite.Sprite):
             self.acc.x = 0,5
 
         # apply friction
-        self.acc.x += self.vel.x * (-0.12)
+        self.acc += self.vel * (-0.12)
         # equations of motion
         self.vel += self.acc
         self.pos += self.vel + 0.5 * self.acc
@@ -55,7 +55,7 @@ class Personagem(pygame.sprite.Sprite):
         if self.pos.x < -10:
             self.pos.x = 500
 
-        self.rect.midbottom = self.pos
+        self.rect.center = self.pos
                   
 class Selecao(pygame.sprite.Sprite):
     def __init__(self):
@@ -66,12 +66,12 @@ class Selecao(pygame.sprite.Sprite):
         self.rect.right = 800
 
 class Plataformas(pygame.sprite.Sprite):
-    def __init__(self, x, y, w, h):
+    def __init__(self):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.image.load("Imagens/Primeira Fase/plataforma.png")
         self.rect = self.image.get_rect()
-        self.rect.x = x
-        self.rect.y = y
+        self.rect.top = 200
+        self.rect.left = 200
 
 class Paginainicial(pygame.sprite.Sprite):
     def __init__(self):
@@ -111,15 +111,17 @@ class Iconefinal(pygame.sprite.Sprite):
         self.rect.left = 280
         self.rect.right = 300
 
+cor_azul = (181,244,253)
 
-'''class chao(pygame.sprite.Sprite):
-    def __init__(self):
+'''class Chao(pygame.sprite.Sprite):
+    def __init__(self, x, y):
         pygame.sprite.Sprite.__init__(self)
-        self.rect - self.image.get_rect()
-        self.rect = pygame.Surface((w,h))
-        self.image.fill(0,0,0)
-        self.top = 475
-        self.left = 0'''
+        self.image = pygame.image.load("Imagens/Primeira Fase/iconefinal.png")
+        self.image.fill(cor_azul)
+        self.rect = self.image.get_rect()
+        self.rect.x = x
+        self.rect.y = y'''
+
 
 
 def main():
@@ -130,8 +132,8 @@ def main():
     pygame.display.set_caption("Jogo PETEEL")
     relogio = pygame.time.Clock()
     all_sprites = pygame.sprite.Group()
-    plataformas = pygame.sprite.Group()
     fundo = pygame.image.load("Imagens/Primeira Fase/fundo123desfocado.png")
+
 
     #CORES
     cor_azul = (181,244,253)
@@ -149,28 +151,14 @@ def main():
     all_sprites.add(personagem2)
     selecao= Selecao()
     all_sprites.add(selecao)
-    #plataforma1 = Plataformas()
+    plataforma1 = Plataformas()
     #all_sprites.add(plataforma1)
     iconefinal= Iconefinal()
     #all_sprites.add(iconefinal)
     bolinha= Bolinha()
     #all_sprites.add(bolinha)
-
-    #criação das plataformas 
-
-    p1 = Plataformas(10, 400, 30, 40)
-    #all_sprites.add(p1)
-    plataformas.add(p1)
-    p2 = Plataformas(100, 500, 30, 40)
-    #all_sprites.add(p1)
-    plataformas.add(p2)
-
-    #colisão
-
-    hits = pygame.sprite.spritecollide(personagem,plataformas, False)
-    if hits:
-        personagem.pos.y = hits[0].rect.top
-        pygame.vel.y = 0
+    
+    
 
     sair = False
     while sair != True:
@@ -179,7 +167,7 @@ def main():
                 sair = True
         
         #Parametros
-        relogio.tick(60)
+        relogio.tick(30)
         tela.fill(cor_azul)
         (xmouse, ymouse) = pygame.mouse.get_pos()
 
@@ -188,16 +176,14 @@ def main():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 personagem.image = pygame.image.load("Imagens/personagem/personagem1frente_min.png") #personagem1frente
                 personagem.rect = personagem.image.get_rect()
-                personagem.rect.top = 475
-                personagem.rect.left = 800
+                personagem.rect.center = (800,800)
                 selecao.rect.right = 217
 
         if xmouse >= personagem2.rect.left and xmouse <= personagem2.rect.right and ymouse <= personagem2.rect.bottom and ymouse >= personagem2.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 personagem.image = pygame.image.load("Imagens/personagem/personagem2frente_min.png") #personagem1frente
                 personagem.rect = personagem.image.get_rect()
-                personagem.rect.top = 475
-                personagem.rect.left = 800
+                personagem.rect.center=(800,800)
                 selecao.rect.right = 412
             
         if xmouse >= botaoplay.rect.left and xmouse <= botaoplay.rect.right and ymouse <= 351 and ymouse >= 295:
@@ -206,39 +192,31 @@ def main():
                 botaoplay.rect.left = 800
                 personagem1.rect.left = 800
                 personagem2.rect.left = 800
-                personagem.rect.top = 100
-                personagem.rect.left = 228
+                personagem.rect.center = (228,200)
+                personagem.pos = vec(228,200)
                 selecao.rect.right = 800
                 fundo = pygame.image.load("Imagens/Primeira Fase/fundo1_1.png")
 
        #Código Movimento do personagem
-        """personagem.acc = vec(0, 0.5)
+        personagem.acc = vec(0, 0.5)
         keys = pygame.key.get_pressed()
         if keys[pygame.K_LEFT]:
             personagem.acc.x = -0.5
-            personagem.acc.x += personagem.vel.x * (-0.12)
-            personagem.vel += personagem.acc
-            personagem.pos += personagem.vel + 0.5 * personagem.acc
-
-            if personagem.pos.x > 500:
-                personagem.pos.x = 0
-            if personagem.pos.x < 0:
-                personagem.pos.x = 500
-
-            personagem.rect.center = personagem.pos
 
         if keys[pygame.K_RIGHT]:
-        personagem.acc.x = 0.5
+            personagem.acc.x = 0.5
+        
         personagem.acc.x += personagem.vel.x * (-0.12)
         personagem.vel += personagem.acc
         personagem.pos += personagem.vel + 0.5 * personagem.acc
 
-            if personagem.pos.x > 500:
-                personagem.pos.x = 0
-            if personagem.pos.x < 0:
-                personagem.pos.x = 500
+        if personagem.pos.x > 500:
+            personagem.pos.x = 0
+        if personagem.pos.x < 0:
+            personagem.pos.x = 500
 
-            personagem.rect.center = personagem.pos"""
+        personagem.rect.center = personagem.pos
+
         
         #Desenhar
         tela.blit(fundo, (0,0))
@@ -247,8 +225,6 @@ def main():
         #Updates
         all_sprites.update        
         pygame.display.update() 
-
-        ''' fazer o grupo das plataformas aparecerem apenas quando clica no botão play)'''
 
     pygame.quit() 
 main()
