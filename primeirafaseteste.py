@@ -157,8 +157,8 @@ def main():
     bolinha= Bolinha()
     #all_sprites.add(bolinha)
     
-    chao = Chao(-10, 1000)
-    chao_sprite.add(chao)
+    ochao = Chao(-10, 1000)
+    chao_sprite.add(ochao)
     
 
     sair = False
@@ -197,7 +197,7 @@ def main():
                 personagem.pos = vec(228,200)
                 selecao.rect.right = 800
                 fundo = pygame.image.load("Imagens/Primeira Fase/fundo1_1.png")
-                chao.rect.y = 544
+                ochao.rect.y = 544
 
        #Código Movimento do personagem
         personagem.acc = vec(0, 0.5)
@@ -221,7 +221,10 @@ def main():
 
         #colisao
 
-     
+        colisao_chao = pygame.sprite.collide_rect(personagem, ochao)
+        if colisao_chao:
+            personagem.pos.y = 475
+            personagem.vel.y = 0
         
         #Desenhar
         tela.blit(fundo, (0,0))
