@@ -27,7 +27,7 @@ class Personagem(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.image.load("Imagens/personagem/personagem1frente_min.png")
         self.rect = self.image.get_rect()
-        self.rect.center= (800,800)
+        self.rect.center= (400,100)
         self.rect.top = 800
         self.rect.left = 228
         self.rect.right = 228
@@ -152,7 +152,7 @@ def main():
                 sair = True
         
         #Parametros
-        relogio.tick(60)
+        relogio.tick(30)
         tela.fill(cor_azul)
         (xmouse, ymouse) = pygame.mouse.get_pos()
 
@@ -183,7 +183,7 @@ def main():
                 fundo = pygame.image.load("Imagens/Primeira Fase/fundo1_1.png")
 
        #Código Movimento do personagem
-        personagem.acc = vec(0, 0.2)
+        personagem.acc = vec(0, 0.4)
         keys = pygame.key.get_pressed()
         if keys[pygame.K_LEFT]:
             personagem.acc.x = -0.5
