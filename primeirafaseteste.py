@@ -27,35 +27,17 @@ class Personagem(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.image.load("Imagens/personagem/personagem1frente_min.png")
         self.rect = self.image.get_rect()
-        self.rect.top = 800
+        self.rect.top = 480
         self.rect.left = 200
-        self.(pos_x,pos_y) = (self.rect.left, self.rect.top)
-        self.(vel_x,vel_y) = (0, 0)
-        self.(acc_x,acc_y) = (0, 0)
+        self.vx = 0
+        self.vy = 0
+        self.accx = 0
+        self.accy = 0
 
-    def update(self):
-            self.(acc_x,acc_y) = (0, 0)
-            keys = pg.key.get_pressed()
-            if keys[pg.K_LEFT]:
-                self.acc_x = -0.5
-            if keys[pg.K_RIGHT]:
-                self.acc_x = 0.5
-
-            # apply friction
-            self.(acc_x,acc_y) += self.(vel_x,vel_y) * 0.12
-            # equations of motion
-            self.(vel_x,vel_y) += self.(acc_x,acc_y)
-            self.(pos_x,pos_y) +=self.(vel_x,vel_y) + 0.5 * self.(acc_x,acc_y)
-            # wrap around the sides of the screen
-            #if self.pos.x > WIDTH:
-             #   self.pos.x = 0
-            #if self.pos.x < 0:
-             #   self.pos.x = WIDTH
-
-            #self.rect.center = self.pos
-
-
-    
+    def move(self, vx, vy):
+        self.rect.move_ip(vx,vy)
+        
+            
 
 class Selecao(pygame.sprite.Sprite):
     def __init__(self):
@@ -120,6 +102,12 @@ def main():
     relogio = pygame.time.Clock()
     all_sprites = pygame.sprite.Group()
     fundo = pygame.image.load("Imagens/Primeira Fase/fundo123desfocado.png")
+    velocidade = 8
+    leftpress, rightpress, uppress, downpress = False, False, False, False
+    vx,vy= 0, 0
+    accx,accy= 0,0
+    ax, ay=0, 0
+
 
     #CORES
     cor_azul = (181,244,253)
@@ -181,6 +169,52 @@ def main():
                 personagem.rect.left = 228
                 selecao.rect.right = 800
                 fundo = pygame.image.load("Imagens/Primeira Fase/fundo1_1.png")
+        
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_LEFT:
+                leftpress = True
+                vx = -velocidade
+            if event.key == pygame.K_RIGHT:
+                rightpress = True
+                vx = velocidade
+            if event.key == pygame.K_DOWN:
+                downpress = True
+                vy = velocidade
+            if event.key == pygame.K_UP:
+                uppress = True
+                vy = -velocidade
+        
+        if event.type == pygame.KEYUP:
+            if event.key == pygame.K_LEFT:
+                leftpress = False
+                if rightpress: vx = velocidade
+                else: vx = 0
+            if event.key == pygame.K_RIGHT:
+                rightpress = False
+                if leftpress: vx = -velocidade
+                else: vx = 0
+                vx = 0
+            if event.key == pygame.K_DOWN:
+                downpress = False
+                if uppress: vy = -velocidade
+                else: vy = 0
+            if event.key == pygame.K_UP:
+                uppress = False
+                if downpress: vy = velocidade
+                else: vy = 0
+        personagem.rect.move_ip(vx,vy)
+        
+        #keystate = pygame.key.get_pressed()
+        #if keystate[pygame.K_LEFT]:
+        #    personagem.accx = -0.5
+
+        #if keystate[pygame.K_RIGHT]:
+        #    personagem.accx = 0.5
+        #personagem.accx += personagem.vx
+        #personagem.vx += personagem.accx
+        #personagem.vx += personagem.vx + 0.5 * personagem.accx
+        #personagem.rect.move_ip(personagem.vx,personagem.vy)
+        
         
         all_sprites.update
         all_sprites.draw(tela)
