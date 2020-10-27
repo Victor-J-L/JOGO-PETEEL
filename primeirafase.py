@@ -31,7 +31,7 @@ class Personagem(pygame.sprite.Sprite):
         self.rect.top = 800
         self.rect.left = 228
         self.rect.right = 228
-        self.pos = vec(261, 510)
+        self.pos = vec(228,200)
         self.vel = vec(0, 0)
         self.acc = vec(0, 0)
 
@@ -161,16 +161,14 @@ def main():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 personagem.image = pygame.image.load("Imagens/personagem/personagem1frente_min.png") #personagem1frente
                 personagem.rect = personagem.image.get_rect()
-                personagem.rect.top = 475
-                personagem.rect.left = 800
+                personagem.rect.center = (800,800)
                 selecao.rect.right = 217
 
         if xmouse >= personagem2.rect.left and xmouse <= personagem2.rect.right and ymouse <= personagem2.rect.bottom and ymouse >= personagem2.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 personagem.image = pygame.image.load("Imagens/personagem/personagem2frente_min.png") #personagem1frente
                 personagem.rect = personagem.image.get_rect()
-                personagem.rect.top = 475
-                personagem.rect.left = 800
+                personagem.rect.center=(800,800)
                 selecao.rect.right = 412
             
         if xmouse >= botaoplay.rect.left and xmouse <= botaoplay.rect.right and ymouse <= 351 and ymouse >= 295:
@@ -179,39 +177,30 @@ def main():
                 botaoplay.rect.left = 800
                 personagem1.rect.left = 800
                 personagem2.rect.left = 800
-                personagem.rect.top = 475
-                personagem.rect.left = 228
+                personagem.rect.center = (228,200)
                 selecao.rect.right = 800
                 fundo = pygame.image.load("Imagens/Primeira Fase/fundo1_1.png")
 
        #Código Movimento do personagem
-        personagem.acc = vec(0, 0)
+        personagem.acc = vec(0, 0.5)
         keys = pygame.key.get_pressed()
         if keys[pygame.K_LEFT]:
             personagem.acc.x = -0.5
-            personagem.acc += personagem.vel * (-0.12)
-            personagem.vel += personagem.acc
-            personagem.pos += personagem.vel + 0.5 * personagem.acc
-
-            if personagem.pos.x > 500:
-                personagem.pos.x = 0
-            if personagem.pos.x < 0:
-                personagem.pos.x = 500
-
-            personagem.rect.center = personagem.pos
 
         if keys[pygame.K_RIGHT]:
             personagem.acc.x = 0.5
-            personagem.acc += personagem.vel * (-0.12)
-            personagem.vel += personagem.acc
-            personagem.pos += personagem.vel + 0.5 * personagem.acc
+        
+        personagem.acc.x += personagem.vel.x * (-0.12)
+        personagem.vel += personagem.acc
+        personagem.pos += personagem.vel + 0.5 * personagem.acc
 
-            if personagem.pos.x > 500:
-                personagem.pos.x = 0
-            if personagem.pos.x < 0:
-                personagem.pos.x = 500
+        if personagem.pos.x > 500:
+            personagem.pos.x = 0
+        if personagem.pos.x < 0:
+            personagem.pos.x = 500
 
-            personagem.rect.center = personagem.pos
+        personagem.rect.center = personagem.pos
+
         
         #Desenhar
         tela.blit(fundo, (0,0))

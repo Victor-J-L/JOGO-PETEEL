@@ -212,11 +212,11 @@ def main():
                 fundo = pygame.image.load("Imagens/Primeira Fase/fundo1_1.png")
 
        #Código Movimento do personagem
-        personagem.acc = vec(0, 0)
+        """personagem.acc = vec(0, 0.5)
         keys = pygame.key.get_pressed()
         if keys[pygame.K_LEFT]:
             personagem.acc.x = -0.5
-            personagem.acc += personagem.vel * (-0.12)
+            personagem.acc.x += personagem.vel.x * (-0.12)
             personagem.vel += personagem.acc
             personagem.pos += personagem.vel + 0.5 * personagem.acc
 
@@ -228,17 +228,17 @@ def main():
             personagem.rect.center = personagem.pos
 
         if keys[pygame.K_RIGHT]:
-            personagem.acc.x = 0.5
-            personagem.acc += personagem.vel * (-0.12)
-            personagem.vel += personagem.acc
-            personagem.pos += personagem.vel + 0.5 * personagem.acc
+        personagem.acc.x = 0.5
+        personagem.acc.x += personagem.vel.x * (-0.12)
+        personagem.vel += personagem.acc
+        personagem.pos += personagem.vel + 0.5 * personagem.acc
 
             if personagem.pos.x > 500:
                 personagem.pos.x = 0
             if personagem.pos.x < 0:
                 personagem.pos.x = 500
 
-            personagem.rect.center = personagem.pos
+            personagem.rect.center = personagem.pos"""
         
         #Desenhar
         tela.blit(fundo, (0,0))
