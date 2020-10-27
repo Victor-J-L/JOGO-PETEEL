@@ -1,5 +1,5 @@
 import pygame 
-pygame.init()
+vec = pygame.math.Vector2
 
 
 class Personagem1(pygame.sprite.Sprite):
@@ -27,18 +27,36 @@ class Personagem(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.image.load("Imagens/personagem/personagem1frente_min.png")
         self.rect = self.image.get_rect()
-        self.rect.top = 480
-        self.rect.left = 200
-        self.vx = 0
-        self.vy = 0
-        self.accx = 0
-        self.accy = 0
+        self.rect.center= (261,510)
+        self.rect.top = 800
+        self.rect.left = 228
+        self.rect.right = 228
+        self.pos = vec(261, 510)
+        self.vel = vec(0, 0)
+        self.acc = vec(0, 0)
 
-    def move(self, vx, vy):
-        self.rect.move_ip(vx,vy)
-        
-            
+    def update(self):
+        self.acc = vec(0, 0)
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_LEFT]:
+            self.acc.x = -0,5
+        if keys[pygame.K_RIGHT]:
+            self.acc.x = 0,5
 
+        # apply friction
+        self.acc += self.vel * (-0.12)
+        # equations of motion
+        self.vel += self.acc
+        self.pos += self.vel + 0.5 * self.acc
+        # wrap around the sides of the screen
+        if self.pos.x > 500:
+            self.pos.x = 0
+            self.rect.left = self.pos.x
+        if self.pos.x < -10:
+            self.pos.x = 500
+
+        self.rect.center = self.pos
+                  
 class Selecao(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
@@ -94,20 +112,15 @@ class Iconefinal(pygame.sprite.Sprite):
         self.rect.right = 300
 
 
-
 def main():
+
+    #Inicialização
     pygame.init()
     tela = pygame.display.set_mode([500,650])
     pygame.display.set_caption("Jogo PETEEL")
     relogio = pygame.time.Clock()
     all_sprites = pygame.sprite.Group()
     fundo = pygame.image.load("Imagens/Primeira Fase/fundo123desfocado.png")
-    velocidade = 8
-    leftpress, rightpress, uppress, downpress = False, False, False, False
-    vx,vy= 0, 0
-    accx,accy= 0,0
-    ax, ay=0, 0
-
 
     #CORES
     cor_azul = (181,244,253)
@@ -116,15 +129,15 @@ def main():
     pag_inicial= Paginainicial()
     all_sprites.add(pag_inicial)
     botaoplay= Botaoplay()
-    #all_sprites.add(botaoplay)
+    all_sprites.add(botaoplay)
     personagem= Personagem()
-    #all_sprites.add(personagem)
+    all_sprites.add(personagem)
     personagem1= Personagem1()
-    #all_sprites.add(personagem1)
+    all_sprites.add(personagem1)
     personagem2= Personagem2()
-    #all_sprites.add(personagem2)
+    all_sprites.add(personagem2)
     selecao= Selecao()
-    #all_sprites.add(selecao)
+    all_sprites.add(selecao)
     plataforma1 = Plataformas()
     #all_sprites.add(plataforma1)
     iconefinal= Iconefinal()
@@ -138,16 +151,17 @@ def main():
             if event.type == pygame.QUIT:
                 sair = True
         
-
-        relogio.tick(30)
+        #Parametros
+        relogio.tick(60)
         tela.fill(cor_azul)
         (xmouse, ymouse) = pygame.mouse.get_pos()
 
+        #Código Página inicial
         if xmouse >= personagem1.rect.left and xmouse <= personagem1.rect.right and ymouse <= personagem1.rect.bottom and ymouse >= personagem1.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 personagem.image = pygame.image.load("Imagens/personagem/personagem1frente_min.png") #personagem1frente
                 personagem.rect = personagem.image.get_rect()
-                personagem.rect.top = 480
+                personagem.rect.top = 475
                 personagem.rect.left = 800
                 selecao.rect.right = 217
 
@@ -155,81 +169,57 @@ def main():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 personagem.image = pygame.image.load("Imagens/personagem/personagem2frente_min.png") #personagem1frente
                 personagem.rect = personagem.image.get_rect()
-                personagem.rect.top = 480
+                personagem.rect.top = 475
                 personagem.rect.left = 800
                 selecao.rect.right = 412
-    
+            
         if xmouse >= botaoplay.rect.left and xmouse <= botaoplay.rect.right and ymouse <= 351 and ymouse >= 295:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 pag_inicial.rect.left = 800
                 botaoplay.rect.left = 800
                 personagem1.rect.left = 800
                 personagem2.rect.left = 800
-                personagem.rect.top = 480
+                personagem.rect.top = 475
                 personagem.rect.left = 228
                 selecao.rect.right = 800
                 fundo = pygame.image.load("Imagens/Primeira Fase/fundo1_1.png")
-        
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_LEFT:
-                leftpress = True
-                vx = -velocidade
-            if event.key == pygame.K_RIGHT:
-                rightpress = True
-                vx = velocidade
-            if event.key == pygame.K_DOWN:
-                downpress = True
-                vy = velocidade
-            if event.key == pygame.K_UP:
-                uppress = True
-                vy = -velocidade
-        
-        if event.type == pygame.KEYUP:
-            if event.key == pygame.K_LEFT:
-                leftpress = False
-                if rightpress: vx = velocidade
-                else: vx = 0
-            if event.key == pygame.K_RIGHT:
-                rightpress = False
-                if leftpress: vx = -velocidade
-                else: vx = 0
-                vx = 0
-            if event.key == pygame.K_DOWN:
-                downpress = False
-                if uppress: vy = -velocidade
-                else: vy = 0
-            if event.key == pygame.K_UP:
-                uppress = False
-                if downpress: vy = velocidade
-                else: vy = 0
-        personagem.rect.move_ip(vx,vy)
-        
-        #keystate = pygame.key.get_pressed()
-        #if keystate[pygame.K_LEFT]:
-        #    personagem.accx = -0.5
 
-        #if keystate[pygame.K_RIGHT]:
-        #    personagem.accx = 0.5
-        #personagem.accx += personagem.vx
-        #personagem.vx += personagem.accx
-        #personagem.vx += personagem.vx + 0.5 * personagem.accx
-        #personagem.rect.move_ip(personagem.vx,personagem.vy)
+       #Código Movimento do personagem
+        personagem.acc = vec(0, 0)
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_LEFT]:
+            personagem.acc.x = -0.5
+            personagem.acc += personagem.vel * (-0.12)
+            personagem.vel += personagem.acc
+            personagem.pos += personagem.vel + 0.5 * personagem.acc
+
+            if personagem.pos.x > 500:
+                personagem.pos.x = 0
+            if personagem.pos.x < 0:
+                personagem.pos.x = 500
+
+            personagem.rect.center = personagem.pos
+
+        if keys[pygame.K_RIGHT]:
+            personagem.acc.x = 0.5
+            personagem.acc += personagem.vel * (-0.12)
+            personagem.vel += personagem.acc
+            personagem.pos += personagem.vel + 0.5 * personagem.acc
+
+            if personagem.pos.x > 500:
+                personagem.pos.x = 0
+            if personagem.pos.x < 0:
+                personagem.pos.x = 500
+
+            personagem.rect.center = personagem.pos
         
-        
-        all_sprites.update
-        all_sprites.draw(tela)
+        #Desenhar
         tela.blit(fundo, (0,0))
-        tela.blit(personagem.image, personagem.rect)
-        tela.blit(pag_inicial.image, pag_inicial.rect)
-        tela.blit(botaoplay.image, botaoplay.rect)
-        tela.blit(personagem1.image, personagem1.rect)
-        tela.blit(personagem2.image, personagem2.rect)
-        tela.blit(personagem.image, personagem.rect)
-        tela.blit(selecao.image, selecao.rect)
-        #tela.blit(bolinha.image,bolinha.rect)
-        #tela.blit(plataforma1.image, plataforma1.rect)
-        #tela.blit(iconefinal.image, iconefinal.rect)
-        
+        all_sprites.draw(tela)
+
+        #Updates
+        all_sprites.update        
         pygame.display.update() 
+
     pygame.quit() 
 main()
