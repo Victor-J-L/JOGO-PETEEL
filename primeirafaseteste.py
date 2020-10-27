@@ -113,15 +113,13 @@ class Iconefinal(pygame.sprite.Sprite):
 
 cor_azul = (181,244,253)
 
-'''class Chao(pygame.sprite.Sprite):
+class Chao(pygame.sprite.Sprite):
     def __init__(self, x, y):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load("Imagens/Primeira Fase/iconefinal.png")
-        self.image.fill(cor_azul)
+        self.image = pygame.image.load("Imagens/Primeira Fase/chao.png")
         self.rect = self.image.get_rect()
         self.rect.x = x
-        self.rect.y = y'''
-
+        self.rect.y = y
 
 
 def main():
@@ -132,6 +130,7 @@ def main():
     pygame.display.set_caption("Jogo PETEEL")
     relogio = pygame.time.Clock()
     all_sprites = pygame.sprite.Group()
+    chao_sprite = pygame.sprite.Group()
     fundo = pygame.image.load("Imagens/Primeira Fase/fundo123desfocado.png")
 
 
@@ -158,6 +157,8 @@ def main():
     bolinha= Bolinha()
     #all_sprites.add(bolinha)
     
+    chao = Chao(-10, 544)
+    chao_sprite.add(chao)
     
 
     sair = False
@@ -217,9 +218,13 @@ def main():
 
         personagem.rect.center = personagem.pos
 
+        #colisao
+
+     
         
         #Desenhar
         tela.blit(fundo, (0,0))
+        chao_sprite.draw(tela)
         all_sprites.draw(tela)
 
         #Updates
