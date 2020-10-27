@@ -31,7 +31,7 @@ class Personagem(pygame.sprite.Sprite):
         self.rect.top = 800
         self.rect.left = 228
         self.rect.right = 228
-        self.pos = vec(800,800)
+        self.pos = vec(100,2000)
         self.vel = vec(0, 0)
         self.acc = vec(0, 0)
 
