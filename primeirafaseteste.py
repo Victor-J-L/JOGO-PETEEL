@@ -157,7 +157,7 @@ def main():
     bolinha= Bolinha()
     #all_sprites.add(bolinha)
     
-    chao = Chao(-10, 544)
+    chao = Chao(-10, 1000)
     chao_sprite.add(chao)
     
 
@@ -197,6 +197,7 @@ def main():
                 personagem.pos = vec(228,200)
                 selecao.rect.right = 800
                 fundo = pygame.image.load("Imagens/Primeira Fase/fundo1_1.png")
+                chao.rect.y = 544
 
        #Código Movimento do personagem
         personagem.acc = vec(0, 0.5)
