@@ -237,7 +237,7 @@ def main():
             personagem.vel.y = 0
 
         colisao_plataforma = pygame.sprite.spritecollide(personagem,plataformas, False)
-        if colisao_plataforma == True:
+        if colisao_plataforma:
             personagem.pos.y = colisao_plataforma[0].rect.top
             personagem.vel.y = 0
 
