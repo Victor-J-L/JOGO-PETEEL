@@ -208,13 +208,13 @@ def main():
                 personagem.pos = vec(400,530)
 
        #Código Movimento do personagem
-        personagem.acc = vec(0, 0.5)
+        personagem.acc = vec(0, 0.8)
         keys = pygame.key.get_pressed()
         if keys[pygame.K_LEFT]:
-            personagem.acc.x = -0.8
+            personagem.acc.x = -0.5
 
         if keys[pygame.K_RIGHT]:
-            personagem.acc.x = 0.8
+            personagem.acc.x = 0.5
 
         personagem.acc.x += personagem.vel.x * (-0.12)
         personagem.vel += personagem.acc
