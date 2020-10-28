@@ -67,12 +67,12 @@ class Selecao(pygame.sprite.Sprite):
         self.rect.right = 800
 
 class Plataformas(pygame.sprite.Sprite):
-    def __init__(self, x, y, w, h):
+    def __init__(self, x, y):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load("Imagens/Primeira Fase/plataforma.png")
+        self.image = pygame.image.load("Imagens/Primeira Fase/Ativo 14.png")
         self.rect = self.image.get_rect()
-        self.rect.x = x
-        self.rect.y = y
+        self.rect.left = x
+        self.rect.top = y
 
 class Paginainicial(pygame.sprite.Sprite):
     def __init__(self):
@@ -160,14 +160,14 @@ def main():
     bolinha= Bolinha()
     #all_sprites.add(bolinha)
 
-    p1 = Plataformas(-10, 350, 30, 20)
+    p1 = Plataformas(250, 200)
     plataformas.add(p1)
 
-    p2 = Plataformas(300, 450, 30, 40)
+    p2 = Plataformas(10, 400)
     plataformas.add(p2)
     
-    ochao = Chao(-10, 1000)
-    chao_sprite.add(ochao)
+    p0 = Plataformas(280, 540)
+    plataformas.add(p0)
     
 
     sair = False
@@ -186,14 +186,14 @@ def main():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 personagem.image = pygame.image.load("Imagens/personagem/personagem1frente_min.png") #personagem1frente
                 personagem.rect = personagem.image.get_rect()
-                personagem.rect.center = (800,800)
+                personagem.rect.midbottom = (800,800)
                 selecao.rect.right = 217
 
         if xmouse >= personagem2.rect.left and xmouse <= personagem2.rect.right and ymouse <= personagem2.rect.bottom and ymouse >= personagem2.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 personagem.image = pygame.image.load("Imagens/personagem/personagem2frente_min.png") #personagem1frente
                 personagem.rect = personagem.image.get_rect()
-                personagem.rect.center=(800,800)
+                personagem.rect.midbottom=(800,800)
                 selecao.rect.right = 412
             
         if xmouse >= botaoplay.rect.left and xmouse <= botaoplay.rect.right and ymouse <= 351 and ymouse >= 295:
@@ -202,20 +202,19 @@ def main():
                 botaoplay.rect.left = 800
                 personagem1.rect.left = 800
                 personagem2.rect.left = 800
-                personagem.rect.center = (228,200)
-                personagem.pos = vec(400,200)
+                personagem.rect.midbottom = (228,200)
                 selecao.rect.right = 800
                 fundo = pygame.image.load("Imagens/Primeira Fase/fundo1_1.png")
-                ochao.rect.y = 544
+                personagem.pos = vec(400,530)
 
        #Código Movimento do personagem
         personagem.acc = vec(0, 0.5)
         keys = pygame.key.get_pressed()
         if keys[pygame.K_LEFT]:
-            personagem.acc.x = -0.5
+            personagem.acc.x = -0.8
 
         if keys[pygame.K_RIGHT]:
-            personagem.acc.x = 0.5
+            personagem.acc.x = 0.8
 
         personagem.acc.x += personagem.vel.x * (-0.12)
         personagem.vel += personagem.acc
@@ -227,25 +226,28 @@ def main():
         if personagem.pos.x < 0:
             personagem.pos.x = 500
 
-        personagem.rect.center = personagem.pos
+        personagem.rect.midbottom = personagem.pos
 
         #colisao
 
-        colisao_chao = pygame.sprite.collide_rect(personagem, ochao)
-        if colisao_chao == True:
-            personagem.pos.y = 510
-            personagem.vel.y = 0
-
-        colisao_plataforma = pygame.sprite.spritecollide(personagem,plataformas, False)
-        if colisao_plataforma:
-            personagem.pos.y = colisao_plataforma[0].rect.top
-            personagem.vel.y = 0
+        if personagem.vel.y > 0:
+            colisao_plataforma = pygame.sprite.spritecollide(personagem, plataformas, False)
+            if colisao_plataforma:
+                personagem.pos.y = colisao_plataforma[0].rect.top
+                personagem.vel.y = 0
 
         #pulo
+            if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        personagem.rect.x += 1
+                        colisao_plataforma = pygame.sprite.spritecollide(personagem, plataformas, False)
+                        personagem.rect.x -= 1
+                        if  colisao_plataforma:
+                            personagem.vel.y = -12
+                        personagem.rect.x += 1
 
-        if keys[pygame.K_SPACE]:
-            colisao_chao == False
-            personagem.vel.y = -5
+                        
+                        
         
         #Desenhar
         tela.blit(fundo, (0,0))
