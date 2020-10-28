@@ -221,12 +221,6 @@ def main():
         personagem.vel += personagem.acc
         personagem.pos += personagem.vel + 0.5 * personagem.acc
 
-        #pulo
-
-        if keys[pygame.K_SPACE]:
-            personagem.vel.y = -5
-
-        #outro
 
         if personagem.pos.x > 500:
             personagem.pos.x = 0
@@ -238,14 +232,20 @@ def main():
         #colisao
 
         colisao_chao = pygame.sprite.collide_rect(personagem, ochao)
-        if colisao_chao:
+        if colisao_chao == True:
             personagem.pos.y = 510
             personagem.vel.y = 0
 
         colisao_plataforma = pygame.sprite.spritecollide(personagem,plataformas, False)
-        if colisao_plataforma:
+        if colisao_plataforma == True:
             personagem.pos.y = colisao_plataforma[0].rect.top
             personagem.vel.y = 0
+
+        #pulo
+
+        if keys[pygame.K_SPACE]:
+            colisao_chao == False
+            personagem.vel.y = -5
         
         #Desenhar
         tela.blit(fundo, (0,0))
