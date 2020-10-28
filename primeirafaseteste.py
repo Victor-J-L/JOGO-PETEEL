@@ -56,6 +56,7 @@ class Personagem(pygame.sprite.Sprite):
             self.pos.x = 500
 
         self.rect.center = self.pos
+
                   
 class Selecao(pygame.sprite.Sprite):
     def __init__(self):
@@ -66,12 +67,12 @@ class Selecao(pygame.sprite.Sprite):
         self.rect.right = 800
 
 class Plataformas(pygame.sprite.Sprite):
-    def __init__(self):
+    def __init__(self, x, y, w, h):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.image.load("Imagens/Primeira Fase/plataforma.png")
         self.rect = self.image.get_rect()
-        self.rect.top = 200
-        self.rect.left = 200
+        self.rect.x = x
+        self.rect.y = y
 
 class Paginainicial(pygame.sprite.Sprite):
     def __init__(self):
@@ -129,9 +130,13 @@ def main():
     tela = pygame.display.set_mode([500,650])
     pygame.display.set_caption("Jogo PETEEL")
     relogio = pygame.time.Clock()
+    fundo = pygame.image.load("Imagens/Primeira Fase/fundo123desfocado.png")
+
+    #grupos 
+
+    plataformas = pygame.sprite.Group()
     all_sprites = pygame.sprite.Group()
     chao_sprite = pygame.sprite.Group()
-    fundo = pygame.image.load("Imagens/Primeira Fase/fundo123desfocado.png")
 
 
     #CORES
@@ -150,12 +155,16 @@ def main():
     all_sprites.add(personagem2)
     selecao= Selecao()
     all_sprites.add(selecao)
-    plataforma1 = Plataformas()
-    #all_sprites.add(plataforma1)
     iconefinal= Iconefinal()
     #all_sprites.add(iconefinal)
     bolinha= Bolinha()
     #all_sprites.add(bolinha)
+
+    p1 = Plataformas(-10, 350, 30, 20)
+    plataformas.add(p1)
+
+    p2 = Plataformas(300, 450, 30, 40)
+    plataformas.add(p2)
     
     ochao = Chao(-10, 1000)
     chao_sprite.add(ochao)
@@ -194,7 +203,7 @@ def main():
                 personagem1.rect.left = 800
                 personagem2.rect.left = 800
                 personagem.rect.center = (228,200)
-                personagem.pos = vec(228,200)
+                personagem.pos = vec(400,200)
                 selecao.rect.right = 800
                 fundo = pygame.image.load("Imagens/Primeira Fase/fundo1_1.png")
                 ochao.rect.y = 544
@@ -207,10 +216,17 @@ def main():
 
         if keys[pygame.K_RIGHT]:
             personagem.acc.x = 0.5
-        
+
         personagem.acc.x += personagem.vel.x * (-0.12)
         personagem.vel += personagem.acc
         personagem.pos += personagem.vel + 0.5 * personagem.acc
+
+        #pulo
+
+        if keys[pygame.K_SPACE]:
+            personagem.vel.y = -5
+
+        #outro
 
         if personagem.pos.x > 500:
             personagem.pos.x = 0
@@ -225,10 +241,16 @@ def main():
         if colisao_chao:
             personagem.pos.y = 510
             personagem.vel.y = 0
+
+        colisao_plataforma = pygame.sprite.spritecollide(personagem,plataformas, False)
+        if colisao_plataforma:
+            personagem.pos.y = colisao_plataforma[0].rect.top
+            personagem.vel.y = 0
         
         #Desenhar
         tela.blit(fundo, (0,0))
         chao_sprite.draw(tela)
+        plataformas.draw(tela)
         all_sprites.draw(tela)
 
         #Updates
