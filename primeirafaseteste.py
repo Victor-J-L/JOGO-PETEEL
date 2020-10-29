@@ -69,7 +69,7 @@ class Selecao(pygame.sprite.Sprite):
 class Plataformas(pygame.sprite.Sprite):
     def __init__(self, x, y):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load("Imagens/Primeira Fase/Ativo 14.png")
+        self.image = pygame.image.load("Imagens/Primeira Fase/plataforma1.png")
         self.rect = self.image.get_rect()
         self.rect.left = x
         self.rect.top = y
@@ -163,7 +163,7 @@ def main():
     p00 = Plataformas(100, 2005)
     plataformas.add(p00)
 
-    p0 = Plataformas(280, 550)
+    p0 = Chao(-15, 544)
     plataformas.add(p0)
 
     p1 = Plataformas(250, 250)
