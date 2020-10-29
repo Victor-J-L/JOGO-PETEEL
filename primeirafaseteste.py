@@ -160,14 +160,20 @@ def main():
     bolinha= Bolinha()
     #all_sprites.add(bolinha)
 
-    p1 = Plataformas(250, 200)
+    p00 = Plataformas(100, 2005)
+    plataformas.add(p00)
+
+    p0 = Plataformas(280, 550)
+    plataformas.add(p0)
+
+    p1 = Plataformas(250, 250)
     plataformas.add(p1)
 
     p2 = Plataformas(10, 400)
     plataformas.add(p2)
-    
-    p0 = Plataformas(280, 540)
-    plataformas.add(p0)
+
+    p3 = Plataformas(10, 100)
+    plataformas.add(p3)
     
 
     sair = False
@@ -208,13 +214,13 @@ def main():
                 personagem.pos = vec(400,530)
 
        #Código Movimento do personagem
-        personagem.acc = vec(0, 0.8)
+        personagem.acc = vec(0, 1)
         keys = pygame.key.get_pressed()
         if keys[pygame.K_LEFT]:
-            personagem.acc.x = -0.5
+            personagem.acc.x = -0.9
 
         if keys[pygame.K_RIGHT]:
-            personagem.acc.x = 0.5
+            personagem.acc.x = 0.9
 
         personagem.acc.x += personagem.vel.x * (-0.12)
         personagem.vel += personagem.acc
@@ -230,7 +236,7 @@ def main():
 
         #colisao
 
-        if personagem.vel.y > 0:
+        if personagem.vel.y > 0.5:
             colisao_plataforma = pygame.sprite.spritecollide(personagem, plataformas, False)
             if colisao_plataforma:
                 personagem.pos.y = colisao_plataforma[0].rect.top
@@ -243,7 +249,7 @@ def main():
                         colisao_plataforma = pygame.sprite.spritecollide(personagem, plataformas, False)
                         personagem.rect.x -= 1
                         if  colisao_plataforma:
-                            personagem.vel.y = -12
+                            personagem.vel.y = -18
                         personagem.rect.x += 1
 
                         
