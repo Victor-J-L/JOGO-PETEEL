@@ -122,3 +122,46 @@ class Chao(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
+
+#grupos 
+
+plataformas = pygame.sprite.Group()
+all_sprites = pygame.sprite.Group()
+chao_sprite = pygame.sprite.Group()
+
+
+#CORES
+cor_azul = (181,244,253)
+
+#Variaveis
+pag_inicial= Paginainicial()
+all_sprites.add(pag_inicial)
+botaoplay= Botaoplay()
+all_sprites.add(botaoplay)
+personagem= Personagem()
+all_sprites.add(personagem)
+personagem1= Personagem1()
+all_sprites.add(personagem1)
+personagem2= Personagem2()
+all_sprites.add(personagem2)
+selecao= Selecao()
+all_sprites.add(selecao)
+iconefinal= Iconefinal()
+#all_sprites.add(iconefinal)
+bolinha= Bolinha()
+#all_sprites.add(bolinha)
+
+p00 = Plataformas(100, 2005)
+plataformas.add(p00)
+
+p0 = Chao(-15, 544)
+plataformas.add(p0)
+
+p1 = Plataformas(250, 250)
+plataformas.add(p1)
+
+p2 = Plataformas(10, 400)
+plataformas.add(p2)
+
+p3 = Plataformas(10, 100)
+plataformas.add(p3)
