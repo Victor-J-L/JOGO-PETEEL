@@ -123,6 +123,14 @@ class Chao(pygame.sprite.Sprite):
         self.rect.x = x
         self.rect.y = y
 
+class FundoInicial(pygame.sprite.Sprite):
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load("Imagens/Primeira Fase/fundo123desfocado.png")
+        self.rect = self.image.get_rect()
+        self.rect.top = 0
+        self.rect.left = 0
+
 #grupos 
 
 plataformas = pygame.sprite.Group()
@@ -165,3 +173,6 @@ plataformas.add(p2)
 
 p3 = Plataformas(10, 100)
 plataformas.add(p3)
+
+#Fundo Inicial
+fundoinicial=FundoInicial()

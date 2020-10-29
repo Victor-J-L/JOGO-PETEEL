@@ -50,6 +50,7 @@ def main():
                 personagem.rect.midbottom = (228,200)
                 selecao.rect.right = 800
                 fundo = pygame.image.load("Imagens/Primeira Fase/fundo1_1.png")
+                fundoinicial.rect.left = 800 
                 personagem.pos = vec(400,530)
 
        #Código Movimento do personagem
@@ -93,8 +94,8 @@ def main():
         
         #Desenhar
         tela.blit(fundo, (0,0))
-        chao_sprite.draw(tela)
         plataformas.draw(tela)
+        tela.blit(fundoinicial.image, fundoinicial.rect)
         all_sprites.draw(tela)
 
         #Updates
