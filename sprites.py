@@ -161,25 +161,22 @@ bolinha= Bolinha()
 
 #Lista de Plataformas
 
-Plataforma_lista = [ (800, 400), (-15, 544), (250, 250), (10, 400), (10, 100)]
-p00 = Plataformas(800, 400)
-plataformas.add(p00)
+Plataforma_lista = [(-15, 544), (250, 250), (10, 400), (10, 100), (235, -10)]
 
 p0 = Chao(-15, 544)
 plataformas.add(p0)
 
-p1 = Plataformas(250, 250)
+p1 = Plataformas(250, 280)
 plataformas.add(p1)
 
-p2 = Plataformas(10, 400)
+p2 = Plataformas(10, 420)
 plataformas.add(p2)
 
-p3 = Plataformas(10, 100)
+p3 = Plataformas(10, 140)
 plataformas.add(p3)
 
-# o chão
-
-ochao = Chao(400, 805)
+p4 = Plataformas(235, 20)
+plataformas.add(p4)
 
 #Fundo Inicial
 fundoinicial=FundoInicial()

@@ -77,7 +77,7 @@ def main():
 
         #colisao
 
-        if personagem.vel.y > 1 :
+        if personagem.vel.y > 0.9:
             colisao_plataforma = pygame.sprite.spritecollide(personagem, plataformas, False)
             if colisao_plataforma:
                 personagem.pos.y = colisao_plataforma[0].rect.top
@@ -90,10 +90,10 @@ def main():
                     colisao_plataforma = pygame.sprite.spritecollide(personagem, plataformas, False)
                     personagem.rect.x -= 1
                     if  colisao_plataforma:
-                        personagem.vel.y = -18
+                        personagem.vel.y = -20
                     
         
-         # if player reaches top 1/4 of screen
+         # Scrolling
         if personagem.rect.top <= 250:
             personagem.pos.y += abs(personagem.vel.y)
             for plat in plataformas:
@@ -102,9 +102,9 @@ def main():
                     plat.kill()
 
         # spawn new platforms to keep same average number
-        while len(plataformas) < 6:
-            p = Plataformas(random.randrange(5, 350),
-                         random.randrange(-100, -30))
+        while len(plataformas) < 5:
+            p = Plataformas(random.randrange(5, 300),
+                         random.randrange(-52, -48))
             plataformas.add(p)
             
         
