@@ -28,11 +28,11 @@ class Personagem(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.image.load("Imagens/personagem/personagem1frente_min.png")
         self.rect = self.image.get_rect()
-        self.rect.center= (400,100)
+        self.rect.center= (400, 805)
         self.rect.top = 800
         self.rect.left = 228
         self.rect.right = 228
-        self.pos = vec(100,2000)
+        self.pos = vec(400, 805)
         self.vel = vec(0, 0)
         self.acc = vec(0, 0)
 
@@ -159,7 +159,10 @@ iconefinal= Iconefinal()
 bolinha= Bolinha()
 #all_sprites.add(bolinha)
 
-p00 = Plataformas(100, 2005)
+#Lista de Plataformas
+
+Plataforma_lista = [ (800, 400), (-15, 544), (250, 250), (10, 400), (10, 100)]
+p00 = Plataformas(800, 400)
 plataformas.add(p00)
 
 p0 = Chao(-15, 544)
@@ -173,6 +176,10 @@ plataformas.add(p2)
 
 p3 = Plataformas(10, 100)
 plataformas.add(p3)
+
+# o chão
+
+ochao = Chao(400, 805)
 
 #Fundo Inicial
 fundoinicial=FundoInicial()

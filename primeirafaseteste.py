@@ -1,4 +1,5 @@
 import pygame 
+import random
 from sprites import *
 from os import path
 #from configuração import *
@@ -76,21 +77,36 @@ def main():
 
         #colisao
 
-        if personagem.vel.y > 0.5:
+        if personagem.vel.y > 1 :
             colisao_plataforma = pygame.sprite.spritecollide(personagem, plataformas, False)
             if colisao_plataforma:
                 personagem.pos.y = colisao_plataforma[0].rect.top
                 personagem.vel.y = 0
 
         #pulo
-            if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_SPACE:
-                        personagem.rect.x += 1
-                        colisao_plataforma = pygame.sprite.spritecollide(personagem, plataformas, False)
-                        personagem.rect.x -= 1
-                        if  colisao_plataforma:
-                            personagem.vel.y = -18
-                        personagem.rect.x += 1
+        if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE:
+                    personagem.rect.x += 1
+                    colisao_plataforma = pygame.sprite.spritecollide(personagem, plataformas, False)
+                    personagem.rect.x -= 1
+                    if  colisao_plataforma:
+                        personagem.vel.y = -18
+                    
+        
+         # if player reaches top 1/4 of screen
+        if personagem.rect.top <= 250:
+            personagem.pos.y += abs(personagem.vel.y)
+            for plat in plataformas:
+                plat.rect.y += abs(personagem.vel.y)
+                if plat.rect.top >= 650:
+                    plat.kill()
+
+        # spawn new platforms to keep same average number
+        while len(plataformas) < 6:
+            p = Plataformas(random.randrange(5, 350),
+                         random.randrange(-100, -30))
+            plataformas.add(p)
+            
         
         #Desenhar
         tela.blit(fundo, (0,0))
