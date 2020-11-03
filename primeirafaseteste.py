@@ -2,7 +2,7 @@ import pygame
 import random
 from sprites import *
 from os import path
-import random
+
 #from configuração import *
 vec = pygame.math.Vector2
 
