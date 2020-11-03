@@ -2,6 +2,7 @@ import pygame
 import random
 from sprites import *
 from os import path
+import random
 #from configuração import *
 vec = pygame.math.Vector2
 
@@ -107,7 +108,6 @@ def main():
                          random.randrange(-52, -48))
             plataformas.add(p)
             
-        
         #Desenhar
         tela.blit(fundo, (0,0))
         plataformas.draw(tela)

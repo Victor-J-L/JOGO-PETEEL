@@ -1,4 +1,5 @@
 import pygame
+import random
 #from settings import *
 #from random import choice, randrange
 vec = pygame.math.Vector2
@@ -93,15 +94,31 @@ class Botaoplay(pygame.sprite.Sprite):
         self.rect.left = 199
         self.rect.right = 314
 
-class Bolinha(pygame.sprite.Sprite):
+class Bolinha1(pygame.sprite.Sprite): #ensino
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.image.load("Imagens/Primeira Fase/bolinha.png")
         self.rect = self.image.get_rect()
-        self.rect.top = 120
-        self.rect.bottom = 200
-        self.rect.left = 250
-        self.rect.right = 300
+        self.rect.x = random.randint(100,400)
+        self.rect.y = random.randint(100,400)
+
+class Bolinha2(pygame.sprite.Sprite): #pesquisa
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load("Imagens/Primeira Fase/bolinha.png")
+        self.rect = self.image.get_rect()
+        self.rect.x = random.randint(100,400)
+        self.rect.y = random.randint(100,400)
+
+class Bolinha3(pygame.sprite.Sprite): #extensão
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load("Imagens/Primeira Fase/bolinha.png")
+        self.rect = self.image.get_rect()
+        self.rect.x = random.randint(100,400)
+        self.rect.y = random.randint(100,400)
+
+#screen.blit(player.image, (x,y))
 
 class Iconefinal(pygame.sprite.Sprite):
     def __init__(self):
@@ -156,8 +173,13 @@ selecao= Selecao()
 all_sprites.add(selecao)
 iconefinal= Iconefinal()
 #all_sprites.add(iconefinal)
-bolinha= Bolinha()
-#all_sprites.add(bolinha)
+ensino= Bolinha1()
+all_sprites.add(ensino)
+pesquisa = Bolinha2()
+all_sprites.add(pesquisa)
+extensao = Bolinha3()
+all_sprites.add(extensao)
+
 
 #Lista de Plataformas
 
