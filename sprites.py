@@ -1,4 +1,5 @@
 import pygame
+import random
 #from settings import *
 #from random import choice, randrange
 vec = pygame.math.Vector2
@@ -93,25 +94,51 @@ class Botaoplay(pygame.sprite.Sprite):
         self.rect.left = 199
         self.rect.right = 314
 
-class Bolinha(pygame.sprite.Sprite):
+class Bolinha1(pygame.sprite.Sprite): #ensino
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.image.load("Imagens/Primeira Fase/bolinha.png")
         self.rect = self.image.get_rect()
-        self.rect.top = 120
-        self.rect.bottom = 200
-        self.rect.left = 250
-        self.rect.right = 300
+        self.rect.x = random.randint(100,400)
+        self.rect.y = random.randint(100,400)
+        #self.pos = (self.rect.x, self.rect.y)
+        self.pos = vec(228, 720)
+        self.vel = vec(0, 0)
+        self.acc = vec(0, 0)
+
+class Bolinha2(pygame.sprite.Sprite): #pesquisa
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load("Imagens/Primeira Fase/bolinha.png")
+        self.rect = self.image.get_rect()
+        self.rect.x = random.randint(100,400)
+        self.rect.y = random.randint(100,400)
+        #self.pos = (self.rect.x, self.rect.y)
+        self.pos = vec(228, 720)
+        self.vel = vec(0, 0)
+        self.acc = vec(0, 0)
+
+class Bolinha3(pygame.sprite.Sprite): #extensão
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load("Imagens/Primeira Fase/bolinha.png")
+        self.rect = self.image.get_rect()
+        self.rect.x = random.randint(100,400)
+        self.rect.y = random.randint(100,400)
+        #self.pos = (self.rect.x, self.rect.y)
+        self.pos = vec(228, 720)
+        self.vel = vec(0, 0)
+        self.acc = vec(0, 0)
+
+#screen.blit(player.image, (x,y))
 
 class Iconefinal(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.image.load("Imagens/Primeira Fase/iconefinal.png")
         self.rect = self.image.get_rect()
-        self.rect.top = 120
-        self.rect.bottom = 200
-        self.rect.left = 280
-        self.rect.right = 300
+        self.rect.x = random.randint(100,400)
+        self.rect.y = random.randint(100,400)
 
 cor_azul = (181,244,253)
 
@@ -136,6 +163,8 @@ class FundoInicial(pygame.sprite.Sprite):
 plataformas = pygame.sprite.Group()
 all_sprites = pygame.sprite.Group()
 chao_sprite = pygame.sprite.Group()
+bolinhas = pygame.sprite.Group()
+iconegrupo = pygame.sprite.Group()
 
 
 #CORES
@@ -154,10 +183,22 @@ personagem2= Personagem2()
 all_sprites.add(personagem2)
 selecao= Selecao()
 all_sprites.add(selecao)
+
+
+ensino= Bolinha1()
+#all_sprites.add(ensino)
+bolinhas.add(ensino)
+pesquisa = Bolinha2()
+#all_sprites.add(pesquisa)
+bolinhas.add(pesquisa)
+extensao = Bolinha3()
+#all_sprites.add(extensao)
+bolinhas.add(extensao)
+
+
 iconefinal= Iconefinal()
-#all_sprites.add(iconefinal)
-bolinha= Bolinha()
-#all_sprites.add(bolinha)
+iconegrupo.add(iconefinal)
+
 
 #Lista de Plataformas
 

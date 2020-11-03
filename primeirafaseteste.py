@@ -2,6 +2,7 @@ import pygame
 import random
 from sprites import *
 from os import path
+import random
 #from configuração import *
 vec = pygame.math.Vector2
 
@@ -83,6 +84,11 @@ def main():
                 personagem.pos.y = colisao_plataforma[0].rect.top
                 personagem.vel.y = 0
 
+        colisao_bolinhas = pygame.sprite.spritecollide(personagem, bolinhas, True)
+        colisao_icone = pygame.sprite.spritecollide(personagem, iconegrupo, False)
+        '''if colisao_icone:
+            #vem o código aqui'''
+
         #pulo
         if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
@@ -96,6 +102,9 @@ def main():
          # Scrolling
         if personagem.rect.top <= 250:
             personagem.pos.y += abs(personagem.vel.y)
+            ensino.pos.y += abs(ensino.vel.y)
+            pesquisa.pos.y += abs(pesquisa.vel.y)
+            extensao.pos.y += abs(extensao.vel.y)
             for plat in plataformas:
                 plat.rect.y += abs(personagem.vel.y)
                 if plat.rect.top >= 850:
@@ -107,10 +116,11 @@ def main():
                          random.randrange(-90, -88))
             plataformas.add(p)
             
-        
         #Desenhar
         tela.blit(fundo, (0,0))
         plataformas.draw(tela)
+        iconegrupo.draw(tela)
+        bolinhas.draw(tela)
         all_sprites.draw(tela)
         tela.blit(fundoinicial.image, fundoinicial.rect)
         all_sprites.draw(tela)
