@@ -104,7 +104,7 @@ def main():
         # spawn new platforms to keep same average number
         while len(plataformas) < 6:
             p = Plataformas(random.randrange(5, 300),
-                         random.randrange(-92, -88))
+                         random.randrange(-90, -88))
             plataformas.add(p)
             
         

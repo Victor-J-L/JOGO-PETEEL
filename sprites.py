@@ -178,7 +178,7 @@ plataformas.add(p2)
 p3 = Plataformas(10, 125)
 plataformas.add(p3)
 
-p4 = Plataformas(235, 0)
+p4 = Plataformas(235, -10)
 plataformas.add(p4)
 
 #Fundo Inicial
