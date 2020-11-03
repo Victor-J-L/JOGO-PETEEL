@@ -85,8 +85,9 @@ def main():
                 personagem.vel.y = 0
 
         colisao_bolinhas = pygame.sprite.spritecollide(personagem, bolinhas, True)
-        
-
+        colisao_icone = pygame.sprite.spritecollide(personagem, iconegrupo, False)
+        '''if colisao_icone:
+            #vem o código aqui'''
 
         #pulo
         if event.type == pygame.KEYDOWN:
@@ -118,6 +119,8 @@ def main():
         #Desenhar
         tela.blit(fundo, (0,0))
         plataformas.draw(tela)
+        iconegrupo.draw(tela)
+        bolinhas.draw(tela)
         all_sprites.draw(tela)
         tela.blit(fundoinicial.image, fundoinicial.rect)
         all_sprites.draw(tela)

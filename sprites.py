@@ -137,10 +137,8 @@ class Iconefinal(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.image.load("Imagens/Primeira Fase/iconefinal.png")
         self.rect = self.image.get_rect()
-        self.rect.top = 120
-        self.rect.bottom = 200
-        self.rect.left = 280
-        self.rect.right = 300
+        self.rect.x = random.randint(100,400)
+        self.rect.y = random.randint(100,400)
 
 cor_azul = (181,244,253)
 
@@ -166,6 +164,7 @@ plataformas = pygame.sprite.Group()
 all_sprites = pygame.sprite.Group()
 chao_sprite = pygame.sprite.Group()
 bolinhas = pygame.sprite.Group()
+iconegrupo = pygame.sprite.Group()
 
 
 #CORES
@@ -184,18 +183,21 @@ personagem2= Personagem2()
 all_sprites.add(personagem2)
 selecao= Selecao()
 all_sprites.add(selecao)
-iconefinal= Iconefinal()
-#all_sprites.add(iconefinal)
+
 
 ensino= Bolinha1()
-all_sprites.add(ensino)
+#all_sprites.add(ensino)
 bolinhas.add(ensino)
 pesquisa = Bolinha2()
-all_sprites.add(pesquisa)
+#all_sprites.add(pesquisa)
 bolinhas.add(pesquisa)
 extensao = Bolinha3()
-all_sprites.add(extensao)
+#all_sprites.add(extensao)
 bolinhas.add(extensao)
+
+
+iconefinal= Iconefinal()
+iconegrupo.add(iconefinal)
 
 
 #Lista de Plataformas
