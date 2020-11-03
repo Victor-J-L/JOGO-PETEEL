@@ -165,6 +165,7 @@ class FundoInicial(pygame.sprite.Sprite):
 plataformas = pygame.sprite.Group()
 all_sprites = pygame.sprite.Group()
 chao_sprite = pygame.sprite.Group()
+bolinhas = pygame.sprite.Group()
 
 
 #CORES
@@ -185,12 +186,16 @@ selecao= Selecao()
 all_sprites.add(selecao)
 iconefinal= Iconefinal()
 #all_sprites.add(iconefinal)
+
 ensino= Bolinha1()
 all_sprites.add(ensino)
+bolinhas.add(ensino)
 pesquisa = Bolinha2()
 all_sprites.add(pesquisa)
+bolinhas.add(pesquisa)
 extensao = Bolinha3()
 all_sprites.add(extensao)
+bolinhas.add(extensao)
 
 
 #Lista de Plataformas

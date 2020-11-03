@@ -84,6 +84,10 @@ def main():
                 personagem.pos.y = colisao_plataforma[0].rect.top
                 personagem.vel.y = 0
 
+        colisao_bolinhas = pygame.sprite.spritecollide(personagem, bolinhas, True)
+        
+
+
         #pulo
         if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
