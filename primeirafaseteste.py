@@ -49,11 +49,9 @@ def main():
                 botaoplay.rect.left = 800
                 personagem1.rect.left = 800
                 personagem2.rect.left = 800
-                personagem.rect.midbottom = (228,200)
                 selecao.rect.right = 800
                 fundo = pygame.image.load("Imagens/Primeira Fase/fundo1_1.png")
                 fundoinicial.rect.left = 800 
-                personagem.pos = vec(400,530)
 
        #Código Movimento do personagem
         personagem.acc = vec(0, 1)
@@ -115,20 +113,58 @@ def main():
             p = Plataformas(random.randrange(5, 300),
                          random.randrange(-90, -88))
             plataformas.add(p)
+
+        #Game Over
+
+        if personagem.rect.top > 650:
+            personagem.pos = vec(400,530)
+            gameover.rect.left = 0
+            botaogameover.rect.left = 199.62
+            fundoinicial.rect.left = 0
+            for plat in plataformas: 
+                plat.kill()
+            p00 = Chao(0, 750)
+            plataformas.add(p00)
+            p0 = Chao(-15, 544)
+            plataformas.add(p0)
+            p1 = Plataformas(250, 255)
+            plataformas.add(p1)
+            p2 = Plataformas(10, 395)
+            plataformas.add(p2)
+            p3 = Plataformas(10, 125)
+            plataformas.add(p3)
+            p4 = Plataformas(235, -10)
+            plataformas.add(p4)
+        if xmouse >= botaogameover.rect.left and xmouse <= botaogameover.rect.right and ymouse <= botaogameover.rect.bottom and ymouse >= botaogameover.rect.top:
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                pag_inicial.rect.left= -16
+                botaoplay.rect.right = 314
+                personagem1.rect.right = 210
+                personagem2.rect.right = 405
+                gameover.rect.left = 800
+                botaogameover.rect.left = 800
+
             
+            
+
         #Desenhar
         tela.blit(fundo, (0,0))
         plataformas.draw(tela)
         iconegrupo.draw(tela)
         bolinhas.draw(tela)
+        personagemgrupo.draw(tela)
+        fundoinicialgrupo.draw(tela)
         all_sprites.draw(tela)
         tela.blit(fundoinicial.image, fundoinicial.rect)
         all_sprites.draw(tela)
+        gameovergrupo.draw(tela)
     
 
         #Updates
         all_sprites.update        
         pygame.display.update() 
+
+
 
     pygame.quit() 
 main()
