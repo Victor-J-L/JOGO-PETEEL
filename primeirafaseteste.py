@@ -84,8 +84,10 @@ def main():
 
         colisao_bolinhas = pygame.sprite.spritecollide(personagem, bolinhas, True)
         colisao_icone = pygame.sprite.spritecollide(personagem, iconegrupo, False)
-        '''if colisao_icone:
-            #vem o código aqui'''
+        if colisao_icone:
+            transição.rect.left = 0
+            botaot.rect.left = 325
+            botaot.rect.top = 585
 
         #pulo
         if event.type == pygame.KEYDOWN:
@@ -156,6 +158,7 @@ def main():
         tela.blit(fundoinicial.image, fundoinicial.rect)
         all_sprites.draw(tela)
         gameovergrupo.draw(tela)
+        transicaogrupo.draw(tela)
     
 
         #Updates

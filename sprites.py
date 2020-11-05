@@ -97,7 +97,7 @@ class Botaoplay(pygame.sprite.Sprite):
 class Bolinha1(pygame.sprite.Sprite): #ensino
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load("Imagens/Primeira Fase/bolinha.png")
+        self.image = pygame.image.load("Imagens/Primeira Fase/ensino.png")
         self.rect = self.image.get_rect()
         self.rect.x = random.randint(100,400)
         self.rect.y = random.randint(100,400)
@@ -109,7 +109,7 @@ class Bolinha1(pygame.sprite.Sprite): #ensino
 class Bolinha2(pygame.sprite.Sprite): #pesquisa
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load("Imagens/Primeira Fase/bolinha.png")
+        self.image = pygame.image.load("Imagens/Primeira Fase/pesquisa.png")
         self.rect = self.image.get_rect()
         self.rect.x = random.randint(100,400)
         self.rect.y = random.randint(100,400)
@@ -121,7 +121,7 @@ class Bolinha2(pygame.sprite.Sprite): #pesquisa
 class Bolinha3(pygame.sprite.Sprite): #extensão
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load("Imagens/Primeira Fase/bolinha.png")
+        self.image = pygame.image.load("Imagens/Primeira Fase/extensão.png")
         self.rect = self.image.get_rect()
         self.rect.x = random.randint(100,400)
         self.rect.y = random.randint(100,400)
@@ -174,6 +174,22 @@ class GameOver(pygame.sprite.Sprite):
         self.rect.top = 0
         self.rect.left = 800
 
+class Transicao(pygame.sprite.Sprite):
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load("Imagens/Primeira Fase/transição.png")
+        self.rect = self.image.get_rect()
+        self.rect.top = 0
+        self.rect.left = 800
+
+class Botaot(pygame.sprite.Sprite):
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load("Imagens/Primeira Fase/playtransição.png")
+        self.rect = self.image.get_rect()
+        self.rect.top = 0
+        self.rect.left = 800
+
 #grupos 
 
 plataformas = pygame.sprite.Group()
@@ -184,6 +200,7 @@ iconegrupo = pygame.sprite.Group()
 gameovergrupo = pygame.sprite.Group()
 fundoinicialgrupo = pygame.sprite.Group()
 personagemgrupo = pygame.sprite.Group()
+transicaogrupo = pygame.sprite.Group()
 
 
 #CORES
@@ -202,6 +219,12 @@ personagem2= Personagem2()
 all_sprites.add(personagem2)
 selecao= Selecao()
 all_sprites.add(selecao)
+
+transição = Transicao()
+transicaogrupo.add(transição)
+
+botaot = Botaot()
+transicaogrupo.add(botaot)
 
 
 ensino= Bolinha1()
