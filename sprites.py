@@ -97,7 +97,7 @@ class Botaoplay(pygame.sprite.Sprite):
 class Bolinha1(pygame.sprite.Sprite): #ensino
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load("Imagens/Primeira Fase/bolinha.png")
+        self.image = pygame.image.load("Imagens/Primeira Fase/ensino.png")
         self.rect = self.image.get_rect()
         self.rect.x = random.randint(100,400)
         self.rect.y = random.randint(100,400)
@@ -109,7 +109,7 @@ class Bolinha1(pygame.sprite.Sprite): #ensino
 class Bolinha2(pygame.sprite.Sprite): #pesquisa
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load("Imagens/Primeira Fase/bolinha.png")
+        self.image = pygame.image.load("Imagens/Primeira Fase/pesquisa.png")
         self.rect = self.image.get_rect()
         self.rect.x = random.randint(100,400)
         self.rect.y = random.randint(100,400)
@@ -121,7 +121,7 @@ class Bolinha2(pygame.sprite.Sprite): #pesquisa
 class Bolinha3(pygame.sprite.Sprite): #extensão
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load("Imagens/Primeira Fase/bolinha.png")
+        self.image = pygame.image.load("Imagens/Primeira Fase/extensão.png")
         self.rect = self.image.get_rect()
         self.rect.x = random.randint(100,400)
         self.rect.y = random.randint(100,400)
