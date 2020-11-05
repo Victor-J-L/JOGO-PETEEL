@@ -29,11 +29,11 @@ class Personagem(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.image.load("Imagens/personagem/personagem1frente_min.png")
         self.rect = self.image.get_rect()
-        self.rect.center= (228, 720)
+        self.rect.center= (400,530)
         self.rect.top = 800
         self.rect.left = 228
         self.rect.right = 228
-        self.pos = vec(228, 720)
+        self.pos = vec(400,530)
         self.vel = vec(0, 0)
         self.acc = vec(0, 0)
 
@@ -158,6 +158,38 @@ class FundoInicial(pygame.sprite.Sprite):
         self.rect.top = 0
         self.rect.left = 0
 
+class BotaoGameOver(pygame.sprite.Sprite):
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load("Imagens/Game Over/botaogameover.png")
+        self.rect = self.image.get_rect()
+        self.rect.top = 330 
+        self.rect.left = 800
+
+class GameOver(pygame.sprite.Sprite):
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load("Imagens/Game Over/gameover.png")
+        self.rect = self.image.get_rect()
+        self.rect.top = 0
+        self.rect.left = 800
+
+class Transicao(pygame.sprite.Sprite):
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load("Imagens/Primeira Fase/transição.png")
+        self.rect = self.image.get_rect()
+        self.rect.top = 0
+        self.rect.left = 800
+
+class Botaot(pygame.sprite.Sprite):
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load("Imagens/Primeira Fase/playtransição.png")
+        self.rect = self.image.get_rect()
+        self.rect.top = 0
+        self.rect.left = 800
+
 #grupos 
 
 plataformas = pygame.sprite.Group()
@@ -165,6 +197,10 @@ all_sprites = pygame.sprite.Group()
 chao_sprite = pygame.sprite.Group()
 bolinhas = pygame.sprite.Group()
 iconegrupo = pygame.sprite.Group()
+gameovergrupo = pygame.sprite.Group()
+fundoinicialgrupo = pygame.sprite.Group()
+personagemgrupo = pygame.sprite.Group()
+transicaogrupo = pygame.sprite.Group()
 
 
 #CORES
@@ -176,13 +212,19 @@ all_sprites.add(pag_inicial)
 botaoplay= Botaoplay()
 all_sprites.add(botaoplay)
 personagem= Personagem()
-all_sprites.add(personagem)
+personagemgrupo.add(personagem)
 personagem1= Personagem1()
 all_sprites.add(personagem1)
 personagem2= Personagem2()
 all_sprites.add(personagem2)
 selecao= Selecao()
 all_sprites.add(selecao)
+
+transição = Transicao()
+transicaogrupo.add(transição)
+
+botaot = Botaot()
+transicaogrupo.add(botaot)
 
 
 ensino= Bolinha1()
@@ -202,7 +244,7 @@ iconegrupo.add(iconefinal)
 
 #Lista de Plataformas
 
-#Plataforma_lista = [(-15, 544), (250, 250), (10, 400), (10, 100), (235, -10), (0, 750)]
+Plataforma_lista = [(-15, 544), (250, 250), (10, 400), (10, 100), (235, -10), (0, 750)]
 
 p00 = Chao(0, 750)
 plataformas.add(p00)
@@ -219,8 +261,17 @@ plataformas.add(p2)
 p3 = Plataformas(10, 125)
 plataformas.add(p3)
 
-p4 = Plataformas(235, 0)
+p4 = Plataformas(235, -10)
 plataformas.add(p4)
+
+Plataforma_lista = [p00, p0, p1, p2, p3, p4]
 
 #Fundo Inicial
 fundoinicial=FundoInicial()
+fundoinicialgrupo.add(fundoinicial)
+
+#GameOver
+gameover = GameOver()
+gameovergrupo.add(gameover)
+botaogameover = BotaoGameOver()
+gameovergrupo.add(botaogameover)
