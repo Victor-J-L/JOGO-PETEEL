@@ -100,12 +100,12 @@ def main():
          # Scrolling
         if personagem.rect.top <= 250:
             personagem.pos.y += abs(personagem.vel.y)
-            ensino.pos.y += abs(ensino.vel.y)
-            pesquisa.pos.y += abs(pesquisa.vel.y)
-            extensao.pos.y += abs(extensao.vel.y)
+            ensino.rect.y += abs(personagem.vel.y)
+            pesquisa.rect.y += abs(personagem.vel.y)
+            extensao.rect.y += abs(personagem.vel.y)
             for plat in plataformas:
                 plat.rect.y += abs(personagem.vel.y)
-                if plat.rect.top >= 850:
+                if plat.rect.top >= 650:
                     plat.kill()
 
         # spawn new platforms to keep same average number
@@ -123,8 +123,6 @@ def main():
             fundoinicial.rect.left = 0
             for plat in plataformas: 
                 plat.kill()
-            p00 = Chao(0, 750)
-            plataformas.add(p00)
             p0 = Chao(-15, 544)
             plataformas.add(p0)
             p1 = Plataformas(250, 255)
