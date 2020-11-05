@@ -173,7 +173,6 @@ class GameOver(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.top = 0
         self.rect.left = 800
-
 class Transicao(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
@@ -189,7 +188,6 @@ class Botaot(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.top = 0
         self.rect.left = 800
-
 #grupos 
 
 plataformas = pygame.sprite.Group()
@@ -201,8 +199,6 @@ gameovergrupo = pygame.sprite.Group()
 fundoinicialgrupo = pygame.sprite.Group()
 personagemgrupo = pygame.sprite.Group()
 transicaogrupo = pygame.sprite.Group()
-
-
 #CORES
 cor_azul = (181,244,253)
 
@@ -219,13 +215,11 @@ personagem2= Personagem2()
 all_sprites.add(personagem2)
 selecao= Selecao()
 all_sprites.add(selecao)
-
 transição = Transicao()
 transicaogrupo.add(transição)
 
 botaot = Botaot()
 transicaogrupo.add(botaot)
-
 
 ensino= Bolinha1()
 #all_sprites.add(ensino)
@@ -243,12 +237,6 @@ iconegrupo.add(iconefinal)
 
 
 #Lista de Plataformas
-
-Plataforma_lista = [(-15, 544), (250, 250), (10, 400), (10, 100), (235, -10), (0, 750)]
-
-p00 = Chao(0, 750)
-plataformas.add(p00)
-
 p0 = Chao(-15, 544)
 plataformas.add(p0)
 
@@ -264,7 +252,7 @@ plataformas.add(p3)
 p4 = Plataformas(235, -10)
 plataformas.add(p4)
 
-Plataforma_lista = [p00, p0, p1, p2, p3, p4]
+Plataforma_lista = [p0, p1, p2, p3, p4]
 
 #Fundo Inicial
 fundoinicial=FundoInicial()
