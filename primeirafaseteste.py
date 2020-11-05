@@ -105,6 +105,7 @@ def main():
             ensino.rect.y += abs(personagem.vel.y)
             pesquisa.rect.y += abs(personagem.vel.y)
             extensao.rect.y += abs(personagem.vel.y)
+            iconefinal.rect.y += abs(personagem.vel.y)
             for plat in plataformas:
                 plat.rect.y += abs(personagem.vel.y)
                 if plat.rect.top >= 650:
@@ -150,8 +151,8 @@ def main():
         #Desenhar
         tela.blit(fundo, (0,0))
         plataformas.draw(tela)
-        iconegrupo.draw(tela)
         bolinhas.draw(tela)
+        iconegrupo.draw(tela)
         personagemgrupo.draw(tela)
         fundoinicialgrupo.draw(tela)
         all_sprites.draw(tela)
