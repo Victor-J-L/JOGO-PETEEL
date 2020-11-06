@@ -230,13 +230,10 @@ botaot = Botaot()
 transicaogrupo.add(botaot)
 
 ensino= Bolinha1()
-#all_sprites.add(ensino)
 bolinhas.add(ensino)
 pesquisa = Bolinha2()
-#all_sprites.add(pesquisa)
 bolinhas.add(pesquisa)
 extensao = Bolinha3()
-#all_sprites.add(extensao)
 bolinhas.add(extensao)
 
 
