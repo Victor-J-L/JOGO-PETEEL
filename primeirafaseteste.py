@@ -128,7 +128,8 @@ def main():
             fundoinicial.rect.left = 0
             for plat in plataformas: 
                 plat.kill()   
-            iconegrupo.kill()
+            for ic in iconegrupo:
+                ic.kill() 
             p0 = Chao(-15, 544)
             plataformas.add(p0)
             p1 = Plataformas(250, 255)
@@ -139,14 +140,16 @@ def main():
             plataformas.add(p3)
             p4 = Plataformas(235, -10)
             plataformas.add(p4)
+            """pfinal = PlataformaFinal()
+            plataformas.add(pfinal)"""
             ensino= Bolinha1()
             bolinhas.add(ensino)
             pesquisa = Bolinha2()
             bolinhas.add(pesquisa)
             extensao = Bolinha3()
             bolinhas.add(extensao)
-            iconefinal= Iconefinal()
-            iconegrupo.add(iconefinal)
+            '''iconefinal= Iconefinal()
+            iconegrupo.add(iconefinal)'''
         if xmouse >= botaogameover.rect.left and xmouse <= botaogameover.rect.right and ymouse <= botaogameover.rect.bottom and ymouse >= botaogameover.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 pag_inicial.rect.left= -16
