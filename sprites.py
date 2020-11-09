@@ -76,6 +76,14 @@ class Plataformas(pygame.sprite.Sprite):
         self.rect.left = x
         self.rect.top = y
 
+class PlataformaFinal(pygame.sprite.Sprite):
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load("Imagens/Primeira Fase/plataformafinal.png")
+        self.rect = self.image.get_rect()
+        self.rect.left = 5
+        self.rect.top = -2400
+
 class Paginainicial(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
@@ -137,8 +145,8 @@ class Iconefinal(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.image.load("Imagens/Primeira Fase/iconefinal.png")
         self.rect = self.image.get_rect()
-        self.rect.x = random.uniform(100,400)
-        self.rect.y = random.uniform(-1700,-2000)
+        self.rect.x = 50
+        self.rect.y =  -2505
 
 cor_azul = (181,244,253)
 
@@ -222,13 +230,10 @@ botaot = Botaot()
 transicaogrupo.add(botaot)
 
 ensino= Bolinha1()
-#all_sprites.add(ensino)
 bolinhas.add(ensino)
 pesquisa = Bolinha2()
-#all_sprites.add(pesquisa)
 bolinhas.add(pesquisa)
 extensao = Bolinha3()
-#all_sprites.add(extensao)
 bolinhas.add(extensao)
 
 
@@ -251,6 +256,9 @@ plataformas.add(p3)
 
 p4 = Plataformas(235, -10)
 plataformas.add(p4)
+
+pfinal = PlataformaFinal()
+plataformas.add(pfinal)
 
 Plataforma_lista = [p0, p1, p2, p3, p4]
 

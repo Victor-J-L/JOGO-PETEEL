@@ -102,20 +102,22 @@ def main():
          # Scrolling
         if personagem.rect.top <= 250:
             personagem.pos.y += abs(personagem.vel.y)
-            ensino.rect.y += abs(personagem.vel.y)
-            pesquisa.rect.y += abs(personagem.vel.y)
-            extensao.rect.y += abs(personagem.vel.y)
-            iconefinal.rect.y += abs(personagem.vel.y)
+            for bol in bolinhas:
+                bol.rect.y += abs(personagem.vel.y)
+            for ic in iconegrupo:
+                ic.rect.y += abs(personagem.vel.y)
             for plat in plataformas:
                 plat.rect.y += abs(personagem.vel.y)
                 if plat.rect.top >= 650:
                     plat.kill()
 
         # spawn new platforms to keep same average number
-        while len(plataformas) < 6:
-            p = Plataformas(random.randrange(5, 300),
-                         random.randrange(-90, -88))
-            plataformas.add(p)
+        if pfinal.rect.top <-100:
+            while len(plataformas) < 6:
+                p = Plataformas(random.randrange(5, 300),
+                            random.randrange(-90, -88))
+                plataformas.add(p)
+
 
         #Game Over
 
@@ -125,7 +127,9 @@ def main():
             botaogameover.rect.left = 199.62
             fundoinicial.rect.left = 0
             for plat in plataformas: 
-                plat.kill()
+                plat.kill()   
+            for ic in iconegrupo:
+                ic.kill() 
             p0 = Chao(-15, 544)
             plataformas.add(p0)
             p1 = Plataformas(250, 255)
@@ -136,6 +140,16 @@ def main():
             plataformas.add(p3)
             p4 = Plataformas(235, -10)
             plataformas.add(p4)
+            """pfinal = PlataformaFinal()
+            plataformas.add(pfinal)"""
+            ensino= Bolinha1()
+            bolinhas.add(ensino)
+            pesquisa = Bolinha2()
+            bolinhas.add(pesquisa)
+            extensao = Bolinha3()
+            bolinhas.add(extensao)
+            '''iconefinal= Iconefinal()
+            iconegrupo.add(iconefinal)'''
         if xmouse >= botaogameover.rect.left and xmouse <= botaogameover.rect.right and ymouse <= botaogameover.rect.bottom and ymouse >= botaogameover.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 pag_inicial.rect.left= -16
