@@ -203,7 +203,7 @@ def main():
         if personagem.rect.top > 650:
             personagem.pos = vec(400,530)
             gameover.rect.left = 0
-            botaogameover.rect.left = 199.62
+            botaogameover.rect.left = 182.985 
             fundoinicial.rect.left = 0
             for plat in plataformas: 
                 plat.kill()   
