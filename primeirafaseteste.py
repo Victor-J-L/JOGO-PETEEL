@@ -75,7 +75,7 @@ def main():
         personagem.rect.midbottom = personagem.pos
 
         #colisao
-
+    
         if personagem.vel.y > 0.9:
             colisao_plataforma = pygame.sprite.spritecollide(personagem, plataformas, False)
             if colisao_plataforma:
@@ -84,11 +84,16 @@ def main():
 
         colisao_bolinhas = pygame.sprite.spritecollide(personagem, bolinhas, True)
         colisao_valores = pygame.sprite.spritecollide(personagem, valoresgrupo, True)
-        colisao_icone = pygame.sprite.spritecollide(personagem, iconegrupo, False)
-        if colisao_icone:
+        colisao_icone1 = pygame.sprite.spritecollide(personagem, iconegrupo, False)
+        if colisao_icone1:
             transição1.rect.left = 0
             botaot.rect.left = 325
             botaot.rect.top = 585
+
+        colisao_icone2 = pygame.sprite.spritecollide(personagem, iconef2grupo, False)
+        if colisao_icone2:
+            transição2.rect.left = 0
+
 
         #pulo
         if event.type == pygame.KEYDOWN:
@@ -223,6 +228,7 @@ def main():
         transicaogrupo.draw(tela)
         valoresgrupo.draw(tela)
         iconef2grupo.draw(tela)
+        transicao2grupo.draw(tela)
     
 
         #Updates

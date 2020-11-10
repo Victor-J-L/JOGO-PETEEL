@@ -195,6 +195,14 @@ class Transicao(pygame.sprite.Sprite):
         self.rect.top = 0
         self.rect.left = 800
 
+class Transicao2(pygame.sprite.Sprite):
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load("Imagens/Segunda Fase/transiçãof2.png")
+        self.rect = self.image.get_rect()
+        self.rect.top = 0
+        self.rect.left = 800
+
 class Botaot(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
@@ -271,6 +279,7 @@ personagemgrupo = pygame.sprite.Group()
 transicaogrupo = pygame.sprite.Group()
 valoresgrupo = pygame.sprite.Group()
 iconef2grupo = pygame.sprite.Group()
+transicao2grupo = pygame.sprite.Group()
 
 
 #CORES
@@ -304,7 +313,6 @@ bolinhas.add(pesquisa)
 extensao = Bolinha3()
 bolinhas.add(extensao)
 
-
 iconefinal= Iconefinal()
 iconegrupo.add(iconefinal)
 
@@ -323,6 +331,10 @@ valoresgrupo.add(brio)
 
 iconef2 = Icone2()
 iconef2grupo.add(iconef2)
+
+transição2 = Transicao2()
+transicao2grupo.add(transição2)
+
 
 #Lista de Plataformas
 p0 = Chao(-15, 544)
