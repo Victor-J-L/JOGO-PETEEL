@@ -269,6 +269,7 @@ class Valoruniao(pygame.sprite.Sprite):
 #grupos 
 
 plataformas = pygame.sprite.Group()
+platfinal = pygame.sprite.Group()
 all_sprites = pygame.sprite.Group()
 chao_sprite = pygame.sprite.Group()
 bolinhas = pygame.sprite.Group()
@@ -352,8 +353,8 @@ plataformas.add(p3)
 p4 = Plataformas(235, -10)
 plataformas.add(p4)
 
-pfinal = PlataformaFinal()
-plataformas.add(pfinal)
+pfinal1 = PlataformaFinal()
+platfinal.add(pfinal1)
 
 Plataforma_lista = [p0, p1, p2, p3, p4]
 

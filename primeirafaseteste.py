@@ -82,6 +82,12 @@ def main():
                 personagem.pos.y = colisao_plataforma[0].rect.top
                 personagem.vel.y = 0
 
+        if personagem.vel.y > 0.9:
+            colisao_platfinal = pygame.sprite.spritecollide(personagem, platfinal, False)
+            if colisao_platfinal:
+                personagem.pos.y = colisao_platfinal[0].rect.top
+                personagem.vel.y = 0
+
         colisao_bolinhas = pygame.sprite.spritecollide(personagem, bolinhas, True)
         colisao_valores = pygame.sprite.spritecollide(personagem, valoresgrupo, True)
         colisao_icone1 = pygame.sprite.spritecollide(personagem, iconegrupo, False)
@@ -116,13 +122,15 @@ def main():
                 ic2.rect.y += abs(personagem.vel.y) 
             for ic in iconegrupo:
                 ic.rect.y += abs(personagem.vel.y)
+            for platfin in platfinal:
+                platfin.rect.y += abs(personagem.vel.y)
             for plat in plataformas:
                 plat.rect.y += abs(personagem.vel.y)
                 if plat.rect.top >= 650:
                     plat.kill()
 
         # spawn new platforms to keep same average number
-        if pfinal.rect.top <-100:
+        if pfinal1.rect.top <-100:
             while len(plataformas) < 6:
                 p = Plataformas(random.randrange(5, 300),
                             random.randrange(-90, -88))
@@ -132,9 +140,11 @@ def main():
 
         if xmouse >= botaot.rect.left and xmouse <= botaot.rect.right and ymouse <= botaot.rect.bottom and ymouse >= botaot.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN:
+                personagem.pos = vec(400,530)
                 transição1.rect.left= 800
                 botaot.rect.right = 800
                 iconefinal.rect.x = 800
+                pfinal1.rect.top = -2400
                 fundo = pygame.image.load("Imagens/Segunda Fase/fundo2.png")
                 Plataformas.image = pygame.image.load("Imagens/Segunda Fase/plataforma2.png")
                 for plat in plataformas: 
@@ -149,8 +159,7 @@ def main():
                 plataformas.add(p3)
                 p4 = Plataformas(235, -10)
                 plataformas.add(p4)
-                iconefinal.rect.y = -2505
-                pfinal.rect.top = -2400
+                
 
                 brio.rect.x = random.uniform(100,400)
                 brio.rect.y = random.uniform(-400,-100)
@@ -200,7 +209,7 @@ def main():
             extensao = Bolinha3()
             bolinhas.add(extensao)
             iconefinal.rect.y = -2505
-            pfinal.rect.top = -2400
+            pfinal1.rect.top = -2400
 
         if xmouse >= botaogameover.rect.left and xmouse <= botaogameover.rect.right and ymouse <= botaogameover.rect.bottom and ymouse >= botaogameover.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN:
@@ -219,6 +228,7 @@ def main():
         plataformas.draw(tela)
         bolinhas.draw(tela)
         iconegrupo.draw(tela)
+        platfinal.draw(tela)
         personagemgrupo.draw(tela)
         fundoinicialgrupo.draw(tela)
         all_sprites.draw(tela)
