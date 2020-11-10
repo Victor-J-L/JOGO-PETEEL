@@ -129,12 +129,18 @@ def main():
                 if plat.rect.top >= 650:
                     plat.kill()
 
-        # spawn new platforms to keep same average number
+        # Spawn novas plat fase 1
         if pfinal1.rect.top <-100:
             while len(plataformas) < 6:
-                p = Plataformas(random.randrange(5, 300),
-                            random.randrange(-90, -88))
-                plataformas.add(p)
+                if iconefinal.rect.x >= 0 and iconefinal.rect.x <= 500: 
+                    p = Plataformas(random.randrange(5, 300),
+                                random.randrange(-90, -88), "Imagens/Primeira Fase/plataforma1.png")
+                    plataformas.add(p)
+                if iconef2.rect.x >= 0 and iconef2.rect.x <= 500: 
+                    p = Plataformas(random.randrange(5, 300),
+                                    random.randrange(-90, -88), "Imagens/Segunda Fase/plataforma2.png")
+                    plataformas.add(p)
+        
 
         #Fase 2
 
@@ -151,14 +157,17 @@ def main():
                     plat.kill()   
                 p0 = Chao(-15, 544)
                 plataformas.add(p0)
-                p1 = Plataformas(250, 255)
+                p1 = Plataformas(250, 255, "Imagens/Segunda Fase/plataforma2.png")
                 plataformas.add(p1)
-                p2 = Plataformas(10, 395)
+                p2 = Plataformas(10, 395, "Imagens/Segunda Fase/plataforma2.png")
                 plataformas.add(p2)
-                p3 = Plataformas(10, 125)
+                p3 = Plataformas(10, 125, "Imagens/Segunda Fase/plataforma2.png")
                 plataformas.add(p3)
-                p4 = Plataformas(235, -10)
+                p4 = Plataformas(235, -10, "Imagens/Segunda Fase/plataforma2.png")
                 plataformas.add(p4)
+
+                p = Plataformas(random.randrange(5, 300),
+                            random.randrange(-90, -88), "Imagens/Segunda Fase/plataforma2.png")
                 
 
                 brio.rect.x = random.uniform(100,400)
@@ -179,6 +188,8 @@ def main():
                 iconef2.rect.x = 50
                 iconef2.rect.y = -2505
 
+            
+
 
 
 
@@ -194,13 +205,13 @@ def main():
                 plat.kill()   
             p0 = Chao(-15, 544)
             plataformas.add(p0)
-            p1 = Plataformas(250, 255)
+            p1 = Plataformas(250, 255, "Imagens/Primeira Fase/plataforma1.png")
             plataformas.add(p1)
-            p2 = Plataformas(10, 395)
+            p2 = Plataformas(10, 395, "Imagens/Primeira Fase/plataforma1.png")
             plataformas.add(p2)
-            p3 = Plataformas(10, 125)
+            p3 = Plataformas(10, 125, "Imagens/Primeira Fase/plataforma1.png")
             plataformas.add(p3)
-            p4 = Plataformas(235, -10)
+            p4 = Plataformas(235, -10, "Imagens/Primeira Fase/plataforma1.png")
             plataformas.add(p4)
             ensino= Bolinha1()
             bolinhas.add(ensino)

@@ -69,17 +69,17 @@ class Selecao(pygame.sprite.Sprite):
         self.rect.right = 800
 
 class Plataformas(pygame.sprite.Sprite):
-    def __init__(self, x, y):
+    def __init__(self, x, y, image):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load("Imagens/Primeira Fase/plataforma1.png")
+        self.image = pygame.image.load(image)
         self.rect = self.image.get_rect()
         self.rect.left = x
         self.rect.top = y
 
 class PlataformaFinal(pygame.sprite.Sprite):
-    def __init__(self):
+    def __init__(self, image):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load("Imagens/Primeira Fase/plataformafinal.png")
+        self.image = pygame.image.load(image)
         self.rect = self.image.get_rect()
         self.rect.left = 5
         self.rect.top = -2400
@@ -341,19 +341,19 @@ transicao2grupo.add(transição2)
 p0 = Chao(-15, 544)
 plataformas.add(p0)
 
-p1 = Plataformas(250, 255)
+p1 = Plataformas(250, 255, "Imagens/Primeira Fase/plataforma1.png")
 plataformas.add(p1)
 
-p2 = Plataformas(10, 395)
+p2 = Plataformas(10, 395, "Imagens/Primeira Fase/plataforma1.png")
 plataformas.add(p2)
 
-p3 = Plataformas(10, 125)
+p3 = Plataformas(10, 125, "Imagens/Primeira Fase/plataforma1.png")
 plataformas.add(p3)
 
-p4 = Plataformas(235, -10)
+p4 = Plataformas(235, -10, "Imagens/Primeira Fase/plataforma1.png")
 plataformas.add(p4)
 
-pfinal1 = PlataformaFinal()
+pfinal1 = PlataformaFinal("Imagens/Primeira Fase/plataformafinal.png")
 platfinal.add(pfinal1)
 
 Plataforma_lista = [p0, p1, p2, p3, p4]
