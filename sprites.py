@@ -77,12 +77,12 @@ class Plataformas(pygame.sprite.Sprite):
         self.rect.top = y
 
 class PlataformaFinal(pygame.sprite.Sprite):
-    def __init__(self, image):
+    def __init__(self, x, y, image):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.image.load(image)
         self.rect = self.image.get_rect()
-        self.rect.left = 5
-        self.rect.top = -2400
+        self.rect.left = x
+        self.rect.top = y
 
 class Paginainicial(pygame.sprite.Sprite):
     def __init__(self):
@@ -353,8 +353,13 @@ plataformas.add(p3)
 p4 = Plataformas(235, -10, "Imagens/Primeira Fase/plataforma1.png")
 plataformas.add(p4)
 
-pfinal1 = PlataformaFinal("Imagens/Primeira Fase/plataformafinal.png")
+pfinal1 = PlataformaFinal(5, -2400, "Imagens/Primeira Fase/plataformafinal.png")
 platfinal.add(pfinal1)
+
+pfinal2 = PlataformaFinal(800, -2400, "Imagens/Segunda Fase/plataformafinal2.png")
+platfinal.add(pfinal2)
+
+
 
 Plataforma_lista = [p0, p1, p2, p3, p4]
 

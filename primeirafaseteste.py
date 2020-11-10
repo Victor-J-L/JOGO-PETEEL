@@ -136,6 +136,8 @@ def main():
                     p = Plataformas(random.randrange(5, 300),
                                 random.randrange(-90, -88), "Imagens/Primeira Fase/plataforma1.png")
                     plataformas.add(p)
+        if pfinal2.rect.top <-100 and pfinal2.rect.left <= 10:
+            while len(plataformas) < 6:
                 if iconef2.rect.x >= 0 and iconef2.rect.x <= 500: 
                     p = Plataformas(random.randrange(5, 300),
                                     random.randrange(-90, -88), "Imagens/Segunda Fase/plataforma2.png")
@@ -150,7 +152,9 @@ def main():
                 transição1.rect.left= 800
                 botaot.rect.right = 800
                 iconefinal.rect.x = 800
-                pfinal1.rect.top = -2400
+                pfinal1.rect.left = 800
+                pfinal2.rect.left = 5
+                pfinal2.rect.top = -2400
                 fundo = pygame.image.load("Imagens/Segunda Fase/fundo2.png")
                 Plataformas.image = pygame.image.load("Imagens/Segunda Fase/plataforma2.png")
                 for plat in plataformas: 
