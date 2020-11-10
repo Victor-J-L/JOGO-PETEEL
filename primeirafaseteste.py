@@ -107,6 +107,8 @@ def main():
                 bol.rect.y += abs(personagem.vel.y)
             for val in valoresgrupo:
                 val.rect.y += abs(personagem.vel.y)
+            for ic2 in iconef2grupo:
+                ic2.rect.y += abs(personagem.vel.y) 
             for ic in iconegrupo:
                 ic.rect.y += abs(personagem.vel.y)
             for plat in plataformas:
@@ -159,6 +161,9 @@ def main():
 
                 comprometimento.rect.x = random.uniform(100,400)
                 comprometimento.rect.y = random.uniform(-2200, -2500)
+
+                iconef2.rect.x = 50
+                iconef2.rect.y = -2505
 
 
 
@@ -217,6 +222,7 @@ def main():
         gameovergrupo.draw(tela)
         transicaogrupo.draw(tela)
         valoresgrupo.draw(tela)
+        iconef2grupo.draw(tela)
     
 
         #Updates

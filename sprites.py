@@ -146,6 +146,14 @@ class Iconefinal(pygame.sprite.Sprite):
         self.rect.x = 50
         self.rect.y =  -2505
 
+class Icone2(pygame.sprite.Sprite):
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load("Imagens/Primeira Fase/iconefinal.png")
+        self.rect = self.image.get_rect()
+        self.rect.x = 1000
+        self.rect.y =  -2505
+
 cor_azul = (181,244,253)
 
 class Chao(pygame.sprite.Sprite):
@@ -262,6 +270,7 @@ fundoinicialgrupo = pygame.sprite.Group()
 personagemgrupo = pygame.sprite.Group()
 transicaogrupo = pygame.sprite.Group()
 valoresgrupo = pygame.sprite.Group()
+iconef2grupo = pygame.sprite.Group()
 
 
 #CORES
@@ -299,7 +308,7 @@ bolinhas.add(extensao)
 iconefinal= Iconefinal()
 iconegrupo.add(iconefinal)
 
-#bolinhas segunda fase
+#segunda fase
 
 humildade = Valorhumil()
 valoresgrupo.add(humildade)
@@ -311,6 +320,9 @@ capacitacao = Valorcapaci()
 valoresgrupo.add(capacitacao)
 brio = Valorbrio()
 valoresgrupo.add(brio)
+
+iconef2 = Icone2()
+iconef2grupo.add(iconef2)
 
 #Lista de Plataformas
 p0 = Chao(-15, 544)
