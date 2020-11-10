@@ -83,6 +83,7 @@ def main():
                 personagem.vel.y = 0
 
         colisao_bolinhas = pygame.sprite.spritecollide(personagem, bolinhas, True)
+        colisao_valores = pygame.sprite.spritecollide(personagem, valoresgrupo, True)
         colisao_icone = pygame.sprite.spritecollide(personagem, iconegrupo, False)
         if colisao_icone:
             transição1.rect.left = 0
@@ -104,6 +105,8 @@ def main():
             personagem.pos.y += abs(personagem.vel.y)
             for bol in bolinhas:
                 bol.rect.y += abs(personagem.vel.y)
+            for val in valoresgrupo:
+                val.rect.y += abs(personagem.vel.y)
             for ic in iconegrupo:
                 ic.rect.y += abs(personagem.vel.y)
             for plat in plataformas:
@@ -141,6 +144,24 @@ def main():
                 plataformas.add(p4)
                 iconefinal.rect.y = -2505
                 pfinal.rect.top = -2400
+
+                brio.rect.x = random.uniform(100,400)
+                brio.rect.y = random.uniform(-400,-100)
+
+                capacitacao.rect.x = random.uniform(100, 400)
+                capacitacao.rect.y = random.uniform(-600, -1000)
+
+                humildade.rect.x = random.uniform(100,400)
+                humildade.rect.y = random.uniform(-1200,-1500)
+
+                uniao.rect.x = random.uniform(100,400)
+                uniao.rect.y = random.uniform(-1700, -2000)
+
+                comprometimento.rect.x = random.uniform(100,400)
+                comprometimento.rect.y = random.uniform(-2200, -2500)
+
+
+
 
 
         #Game Over
@@ -195,6 +216,7 @@ def main():
         all_sprites.draw(tela)
         gameovergrupo.draw(tela)
         transicaogrupo.draw(tela)
+        valoresgrupo.draw(tela)
     
 
         #Updates

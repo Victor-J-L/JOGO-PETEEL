@@ -200,7 +200,7 @@ class Valorbrio(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.image.load("Imagens/Segunda Fase/brio.png")
         self.rect = self.image.get_rect()
-        self.rect.x = random.uniform(100,400)
+        self.rect.x = 1000
         self.rect.y = random.uniform(-400,-100)
         self.pos = vec(228, 720)
         self.vel = vec(0, 0)
@@ -211,7 +211,7 @@ class Valorcapaci(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.image.load("Imagens/Segunda Fase/capacitação.png")
         self.rect = self.image.get_rect()
-        self.rect.x = random.uniform(100,400)
+        self.rect.x = 1000
         self.rect.y = random.uniform(-400,-100)
         self.pos = vec(228, 720)
         self.vel = vec(0, 0)
@@ -222,7 +222,7 @@ class Valorhumil(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.image.load("Imagens/Segunda Fase/humildade.png")
         self.rect = self.image.get_rect()
-        self.rect.x = random.uniform(100,400)
+        self.rect.x = 1000
         self.rect.y = random.uniform(-400,-100)
         self.pos = vec(228, 720)
         self.vel = vec(0, 0)
@@ -233,7 +233,7 @@ class Valorcomprom(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.image.load("Imagens/Segunda Fase/comprometimento.png")
         self.rect = self.image.get_rect()
-        self.rect.x = random.uniform(100,400)
+        self.rect.x = 1000
         self.rect.y = random.uniform(-400,-100)
         self.pos = vec(228, 720)
         self.vel = vec(0, 0)
@@ -244,7 +244,7 @@ class Valoruniao(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.image.load("Imagens/Segunda Fase/UNIÃO.png")
         self.rect = self.image.get_rect()
-        self.rect.x = random.uniform(100,400)
+        self.rect.x = 1000
         self.rect.y = random.uniform(-400,-100)
         self.pos = vec(228, 720)
         self.vel = vec(0, 0)
