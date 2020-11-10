@@ -138,8 +138,6 @@ class Bolinha3(pygame.sprite.Sprite): #extensão
         self.vel = vec(0, 0)
         self.acc = vec(0, 0)
 
-#screen.blit(player.image, (x,y))
-
 class Iconefinal(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
@@ -196,6 +194,62 @@ class Botaot(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.top = 0
         self.rect.left = 800
+
+class Valorbrio(pygame.sprite.Sprite):
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load("Imagens/Segunda Fase/brio.png")
+        self.rect = self.image.get_rect()
+        self.rect.x = random.uniform(100,400)
+        self.rect.y = random.uniform(-400,-100)
+        self.pos = vec(228, 720)
+        self.vel = vec(0, 0)
+        self.acc = vec(0, 0)
+
+class Valorcapaci(pygame.sprite.Sprite):
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load("Imagens/Segunda Fase/capacitação.png")
+        self.rect = self.image.get_rect()
+        self.rect.x = random.uniform(100,400)
+        self.rect.y = random.uniform(-400,-100)
+        self.pos = vec(228, 720)
+        self.vel = vec(0, 0)
+        self.acc = vec(0, 0)
+
+class Valorhumil(pygame.sprite.Sprite):
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load("Imagens/Segunda Fase/humildade.png")
+        self.rect = self.image.get_rect()
+        self.rect.x = random.uniform(100,400)
+        self.rect.y = random.uniform(-400,-100)
+        self.pos = vec(228, 720)
+        self.vel = vec(0, 0)
+        self.acc = vec(0, 0)
+
+class Valorcomprom(pygame.sprite.Sprite):
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load("Imagens/Segunda Fase/comprometimento.png")
+        self.rect = self.image.get_rect()
+        self.rect.x = random.uniform(100,400)
+        self.rect.y = random.uniform(-400,-100)
+        self.pos = vec(228, 720)
+        self.vel = vec(0, 0)
+        self.acc = vec(0, 0)
+
+class Valoruniao(pygame.sprite.Sprite):
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load("Imagens/Segunda Fase/UNIÃO.png")
+        self.rect = self.image.get_rect()
+        self.rect.x = random.uniform(100,400)
+        self.rect.y = random.uniform(-400,-100)
+        self.pos = vec(228, 720)
+        self.vel = vec(0, 0)
+        self.acc = vec(0, 0)
+
 #grupos 
 
 plataformas = pygame.sprite.Group()
@@ -207,6 +261,9 @@ gameovergrupo = pygame.sprite.Group()
 fundoinicialgrupo = pygame.sprite.Group()
 personagemgrupo = pygame.sprite.Group()
 transicaogrupo = pygame.sprite.Group()
+valoresgrupo = pygame.sprite.Group()
+
+
 #CORES
 cor_azul = (181,244,253)
 
@@ -229,6 +286,8 @@ transicaogrupo.add(transição1)
 botaot = Botaot()
 transicaogrupo.add(botaot)
 
+#bolinhas primeira fase
+
 ensino= Bolinha1()
 bolinhas.add(ensino)
 pesquisa = Bolinha2()
@@ -240,6 +299,18 @@ bolinhas.add(extensao)
 iconefinal= Iconefinal()
 iconegrupo.add(iconefinal)
 
+#bolinhas segunda fase
+
+humildade = Valorhumil()
+valoresgrupo.add(humildade)
+uniao = Valoruniao()
+valoresgrupo.add(uniao)
+comprometimento = Valorcomprom()
+valoresgrupo.add(comprometimento)
+capacitacao = Valorcapaci()
+valoresgrupo.add(capacitacao)
+brio = Valorbrio()
+valoresgrupo.add(brio)
 
 #Lista de Plataformas
 p0 = Chao(-15, 544)
