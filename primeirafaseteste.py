@@ -196,9 +196,12 @@ def main():
 
         # fase 3
 
-        '''if if xmouse >= botaot2.rect.left and xmouse <= botaot2.rect.right and ymouse <= botaot2.rect.bottom and ymouse >= botaot2.rect.top:
-'''
-
+        if xmouse >= botaot2.rect.left and xmouse <= botaot2.rect.right and ymouse <= botaot2.rect.bottom and ymouse >= botaot2.rect.top:
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                personagem.pos = vec(400,530)
+                transição2.rect.left= 800
+                botaot2.rect.right = 800
+                iconef2.rect.x = 800
 
 
         #Game Over
