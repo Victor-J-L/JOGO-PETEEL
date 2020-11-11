@@ -131,12 +131,20 @@ def main():
                 if plat.rect.top >= 650:
                     plat.kill()
 
-        # spawn new platforms to keep same average number
+        # Spawn novas plat fase 1
         if pfinal1.rect.top <-100:
             while len(plataformas) < 6:
-                p = Plataformas(random.randrange(5, 300),
-                            random.randrange(-90, -88))
-                plataformas.add(p)
+                if iconefinal.rect.x >= 0 and iconefinal.rect.x <= 500: 
+                    p = Plataformas(random.randrange(5, 300),
+                                random.randrange(-90, -88), "Imagens/Primeira Fase/plataforma1.png")
+                    plataformas.add(p)
+        if pfinal2.rect.top <-100 and pfinal2.rect.left <= 10:
+            while len(plataformas) < 6:
+                if iconef2.rect.x >= 0 and iconef2.rect.x <= 500: 
+                    p = Plataformas(random.randrange(5, 300),
+                                    random.randrange(-90, -88), "Imagens/Segunda Fase/plataforma2.png")
+                    plataformas.add(p)
+        
 
         #Fase 2
 
@@ -146,21 +154,26 @@ def main():
                 transição1.rect.left= 800
                 botaot.rect.right = 800
                 iconefinal.rect.x = 800
-                pfinal1.rect.top = -2400
+                pfinal1.rect.left = 800
+                pfinal2.rect.left = 5
+                pfinal2.rect.top = -2400
                 fundo = pygame.image.load("Imagens/Segunda Fase/fundo2.png")
                 Plataformas.image = pygame.image.load("Imagens/Segunda Fase/plataforma2.png")
                 for plat in plataformas: 
                     plat.kill()   
                 p0 = Chao(-15, 544)
                 plataformas.add(p0)
-                p1 = Plataformas(250, 255)
+                p1 = Plataformas(250, 255, "Imagens/Segunda Fase/plataforma2.png")
                 plataformas.add(p1)
-                p2 = Plataformas(10, 395)
+                p2 = Plataformas(10, 395, "Imagens/Segunda Fase/plataforma2.png")
                 plataformas.add(p2)
-                p3 = Plataformas(10, 125)
+                p3 = Plataformas(10, 125, "Imagens/Segunda Fase/plataforma2.png")
                 plataformas.add(p3)
-                p4 = Plataformas(235, -10)
+                p4 = Plataformas(235, -10, "Imagens/Segunda Fase/plataforma2.png")
                 plataformas.add(p4)
+
+                p = Plataformas(random.randrange(5, 300),
+                            random.randrange(-90, -88), "Imagens/Segunda Fase/plataforma2.png")
                 
 
                 brio.rect.x = random.uniform(100,400)
@@ -193,19 +206,19 @@ def main():
         if personagem.rect.top > 650:
             personagem.pos = vec(400,530)
             gameover.rect.left = 0
-            botaogameover.rect.left = 199.62
+            botaogameover.rect.left = 182.985 
             fundoinicial.rect.left = 0
             for plat in plataformas: 
                 plat.kill()   
             p0 = Chao(-15, 544)
             plataformas.add(p0)
-            p1 = Plataformas(250, 255)
+            p1 = Plataformas(250, 255, "Imagens/Primeira Fase/plataforma1.png")
             plataformas.add(p1)
-            p2 = Plataformas(10, 395)
+            p2 = Plataformas(10, 395, "Imagens/Primeira Fase/plataforma1.png")
             plataformas.add(p2)
-            p3 = Plataformas(10, 125)
+            p3 = Plataformas(10, 125, "Imagens/Primeira Fase/plataforma1.png")
             plataformas.add(p3)
-            p4 = Plataformas(235, -10)
+            p4 = Plataformas(235, -10, "Imagens/Primeira Fase/plataforma1.png")
             plataformas.add(p4)
             ensino= Bolinha1()
             bolinhas.add(ensino)
