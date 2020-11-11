@@ -335,7 +335,8 @@ iconef2grupo.add(iconef2)
 
 transição2 = Transicao2()
 transicao2grupo.add(transição2)
-
+botaot2 = Botaot()
+transicao2grupo.add(botaot2)
 
 #Lista de Plataformas
 p0 = Chao(-15, 544)

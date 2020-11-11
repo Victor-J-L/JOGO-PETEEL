@@ -99,6 +99,8 @@ def main():
         colisao_icone2 = pygame.sprite.spritecollide(personagem, iconef2grupo, False)
         if colisao_icone2:
             transição2.rect.left = 0
+            botaot2.rect.left = 325
+            botaot2.rect.top = 585
 
 
         #pulo
@@ -179,7 +181,10 @@ def main():
                 iconef2.rect.x = 50
                 iconef2.rect.y = -2505
 
+        # fase 3
 
+        '''if if xmouse >= botaot2.rect.left and xmouse <= botaot2.rect.right and ymouse <= botaot2.rect.bottom and ymouse >= botaot2.rect.top:
+'''
 
 
 
