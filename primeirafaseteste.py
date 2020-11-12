@@ -35,6 +35,7 @@ def main():
                 personagem.rect = personagem.image.get_rect()
                 personagem.rect.midbottom = (800,800)
                 selecao.rect.right = 217
+                a = 1
 
         if xmouse >= personagem2.rect.left and xmouse <= personagem2.rect.right and ymouse <= personagem2.rect.bottom and ymouse >= personagem2.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN:
@@ -42,6 +43,7 @@ def main():
                 personagem.rect = personagem.image.get_rect()
                 personagem.rect.midbottom=(800,800)
                 selecao.rect.right = 412
+                a = 2
             
         if xmouse >= botaoplay.rect.left and xmouse <= botaoplay.rect.right and ymouse <= 351 and ymouse >= 295:
             if event.type == pygame.MOUSEBUTTONDOWN:
@@ -199,9 +201,26 @@ def main():
         if xmouse >= botaot2.rect.left and xmouse <= botaot2.rect.right and ymouse <= botaot2.rect.bottom and ymouse >= botaot2.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 personagem.pos = vec(400,530)
+                #if a == 1:
+                personagem.image = pygame.image.load("Imagens/personagem/personagem1minespaço.png")
+                #if a == 2:
+                #    personagem.image = pygame.image.load("Imagens/personagem/personagem2minespaço.png")
                 transição2.rect.left= 800
                 botaot2.rect.right = 800
                 iconef2.rect.x = 800
+                fundo = pygame.image.load("Imagens/Terceira Fase/fundo3.png")
+                for plat in plataformas: 
+                    plat.kill()   
+                p0 = Chao(-15, 544)
+                plataformas.add(p0)
+                p1 = Plataformas(250, 255, "Imagens/Segunda Fase/plataforma2.png")
+                plataformas.add(p1)
+                p2 = Plataformas(10, 395, "Imagens/Segunda Fase/plataforma2.png")
+                plataformas.add(p2)
+                p3 = Plataformas(10, 125, "Imagens/Segunda Fase/plataforma2.png")
+                plataformas.add(p3)
+                p4 = Plataformas(235, -10, "Imagens/Segunda Fase/plataforma2.png")
+                plataformas.add(p4)
 
 
         #Game Over

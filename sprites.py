@@ -154,8 +154,6 @@ class Icone2(pygame.sprite.Sprite):
         self.rect.x = 1000
         self.rect.y =  -2505
 
-cor_azul = (181,244,253)
-
 class Chao(pygame.sprite.Sprite):
     def __init__(self, x, y):
         pygame.sprite.Sprite.__init__(self)
@@ -266,6 +264,9 @@ class Valoruniao(pygame.sprite.Sprite):
         self.vel = vec(0, 0)
         self.acc = vec(0, 0)
 
+#Variaveis
+cor_azul = (181,244,253)
+a = 0
 #grupos 
 
 plataformas = pygame.sprite.Group()
