@@ -124,6 +124,8 @@ def main():
                 val.rect.y += abs(personagem.vel.y)
             for ic2 in iconef2grupo:
                 ic2.rect.y += abs(personagem.vel.y) 
+            for ic3 in iconef3grupo:
+                ic3.rect.y += abs(personagem.vel.y) 
             for ic in iconegrupo:
                 ic.rect.y += abs(personagem.vel.y)
             for platfin in platfinal:
@@ -208,6 +210,9 @@ def main():
                 transição2.rect.left= 800
                 botaot2.rect.right = 800
                 iconef2.rect.x = 800
+                pfinal2.rect.left = 800
+                #pfinal3.rect.left = 5
+                #pfinal3.rect.top = -2400
                 fundo = pygame.image.load("Imagens/Terceira Fase/fundo3.png")
                 for plat in plataformas: 
                     plat.kill()   
@@ -221,6 +226,9 @@ def main():
                 plataformas.add(p3)
                 p4 = Plataformas(235, -10, "Imagens/Segunda Fase/plataforma2.png")
                 plataformas.add(p4)
+
+                iconef3.rect.x = 50
+                iconef3.rect.y = -2505
 
 
         #Game Over
@@ -279,6 +287,7 @@ def main():
         valoresgrupo.draw(tela)
         iconef2grupo.draw(tela)
         transicao2grupo.draw(tela)
+        iconef3grupo.draw(tela)
     
 
         #Updates

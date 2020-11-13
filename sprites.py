@@ -282,6 +282,7 @@ transicaogrupo = pygame.sprite.Group()
 valoresgrupo = pygame.sprite.Group()
 iconef2grupo = pygame.sprite.Group()
 transicao2grupo = pygame.sprite.Group()
+iconef3grupo = pygame.sprite.Group()
 
 
 #CORES
@@ -338,6 +339,11 @@ transição2 = Transicao2()
 transicao2grupo.add(transição2)
 botaot2 = Botaot()
 transicao2grupo.add(botaot2)
+
+#terceira fase
+
+iconef3 = Icone2()
+iconef3grupo.add(iconef3)
 
 #Lista de Plataformas
 p0 = Chao(-15, 544)
