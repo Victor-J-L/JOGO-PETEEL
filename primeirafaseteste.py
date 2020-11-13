@@ -35,7 +35,6 @@ def main():
                 personagem.rect = personagem.image.get_rect()
                 personagem.rect.midbottom = (800,800)
                 selecao.rect.right = 217
-                a = 1
 
         if xmouse >= personagem2.rect.left and xmouse <= personagem2.rect.right and ymouse <= personagem2.rect.bottom and ymouse >= personagem2.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN:
@@ -43,7 +42,6 @@ def main():
                 personagem.rect = personagem.image.get_rect()
                 personagem.rect.midbottom=(800,800)
                 selecao.rect.right = 412
-                a = 2
             
         if xmouse >= botaoplay.rect.left and xmouse <= botaoplay.rect.right and ymouse <= 351 and ymouse >= 295:
             if event.type == pygame.MOUSEBUTTONDOWN:
@@ -203,10 +201,7 @@ def main():
         if xmouse >= botaot2.rect.left and xmouse <= botaot2.rect.right and ymouse <= botaot2.rect.bottom and ymouse >= botaot2.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 personagem.pos = vec(400,530)
-                #if a == 1:
                 personagem.image = pygame.image.load("Imagens/personagem/personagem1minespaço.png")
-                #if a == 2:
-                #    personagem.image = pygame.image.load("Imagens/personagem/personagem2minespaço.png")
                 transição2.rect.left= 800
                 botaot2.rect.right = 800
                 iconef2.rect.x = 800
@@ -229,6 +224,27 @@ def main():
 
                 iconef3.rect.x = 50
                 iconef3.rect.y = -2505
+
+                if 
+                    capacete.acc = vec(0, 1)
+                    keys = pygame.key.get_pressed()
+                    if keys[pygame.K_LEFT]:
+                        capacete.acc.x = -0.9
+
+                    if keys[pygame.K_RIGHT]:
+                        capacete.acc.x = 0.9
+
+                    capacete.acc.x += capacete.vel.x * (-0.12)
+                    capacete.vel += capacete.acc
+                    capacete.pos += capacete.vel + 0.5 * capacete.acc
+
+
+                    if capacete.pos.x > 500:
+                        capacete.pos.x = 0
+                    if capacete.pos.x < 0:
+                        capacete.pos.x = 500
+
+                    capacete.rect.midbottom = capacete.pos
 
 
         #Game Over

@@ -264,9 +264,18 @@ class Valoruniao(pygame.sprite.Sprite):
         self.vel = vec(0, 0)
         self.acc = vec(0, 0)
 
+class Capacete(pygame.sprite.Sprite):
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load("Imagens/Terceira Fase/cpaceteespacial.png")
+        self.rect = self.image.get_rect()
+        self.rect.center= (407,511.5)
+        self.pos = vec(407,511.5)
+        self.vel = vec(0, 0)
+        self.acc = vec(0, 0)
+
 #Variaveis
 cor_azul = (181,244,253)
-a = 0
 #grupos 
 
 plataformas = pygame.sprite.Group()
@@ -367,6 +376,9 @@ platfinal.add(pfinal1)
 pfinal2 = PlataformaFinal(800, -2400, "Imagens/Segunda Fase/plataformafinal2.png")
 platfinal.add(pfinal2)
 
+capacete = Capacete()
+all_sprites.add(capacete)
+
 
 
 Plataforma_lista = [p0, p1, p2, p3, p4]
@@ -380,3 +392,6 @@ gameover = GameOver()
 gameovergrupo.add(gameover)
 botaogameover = BotaoGameOver()
 gameovergrupo.add(botaogameover)
+
+self.rect.center= (407,511.5)
+self.pos = vec(407,511.5)
