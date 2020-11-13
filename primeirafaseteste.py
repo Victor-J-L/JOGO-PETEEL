@@ -102,6 +102,11 @@ def main():
             botaot2.rect.left = 325
             botaot2.rect.top = 585
 
+        colisao_icone3 = pygame.sprite.spritecollide(personagem, iconef3grupo, False)
+        if colisao_icone3:
+            transição3.rect.left = 0
+            botaot3.rect.left = 325
+            botaot3.rect.top = 585
 
         #pulo
         if event.type == pygame.KEYDOWN:
@@ -304,6 +309,7 @@ def main():
         iconef2grupo.draw(tela)
         transicao2grupo.draw(tela)
         iconef3grupo.draw(tela)
+        transicao3grupo.draw(tela)
     
 
         #Updates
