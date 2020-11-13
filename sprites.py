@@ -382,6 +382,9 @@ platfinal.add(pfinal1)
 pfinal2 = PlataformaFinal(800, -2400, "Imagens/Segunda Fase/plataformafinal2.png")
 platfinal.add(pfinal2)
 
+pfinal3 = PlataformaFinal(800, -2400, "Imagens/Terceira Fase/plataformafinal3.png")
+platfinal.add(pfinal3) 
+
 capacete = Capacete()
 all_sprites.add(capacete)
 
@@ -399,5 +402,5 @@ gameovergrupo.add(gameover)
 botaogameover = BotaoGameOver()
 gameovergrupo.add(botaogameover)
 
-self.rect.center= (407,511.5)
-self.pos = vec(407,511.5)
+#self.rect.center= (407,511.5)
+#self.pos = vec(407,511.5)

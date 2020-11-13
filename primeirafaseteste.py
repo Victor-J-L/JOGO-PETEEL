@@ -151,6 +151,12 @@ def main():
                     p = Plataformas(random.randrange(5, 300),
                                     random.randrange(-90, -88), "Imagens/Segunda Fase/plataforma2.png")
                     plataformas.add(p)
+        if pfinal3.rect.top <-100 and pfinal3.rect.left <= 10:
+            while len(plataformas) < 6:
+                if iconef3.rect.x >= 0 and iconef3.rect.x <= 500: 
+                    p = Plataformas(random.randrange(5, 300),
+                                    random.randrange(-90, -88), "Imagens/Terceira Fase/plataforma3.png")
+                    plataformas.add(p)
         
 
         #Fase 2
@@ -167,7 +173,9 @@ def main():
                 fundo = pygame.image.load("Imagens/Segunda Fase/fundo2.png")
                 Plataformas.image = pygame.image.load("Imagens/Segunda Fase/plataforma2.png")
                 for plat in plataformas: 
-                    plat.kill()   
+                    plat.kill()
+                for bol in bolinhas : 
+                    bol.kill()   
                 p0 = Chao(-15, 544)
                 plataformas.add(p0)
                 p1 = Plataformas(250, 255, "Imagens/Segunda Fase/plataforma2.png")
@@ -205,32 +213,34 @@ def main():
 
         if xmouse >= botaot2.rect.left and xmouse <= botaot2.rect.right and ymouse <= botaot2.rect.bottom and ymouse >= botaot2.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN:
-                personagem.pos = vec(400,530)
                 personagem.image = pygame.image.load("Imagens/personagem/personagem1minespaço.png")
+                personagem.pos = vec(400,530)
                 transição2.rect.left= 800
                 botaot2.rect.right = 800
                 iconef2.rect.x = 800
-                pfinal2.rect.left = 800
-                #pfinal3.rect.left = 5
-                #pfinal3.rect.top = -2400
-                fundo = pygame.image.load("Imagens/Terceira Fase/fundo3.png")
-                for plat in plataformas: 
-                    plat.kill()   
-                p0 = Chao(-15, 544)
-                plataformas.add(p0)
-                p1 = Plataformas(250, 255, "Imagens/Segunda Fase/plataforma2.png")
-                plataformas.add(p1)
-                p2 = Plataformas(10, 395, "Imagens/Segunda Fase/plataforma2.png")
-                plataformas.add(p2)
-                p3 = Plataformas(10, 125, "Imagens/Segunda Fase/plataforma2.png")
-                plataformas.add(p3)
-                p4 = Plataformas(235, -10, "Imagens/Segunda Fase/plataforma2.png")
-                plataformas.add(p4)
-
                 iconef3.rect.x = 50
                 iconef3.rect.y = -2505
+                pfinal2.rect.left = 800
+                pfinal3.rect.left = 5
+                pfinal3.rect.top = -2400
+                fundo = pygame.image.load("Imagens/Terceira Fase/fundo3.png")
+                for plat in plataformas: 
+                    plat.kill()
+                for val in valoresgrupo : 
+                    val.kill()      
+                p0 = Chao(-15, 544)
+                plataformas.add(p0)
+                p1 = Plataformas(250, 255, "Imagens/Terceira Fase/plataforma3.png")
+                plataformas.add(p1)
+                p2 = Plataformas(10, 395, "Imagens/Terceira Fase/plataforma3.png")
+                plataformas.add(p2)
+                p3 = Plataformas(10, 125, "Imagens/Terceira Fase/plataforma3.png")
+                plataformas.add(p3)
+                p4 = Plataformas(235, -10, "Imagens/Terceira Fase/plataforma3.png")
+                plataformas.add(p4)
 
-                if 
+
+                if iconef3.rect.x >= 0 and iconef3.rect.x <= 500: 
                     capacete.acc = vec(0, 1)
                     keys = pygame.key.get_pressed()
                     if keys[pygame.K_LEFT]:
