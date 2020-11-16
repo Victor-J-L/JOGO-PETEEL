@@ -108,6 +108,18 @@ def main():
             botaot3.rect.left = 325
             botaot3.rect.top = 585
 
+        colisao_inimigos3 = pygame.sprite.spritecollide(personagem, inimigos3grupo, False)
+        if colisao_inimigos3:
+            personagem.pos = vec(400,530)
+            gameover.rect.left = 0
+            botaogameover.rect.left = 182.985 
+            fundoinicial.rect.left = 0
+            for ini in inimigos3grupo:
+                ini.kill()
+            for plat in plataformas: 
+                plat.kill()   
+
+
         #pulo
         if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
