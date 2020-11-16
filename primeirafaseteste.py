@@ -81,30 +81,40 @@ def main():
         interromper.vel = vec(3,0)
         interromper.pos += interromper.vel + 0.5 * interromper.acc
         interromper.rect.midbottom = interromper.pos
+        if interromper.pos.x > 500:
+            interromper.pos.x = 0
 
         falarmal.acc = vec(-1, 0)
         #falarmal.acc.x += falarmal.vel.x * (-0.12)
         falarmal.vel = vec(-3,0)
         falarmal.pos += falarmal.vel - 0.5 * falarmal.acc
         falarmal.rect.midbottom = falarmal.pos
+        if falarmal.pos.x < 0:
+            falarmal.pos.x = 500
 
         gritar.acc = vec(1, 0)
         #gritar.acc.x += gritar.vel.x * (-0.12)
         gritar.vel = vec(3,0)
         gritar.pos += gritar.vel + 0.5 * gritar.acc
         gritar.rect.midbottom = gritar.pos
+        if gritar.pos.x > 500:
+            gritar.pos.x = 0
 
         desrespeitar.acc = vec(-1, 0)
         #desrespeitar.acc.x += desrespeitar.vel.x * (-0.12)
         desrespeitar.vel = vec(-3,0)
         desrespeitar.pos += desrespeitar.vel - 0.5 * desrespeitar.acc
         desrespeitar.rect.midbottom = desrespeitar.pos
+        if desrespeitar.pos.x < 0:
+            desrespeitar.pos.x = 500
 
         mentefechada.acc = vec(1, 0)
         #mentefechada.acc.x += mentefechada.vel.x * (-0.12)
         mentefechada.vel = vec(3,0)
         mentefechada.pos += mentefechada.vel + 0.5 * mentefechada.acc
         mentefechada.rect.midbottom = mentefechada.pos
+        if mentefechada.pos.x > 500:
+            mentefechada.pos.x = 0
 
         #colisao
     
@@ -270,11 +280,11 @@ def main():
                 pfinal3.rect.left = 5
                 pfinal3.rect.top = -2400
                 
-                interromper.pos.y = -200
+                interromper.pos.y = -100
                 falarmal.pos.y = -500
-                gritar.pos.y = -850
-                desrespeitar.pos.y = -1150
-                mentefechada.pos.y = -1400
+                gritar.pos.y = -900
+                desrespeitar.pos.y = -1300
+                mentefechada.pos.y = -1600
                 
                 fundo = pygame.image.load("Imagens/Terceira Fase/fundo3.png")
                 for plat in plataformas: 
@@ -292,17 +302,6 @@ def main():
                 p4 = Plataformas(235, -10, "Imagens/Terceira Fase/plataforma3.png")
                 plataformas.add(p4)
 
-                #codigo inimigo voltando
-                if interromper.pos.x > 500: #esse vai da esquerda pra direita
-                    interromper.pos.x = 0
-                if falarmal.pos.x < 0: #esse esquerda direita
-                    falarmal.pos.x = 500
-                if gritar.pos.x > 500: 
-                    gritar.pos.x = 0
-                if desrespeitar.pos.x < 0: 
-                    desrespeitar.pos.x = 500
-                if mentefechada.pos.x > 500: 
-                    mentefechada.pos.x = 0
 
                 personagem.rect.midbottom = personagem.pos
 
