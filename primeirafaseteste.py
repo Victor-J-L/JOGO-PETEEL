@@ -270,11 +270,11 @@ def main():
                 pfinal3.rect.left = 5
                 pfinal3.rect.top = -2400
                 
-                interromper.rect.y = -200
-                falarmal.rect.y = -500
-                gritar.rect.y = - -850
-                desrespeitar.rect.y = -1150
-                mentefechada.rect.y = -1400
+                interromper.pos.y = -200
+                falarmal.pos.y = -500
+                gritar.pos.y = -850
+                desrespeitar.pos.y = -1150
+                mentefechada.pos.y = -1400
                 
                 fundo = pygame.image.load("Imagens/Terceira Fase/fundo3.png")
                 for plat in plataformas: 
