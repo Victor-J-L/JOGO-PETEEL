@@ -129,6 +129,8 @@ def main():
                 ic2.rect.y += abs(personagem.vel.y) 
             for ic3 in iconef3grupo:
                 ic3.rect.y += abs(personagem.vel.y) 
+            for ini in inimigos3grupo:
+                ini.rect.y += abs(personagem.vel.y)
             for ic in iconegrupo:
                 ic.rect.y += abs(personagem.vel.y)
             for platfin in platfinal:
@@ -223,6 +225,13 @@ def main():
                 pfinal2.rect.left = 800
                 pfinal3.rect.left = 5
                 pfinal3.rect.top = -2400
+                
+                interromper.rect.y = -200
+                falarmal.rect.y = -500
+                gritar.rect.y = - -850
+                desrespeitar.rect.y = -1150
+                mentefechada.rect.y = -1400
+                
                 fundo = pygame.image.load("Imagens/Terceira Fase/fundo3.png")
                 for plat in plataformas: 
                     plat.kill()
@@ -239,6 +248,19 @@ def main():
                 p4 = Plataformas(235, -10, "Imagens/Terceira Fase/plataforma3.png")
                 plataformas.add(p4)
 
+                #codigo inimigo voltando
+                if interromper.rect.x > 500: #esse vai da esquerda pra direita
+                    interromper.rect.x = 0
+                if falarmal.rect.x < 0: #esse esquerda direita
+                    falarmal.rect.x = 500
+                if gritar.rect.x > 500: 
+                    gritar.rect.x = 0
+                if desrespeitar.rect.x < 0: 
+                    desrespeitar.rect.x = 500
+                if mentefechada.rect.x > 500: 
+                    mentefechada.rect.x = 0
+
+                personagem.rect.midbottom = personagem.pos
 
                 if iconef3.rect.x >= 0 and iconef3.rect.x <= 500: 
                     capacete.acc = vec(0, 1)
@@ -320,6 +342,7 @@ def main():
         transicao2grupo.draw(tela)
         iconef3grupo.draw(tela)
         transicao3grupo.draw(tela)
+        inimigos3grupo.draw(tela)
     
 
         #Updates

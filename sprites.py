@@ -274,6 +274,16 @@ class Capacete(pygame.sprite.Sprite):
         self.vel = vec(0, 0)
         self.acc = vec(0, 0)
 
+class Inimigos3(pygame.sprite.Sprite):
+    def __init__(self, x, y, image):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load(image)
+        self.rect = self.image.get_rect()
+        self.rect.left = x
+        self.rect.top = y
+        self.vel = vec(0, 0)
+        self.acc = vec(0, 0)
+
 #Variaveis
 cor_azul = (181,244,253)
 #grupos 
@@ -293,6 +303,7 @@ iconef2grupo = pygame.sprite.Group()
 transicao2grupo = pygame.sprite.Group()
 iconef3grupo = pygame.sprite.Group()
 transicao3grupo = pygame.sprite.Group()
+inimigos3grupo = pygame.sprite.Group()
 
 
 #CORES
@@ -359,6 +370,13 @@ iconef3 = Icone2()
 iconef3grupo.add(iconef3)
 botaot3 = Botaot()
 transicao3grupo.add(botaot3)
+
+interromper = Inimigos3(5, 2000, "Imagens/Segunda Fase/UNIÃO.png") #dai quando clica no botao muda o y pro lugar certo deles"
+falarmal = Inimigos3(450, 2000, "Imagens/Segunda Fase/UNIÃO.png")
+gritar = Inimigos3(5, 2000, "Imagens/Segunda Fase/UNIÃO.png")
+desrespeitar = Inimigos3(450, 2000, "Imagens/Segunda Fase/UNIÃO.png")
+mentefechada  = Inimigos3(5, 2000, "Imagens/Segunda Fase/UNIÃO.png")
+inimigos3grupo.add(interromper, falarmal, gritar, desrespeitar, mentefechada)
 
 #Lista de Plataformas
 p0 = Chao(-15, 544)
