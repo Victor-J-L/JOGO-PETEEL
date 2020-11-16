@@ -281,6 +281,7 @@ class Inimigos3(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.left = x
         self.rect.top = y
+        self.pos = vec(x,y)
         self.vel = vec(0, 0)
         self.acc = vec(0, 0)
 
@@ -371,11 +372,11 @@ iconef3grupo.add(iconef3)
 botaot3 = Botaot()
 transicao3grupo.add(botaot3)
 
-interromper = Inimigos3(5, 2000, "Imagens/Terceira Fase/interromper.png") #dai quando clica no botao muda o y pro lugar certo deles"
-falarmal = Inimigos3(450, 2000, "Imagens/Terceira Fase/falarmal.png")
-gritar = Inimigos3(5, 2000, "Imagens/Terceira Fase/gritar.png")
-desrespeitar = Inimigos3(450, 2000, "Imagens/Terceira Fase/desrespeitar.png")
-mentefechada  = Inimigos3(5, 2000, "Imagens/Terceira Fase/mentefechada.png")
+interromper = Inimigos3(5, 15, "Imagens/Terceira Fase/interromper.png") #dai quando clica no botao muda o y pro lugar certo deles"
+falarmal = Inimigos3(450, 50, "Imagens/Terceira Fase/falarmal.png")
+gritar = Inimigos3(5, 60, "Imagens/Terceira Fase/gritar.png")
+desrespeitar = Inimigos3(450, 70, "Imagens/Terceira Fase/desrespeitar.png")
+mentefechada  = Inimigos3(5, 80, "Imagens/Terceira Fase/mentefechada.png")
 inimigos3grupo.add(interromper, falarmal, gritar, desrespeitar, mentefechada)
 
 #Lista de Plataformas

@@ -74,6 +74,38 @@ def main():
 
         personagem.rect.midbottom = personagem.pos
 
+        #CODIGO MOVIMENTO INIMIGOS DA FASE 3
+
+        interromper.acc = vec(1, 0)
+        #interromper.acc.x += interromper.vel.x * (-0.12)
+        interromper.vel = vec(3,0)
+        interromper.pos += interromper.vel + 0.5 * interromper.acc
+        interromper.rect.midbottom = interromper.pos
+
+        falarmal.acc = vec(-1, 0)
+        #falarmal.acc.x += falarmal.vel.x * (-0.12)
+        falarmal.vel = vec(-3,0)
+        falarmal.pos += falarmal.vel - 0.5 * falarmal.acc
+        falarmal.rect.midbottom = falarmal.pos
+
+        gritar.acc = vec(1, 0)
+        #gritar.acc.x += gritar.vel.x * (-0.12)
+        gritar.vel = vec(3,0)
+        gritar.pos += gritar.vel + 0.5 * gritar.acc
+        gritar.rect.midbottom = gritar.pos
+
+        desrespeitar.acc = vec(-1, 0)
+        #desrespeitar.acc.x += desrespeitar.vel.x * (-0.12)
+        desrespeitar.vel = vec(-3,0)
+        desrespeitar.pos += desrespeitar.vel - 0.5 * desrespeitar.acc
+        desrespeitar.rect.midbottom = desrespeitar.pos
+
+        mentefechada.acc = vec(1, 0)
+        #mentefechada.acc.x += mentefechada.vel.x * (-0.12)
+        mentefechada.vel = vec(3,0)
+        mentefechada.pos += mentefechada.vel + 0.5 * mentefechada.acc
+        mentefechada.rect.midbottom = mentefechada.pos
+
         #colisao
     
         if personagem.vel.y > 0.9:
@@ -142,7 +174,7 @@ def main():
             for ic3 in iconef3grupo:
                 ic3.rect.y += abs(personagem.vel.y) 
             for ini in inimigos3grupo:
-                ini.rect.y += abs(personagem.vel.y)
+                ini.pos.y += abs(personagem.vel.y)
             for ic in iconegrupo:
                 ic.rect.y += abs(personagem.vel.y)
             for platfin in platfinal:
@@ -261,16 +293,16 @@ def main():
                 plataformas.add(p4)
 
                 #codigo inimigo voltando
-                if interromper.rect.x > 500: #esse vai da esquerda pra direita
-                    interromper.rect.x = 0
-                if falarmal.rect.x < 0: #esse esquerda direita
-                    falarmal.rect.x = 500
-                if gritar.rect.x > 500: 
-                    gritar.rect.x = 0
-                if desrespeitar.rect.x < 0: 
-                    desrespeitar.rect.x = 500
-                if mentefechada.rect.x > 500: 
-                    mentefechada.rect.x = 0
+                if interromper.pos.x > 500: #esse vai da esquerda pra direita
+                    interromper.pos.x = 0
+                if falarmal.pos.x < 0: #esse esquerda direita
+                    falarmal.pos.x = 500
+                if gritar.pos.x > 500: 
+                    gritar.pos.x = 0
+                if desrespeitar.pos.x < 0: 
+                    desrespeitar.pos.x = 500
+                if mentefechada.pos.x > 500: 
+                    mentefechada.pos.x = 0
 
                 personagem.rect.midbottom = personagem.pos
 
