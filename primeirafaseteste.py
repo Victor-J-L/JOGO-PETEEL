@@ -269,7 +269,7 @@ def main():
 
         if xmouse >= botaot2.rect.left and xmouse <= botaot2.rect.right and ymouse <= botaot2.rect.bottom and ymouse >= botaot2.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN:
-                personagem.image = pygame.image.load("Imagens/personagem/personagem1minespaço.png")
+                """personagem.image = pygame.image.load("Imagens/personagem/personagem1minespaço.png")"""
                 personagem.pos = vec(400,530)
                 transição2.rect.left= 800
                 botaot2.rect.right = 800

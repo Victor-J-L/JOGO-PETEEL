@@ -405,7 +405,7 @@ pfinal3 = PlataformaFinal(800, -2400, "Imagens/Terceira Fase/plataformafinal3.pn
 platfinal.add(pfinal3) 
 
 capacete = Capacete()
-all_sprites.add(capacete)
+"""all_sprites.add(capacete)"""
 
 
 
