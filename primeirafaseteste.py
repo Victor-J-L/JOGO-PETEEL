@@ -183,6 +183,8 @@ def main():
                 ic2.rect.y += abs(personagem.vel.y) 
             for ic3 in iconef3grupo:
                 ic3.rect.y += abs(personagem.vel.y) 
+            for ic4 in iconef4grupo:
+                ic4.rect.y += abs(personagem.vel.y)
             for ini in inimigos3grupo:
                 ini.pos.y += abs(personagem.vel.y)
             for ic in iconegrupo:
@@ -213,7 +215,13 @@ def main():
                     p = Plataformas(random.randrange(5, 300),
                                     random.randrange(-90, -88), "Imagens/Terceira Fase/plataforma3.png")
                     plataformas.add(p)
-        
+
+        if pfinal4.rect.top <-100 and pfinal4.rect.left <= 10:
+            while len(plataformas) < 6:
+                if iconef4.rect.x >= 0 and iconef4.rect.x <= 500: 
+                    p = Plataformas(random.randrange(5, 300),
+                                    random.randrange(-90, -88), "Imagens/Segunda Fase/plataforma2.png")
+                    plataformas.add(p)
 
         #Fase 2
 
@@ -325,7 +333,43 @@ def main():
                         capacete.pos.x = 500
 
                     capacete.rect.midbottom = capacete.pos
+                
+        #fase 4 
 
+        if xmouse >= botaot3.rect.left and xmouse <= botaot3.rect.right and ymouse <= botaot3.rect.bottom and ymouse >= botaot3.rect.top:
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                personagem.pos = vec(400,530)
+                transição3.rect.left= 800
+                botaot3.rect.right = 800
+                pfinal3.rect.left = 800
+                iconef3.rect.x = 800 #até aqui jogamos pra longe
+
+                iconef4.rect.x = 50
+                iconef4.rect.y = -2505
+                pfinal4.rect.left = 5
+                pfinal4.rect.top = -2400
+
+                for ini in inimigos3grupo:
+                    ini.kill()
+
+                #fundo = pygame.image.load("Imagens/Terceira Fase/fundo3.png")
+                for plat in plataformas: 
+                    plat.kill()
+                for val in valoresgrupo : 
+                    val.kill()      
+                p0 = Chao(-15, 544)
+                plataformas.add(p0)
+                p1 = Plataformas(250, 255, "Imagens/Segunda Fase/plataforma2.png")
+                plataformas.add(p1)
+                p2 = Plataformas(10, 395, "Imagens/Segunda Fase/plataforma2.png")
+                plataformas.add(p2)
+                p3 = Plataformas(10, 125, "Imagens/Segunda Fase/plataforma2.png")
+                plataformas.add(p3)
+                p4 = Plataformas(235, -10, "Imagens/Segunda Fase/plataforma2.png")
+                plataformas.add(p4)
+
+                p = Plataformas(random.randrange(5, 300),
+                            random.randrange(-90, -88), "Imagens/Segunda Fase/plataforma2.png")
 
         #Game Over
 
@@ -386,6 +430,8 @@ def main():
         iconef3grupo.draw(tela)
         transicao3grupo.draw(tela)
         inimigos3grupo.draw(tela)
+        transicao4grupo.draw(tela)
+        iconef4grupo.draw(tela)
     
 
         #Updates
