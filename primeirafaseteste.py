@@ -150,7 +150,7 @@ def main():
             botaot3.rect.left = 325
             botaot3.rect.top = 585
 
-        colisao_inimigos3 = pygame.sprite.spritecollide(personagem, inimigos3grupo, False)
+        """colisao_inimigos3 = pygame.sprite.spritecollide(personagem, inimigos3grupo, False)
         if colisao_inimigos3:
             personagem.pos = vec(400,530)
             gameover.rect.left = 0
@@ -159,7 +159,7 @@ def main():
             for ini in inimigos3grupo:
                 ini.kill()
             for plat in plataformas: 
-                plat.kill()   
+                plat.kill()"""   
 
 
         #pulo
@@ -220,7 +220,7 @@ def main():
             while len(plataformas) < 6:
                 if iconef4.rect.x >= 0 and iconef4.rect.x <= 500: 
                     p = Plataformas(random.randrange(5, 300),
-                                    random.randrange(-90, -88), "Imagens/Segunda Fase/plataforma2.png")
+                                    random.randrange(-90, -88), "Imagens/Quarta Fase/plataforma4.png")
                     plataformas.add(p)
 
         #Fase 2
@@ -249,11 +249,7 @@ def main():
                 p3 = Plataformas(10, 125, "Imagens/Segunda Fase/plataforma2.png")
                 plataformas.add(p3)
                 p4 = Plataformas(235, -10, "Imagens/Segunda Fase/plataforma2.png")
-                plataformas.add(p4)
-
-                p = Plataformas(random.randrange(5, 300),
-                            random.randrange(-90, -88), "Imagens/Segunda Fase/plataforma2.png")
-                
+                plataformas.add(p4)                
 
                 brio.rect.x = random.uniform(100,400)
                 brio.rect.y = random.uniform(-400,-100)
@@ -338,6 +334,7 @@ def main():
 
         if xmouse >= botaot3.rect.left and xmouse <= botaot3.rect.right and ymouse <= botaot3.rect.bottom and ymouse >= botaot3.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN:
+                fundo = pygame.image.load("Imagens/Quarta Fase/fundo 4.png")
                 personagem.pos = vec(400,530)
                 transição3.rect.left= 800
                 botaot3.rect.right = 800
@@ -351,25 +348,21 @@ def main():
 
                 for ini in inimigos3grupo:
                     ini.kill()
-
-                #fundo = pygame.image.load("Imagens/Terceira Fase/fundo3.png")
                 for plat in plataformas: 
                     plat.kill()
                 for val in valoresgrupo : 
                     val.kill()      
                 p0 = Chao(-15, 544)
                 plataformas.add(p0)
-                p1 = Plataformas(250, 255, "Imagens/Segunda Fase/plataforma2.png")
+                p1 = Plataformas(250, 255, "Imagens/Quarta Fase/plataforma4.png")
                 plataformas.add(p1)
-                p2 = Plataformas(10, 395, "Imagens/Segunda Fase/plataforma2.png")
+                p2 = Plataformas(10, 395, "Imagens/Quarta Fase/plataforma4.png")
                 plataformas.add(p2)
-                p3 = Plataformas(10, 125, "Imagens/Segunda Fase/plataforma2.png")
+                p3 = Plataformas(10, 125, "Imagens/Quarta Fase/plataforma4.png")
                 plataformas.add(p3)
-                p4 = Plataformas(235, -10, "Imagens/Segunda Fase/plataforma2.png")
+                p4 = Plataformas(235, -10, "Imagens/Quarta Fase/plataforma4.png")
                 plataformas.add(p4)
 
-                p = Plataformas(random.randrange(5, 300),
-                            random.randrange(-90, -88), "Imagens/Segunda Fase/plataforma2.png")
 
         #Game Over
 
