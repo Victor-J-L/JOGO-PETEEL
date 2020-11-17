@@ -153,15 +153,15 @@ def main():
         colisao_icone4 = pygame.sprite.spritecollide(personagem, iconef4grupo, True)
         if colisao_icone4:
             transição41.rect.left = -1
-            abrir.rect.left = 300
-            abrir.rect.top = 250
+            abrir.rect.left = 350
+            abrir.rect.top = 270
 
         if xmouse >= abrir.rect.left and xmouse <= abrir.rect.right and ymouse <= abrir.rect.bottom and ymouse >= abrir.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 transição42.rect.left = -1
                 transição41.rect.left = 800
                 abrir.rect.left = 800
-                botaot4.rect.left = 325
+                botaot4.rect.left = 335
                 botaot4.rect.top = 585
 
 
@@ -209,34 +209,34 @@ def main():
                 platfin.rect.y += abs(personagem.vel.y)
             for plat in plataformas:
                 plat.rect.y += abs(personagem.vel.y)
-                if plat.rect.top >= 650:
+                if plat.rect.top >= 610:
                     plat.kill()
 
         # Spawn novas plat fase 1
         if pfinal1.rect.top <-100:
-            while len(plataformas) < 6:
+            while len(plataformas) < 5:
                 if iconefinal.rect.x >= 0 and iconefinal.rect.x <= 500: 
                     p = Plataformas(random.randrange(5, 300),
-                                random.randrange(-90, -88), "Imagens/Primeira Fase/plataforma1.png")
+                                random.randrange(-105, -104), "Imagens/Primeira Fase/plataforma1.png")
                     plataformas.add(p)
         if pfinal2.rect.top <-100 and pfinal2.rect.left <= 10:
-            while len(plataformas) < 6:
+            while len(plataformas) < 5:
                 if iconef2.rect.x >= 0 and iconef2.rect.x <= 500: 
                     p = Plataformas(random.randrange(5, 300),
-                                    random.randrange(-90, -88), "Imagens/Segunda Fase/plataforma2.png")
+                                    random.randrange(-105, -104), "Imagens/Segunda Fase/plataforma2.png")
                     plataformas.add(p)
         if pfinal3.rect.top <-100 and pfinal3.rect.left <= 10:
-            while len(plataformas) < 6:
+            while len(plataformas) < 5:
                 if iconef3.rect.x >= 0 and iconef3.rect.x <= 500: 
                     p = Plataformas(random.randrange(5, 300),
-                                    random.randrange(-90, -88), "Imagens/Terceira Fase/plataforma3.png")
+                                    random.randrange(-105, -104), "Imagens/Terceira Fase/plataforma3.png")
                     plataformas.add(p)
 
         if pfinal4.rect.top <-100 and pfinal4.rect.left <= 10:
-            while len(plataformas) < 6:
+            while len(plataformas) < 5:
                 if iconef4.rect.x >= 0 and iconef4.rect.x <= 500: 
                     p = Plataformas(random.randrange(5, 300),
-                                    random.randrange(-90, -88), "Imagens/Quarta Fase/plataforma4.png")
+                                    random.randrange(-105, -104), "Imagens/Quarta Fase/plataforma4.png")
                     plataformas.add(p)
 
         #Fase 2
@@ -249,7 +249,7 @@ def main():
                 iconefinal.rect.x = 800
                 pfinal1.rect.left = 800
                 pfinal2.rect.left = 5
-                pfinal2.rect.top = -2400
+                pfinal2.rect.top = -2450
                 fundo = pygame.image.load("Imagens/Segunda Fase/fundo2.png")
                 Plataformas.image = pygame.image.load("Imagens/Segunda Fase/plataforma2.png")
                 for plat in plataformas: 
@@ -262,9 +262,9 @@ def main():
                 plataformas.add(p1)
                 p2 = Plataformas(10, 395, "Imagens/Segunda Fase/plataforma2.png")
                 plataformas.add(p2)
-                p3 = Plataformas(10, 125, "Imagens/Segunda Fase/plataforma2.png")
+                p3 = Plataformas(10, 120, "Imagens/Segunda Fase/plataforma2.png")
                 plataformas.add(p3)
-                p4 = Plataformas(235, -10, "Imagens/Segunda Fase/plataforma2.png")
+                p4 = Plataformas(235, -30, "Imagens/Segunda Fase/plataforma2.png")
                 plataformas.add(p4)                
 
                 brio.rect.x = random.uniform(100,400)
@@ -283,7 +283,7 @@ def main():
                 comprometimento.rect.y = random.uniform(-2200, -2500)
 
                 iconef2.rect.x = 50
-                iconef2.rect.y = -2505
+                iconef2.rect.y = -2555
 
         # fase 3
 
@@ -295,10 +295,10 @@ def main():
                 botaot2.rect.right = 800
                 iconef2.rect.x = 800
                 iconef3.rect.x = 50
-                iconef3.rect.y = -2505
+                iconef3.rect.y = -2555
                 pfinal2.rect.left = 800
                 pfinal3.rect.left = 5
-                pfinal3.rect.top = -2400
+                pfinal3.rect.top = -2450
                 
                 interromper.pos.y = -100
                 falarmal.pos.y = -500
@@ -317,9 +317,9 @@ def main():
                 plataformas.add(p1)
                 p2 = Plataformas(10, 395, "Imagens/Terceira Fase/plataforma3.png")
                 plataformas.add(p2)
-                p3 = Plataformas(10, 125, "Imagens/Terceira Fase/plataforma3.png")
+                p3 = Plataformas(10, 120, "Imagens/Terceira Fase/plataforma3.png")
                 plataformas.add(p3)
-                p4 = Plataformas(235, -10, "Imagens/Terceira Fase/plataforma3.png")
+                p4 = Plataformas(235, -30, "Imagens/Terceira Fase/plataforma3.png")
                 plataformas.add(p4)
 
 
@@ -358,9 +358,9 @@ def main():
                 iconef3.rect.x = 800 #até aqui jogamos pra longe
 
                 iconef4.rect.x = 50
-                iconef4.rect.y = -2505
+                iconef4.rect.y = -2555
                 pfinal4.rect.left = 5
-                pfinal4.rect.top = -2400
+                pfinal4.rect.top = -2450
 
                 for ini in inimigos3grupo:
                     ini.kill()
@@ -374,9 +374,9 @@ def main():
                 plataformas.add(p1)
                 p2 = Plataformas(10, 395, "Imagens/Quarta Fase/plataforma4.png")
                 plataformas.add(p2)
-                p3 = Plataformas(10, 125, "Imagens/Quarta Fase/plataforma4.png")
+                p3 = Plataformas(10, 120, "Imagens/Quarta Fase/plataforma4.png")
                 plataformas.add(p3)
-                p4 = Plataformas(235, -10, "Imagens/Quarta Fase/plataforma4.png")
+                p4 = Plataformas(235, -30, "Imagens/Quarta Fase/plataforma4.png")
                 plataformas.add(p4)
 
 
