@@ -150,6 +150,22 @@ def main():
             botaot3.rect.left = 325
             botaot3.rect.top = 585
 
+        colisao_icone4 = pygame.sprite.spritecollide(personagem, iconef4grupo, True)
+        if colisao_icone4:
+            transição41.rect.left = -1
+            abrir.rect.left = 300
+            abrir.rect.top = 250
+
+        if xmouse >= abrir.rect.left and xmouse <= abrir.rect.right and ymouse <= abrir.rect.bottom and ymouse >= abrir.rect.top:
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                transição42.rect.left = -1
+                transição41.rect.left = 800
+                abrir.rect.left = 800
+                botaot4.rect.left = 325
+                botaot4.rect.top = 585
+
+
+
         """colisao_inimigos3 = pygame.sprite.spritecollide(personagem, inimigos3grupo, False)
         if colisao_inimigos3:
             personagem.pos = vec(400,530)
@@ -423,7 +439,8 @@ def main():
         iconef3grupo.draw(tela)
         transicao3grupo.draw(tela)
         inimigos3grupo.draw(tela)
-        transicao4grupo.draw(tela)
+        transicao41grupo.draw(tela)
+        transicao42grupo.draw(tela)
         iconef4grupo.draw(tela)
     
 

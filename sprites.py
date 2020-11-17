@@ -305,7 +305,8 @@ transicao2grupo = pygame.sprite.Group()
 iconef3grupo = pygame.sprite.Group()
 transicao3grupo = pygame.sprite.Group()
 inimigos3grupo = pygame.sprite.Group()
-transicao4grupo = pygame.sprite.Group()
+transicao41grupo = pygame.sprite.Group()
+transicao42grupo = pygame.sprite.Group()
 iconef4grupo = pygame.sprite.Group()
 
 
@@ -383,13 +384,19 @@ inimigos3grupo.add(interromper, falarmal, gritar, desrespeitar, mentefechada)
 
 #quarta fase
 
-#transição4 = Transicao()
-#transição4.image = pygame.image.load("imagem aqui")
-#transicao4grupo.add(transição4)
+transição41 = Transicao()
+transição42 = Transicao()
+transição41.image = pygame.image.load("Imagens/Quarta Fase/transição41.png")
+transição42.image = pygame.image.load("Imagens/Quarta Fase/transição42.png")
+transicao41grupo.add(transição41)
+transicao42grupo.add(transição42)
+abrir = Botaot()
+abrir.image = pygame.image.load("Imagens/Quarta Fase/abrir.png")
+transicao41grupo.add(abrir)
 iconef4 = Icone2()
 iconef4grupo.add(iconef4)
 botaot4 = Botaot()
-transicao4grupo.add(botaot4)
+transicao41grupo.add(botaot4)
 
 #Lista de Plataformas
 p0 = Chao(-15, 544)
