@@ -144,7 +144,7 @@ class Iconefinal(pygame.sprite.Sprite):
         self.image = pygame.image.load("Imagens/Primeira Fase/iconefinal.png")
         self.rect = self.image.get_rect()
         self.rect.x = 50
-        self.rect.y =  -2505
+        self.rect.y =  -2555
 
 class Icone2(pygame.sprite.Sprite):
     def __init__(self):
@@ -401,22 +401,22 @@ plataformas.add(p1)
 p2 = Plataformas(10, 395, "Imagens/Primeira Fase/plataforma1.png")
 plataformas.add(p2)
 
-p3 = Plataformas(10, 125, "Imagens/Primeira Fase/plataforma1.png")
+p3 = Plataformas(10, 120, "Imagens/Primeira Fase/plataforma1.png")
 plataformas.add(p3)
 
-p4 = Plataformas(235, -10, "Imagens/Primeira Fase/plataforma1.png")
+p4 = Plataformas(235, -30, "Imagens/Primeira Fase/plataforma1.png")
 plataformas.add(p4)
 
-pfinal1 = PlataformaFinal(5, -2400, "Imagens/Primeira Fase/plataformafinal.png")
+pfinal1 = PlataformaFinal(5, -2450, "Imagens/Primeira Fase/plataformafinal.png")
 platfinal.add(pfinal1)
 
-pfinal2 = PlataformaFinal(800, -2400, "Imagens/Segunda Fase/plataformafinal2.png")
+pfinal2 = PlataformaFinal(800, -2550, "Imagens/Segunda Fase/plataformafinal2.png")
 platfinal.add(pfinal2)
 
-pfinal3 = PlataformaFinal(800, -2400, "Imagens/Terceira Fase/plataformafinal3.png")
+pfinal3 = PlataformaFinal(800, -2450, "Imagens/Terceira Fase/plataformafinal3.png")
 platfinal.add(pfinal3) 
 
-pfinal4 = PlataformaFinal(800, -2400, "Imagens/Segunda Fase/plataformafinal2.png")
+pfinal4 = PlataformaFinal(800, -2450, "Imagens/Segunda Fase/plataformafinal2.png")
 platfinal.add(pfinal4)
 
 capacete = Capacete()
