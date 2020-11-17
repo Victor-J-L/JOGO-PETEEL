@@ -305,6 +305,8 @@ transicao2grupo = pygame.sprite.Group()
 iconef3grupo = pygame.sprite.Group()
 transicao3grupo = pygame.sprite.Group()
 inimigos3grupo = pygame.sprite.Group()
+transicao4grupo = pygame.sprite.Group()
+iconef4grupo = pygame.sprite.Group()
 
 
 #CORES
@@ -378,6 +380,16 @@ gritar = Inimigos3(5, 2000, "Imagens/Terceira Fase/gritar.png")
 desrespeitar = Inimigos3(450, 2000, "Imagens/Terceira Fase/desrespeitar.png")
 mentefechada  = Inimigos3(5, 2000, "Imagens/Terceira Fase/mentefechada.png")
 inimigos3grupo.add(interromper, falarmal, gritar, desrespeitar, mentefechada)
+
+#quarta fase
+
+#transição4 = Transicao()
+#transição4.image = pygame.image.load("imagem aqui")
+#transicao4grupo.add(transição4)
+iconef4 = Icone2()
+iconef4grupo.add(iconef4)
+botaot4 = Botaot()
+transicao4grupo.add(botaot4)
 
 #Lista de Plataformas
 p0 = Chao(-15, 544)

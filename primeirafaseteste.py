@@ -325,7 +325,40 @@ def main():
                         capacete.pos.x = 500
 
                     capacete.rect.midbottom = capacete.pos
+                
+        #fase 4 
 
+        if xmouse >= botaot3.rect.left and xmouse <= botaot3.rect.right and ymouse <= botaot3.rect.bottom and ymouse >= botaot3.rect.top:
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                personagem.pos = vec(400,530)
+                transição3.rect.left= 800
+                botaot3.rect.right = 800
+                pfinal3.rect.left = 800
+                iconef3.rect.x = 800 #até aqui jogamos pra longe
+
+                iconef4.rect.x = 50
+                iconef4.rect.y = -2505
+                #pfinal4.rect.left = 5
+                #pfinal4.rect.top = -2400
+
+                for ini in inimigos3grupo:
+                    ini.kill()
+
+                #fundo = pygame.image.load("Imagens/Terceira Fase/fundo3.png")
+                for plat in plataformas: 
+                    plat.kill()
+                for val in valoresgrupo : 
+                    val.kill()      
+                p0 = Chao(-15, 544)
+                plataformas.add(p0)
+                p1 = Plataformas(250, 255, "Imagens/Terceira Fase/plataforma3.png")
+                plataformas.add(p1)
+                p2 = Plataformas(10, 395, "Imagens/Terceira Fase/plataforma3.png")
+                plataformas.add(p2)
+                p3 = Plataformas(10, 125, "Imagens/Terceira Fase/plataforma3.png")
+                plataformas.add(p3)
+                p4 = Plataformas(235, -10, "Imagens/Terceira Fase/plataforma3.png")
+                plataformas.add(p4)
 
         #Game Over
 
@@ -386,6 +419,8 @@ def main():
         iconef3grupo.draw(tela)
         transicao3grupo.draw(tela)
         inimigos3grupo.draw(tela)
+        transicao4grupo.draw(tela)
+        iconef4grupo.draw(tela)
     
 
         #Updates
