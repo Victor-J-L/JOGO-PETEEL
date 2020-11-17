@@ -416,6 +416,9 @@ platfinal.add(pfinal2)
 pfinal3 = PlataformaFinal(800, -2400, "Imagens/Terceira Fase/plataformafinal3.png")
 platfinal.add(pfinal3) 
 
+pfinal4 = PlataformaFinal(800, -2400, "Imagens/Segunda Fase/plataformafinal2.png")
+platfinal.add(pfinal4)
+
 capacete = Capacete()
 all_sprites.add(capacete)
 
