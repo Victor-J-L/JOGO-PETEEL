@@ -92,13 +92,13 @@ def main():
         if falarmal.pos.x < 0:
             falarmal.pos.x = 500
 
-        gritar.acc = vec(1, 0)
-        #gritar.acc.x += gritar.vel.x * (-0.12)
-        gritar.vel = vec(3,0)
-        gritar.pos += gritar.vel + 0.5 * gritar.acc
-        gritar.rect.midbottom = gritar.pos
-        if gritar.pos.x > 500:
-            gritar.pos.x = 0
+        falardemais.acc = vec(1, 0)
+        #falardemais.acc.x += falardemais.vel.x * (-0.12)
+        falardemais.vel = vec(3,0)
+        falardemais.pos += falardemais.vel + 0.5 * falardemais.acc
+        falardemais.rect.midbottom = falardemais.pos
+        if falardemais.pos.x > 500:
+            falardemais.pos.x = 0
 
         desrespeitar.acc = vec(-1, 0)
         #desrespeitar.acc.x += desrespeitar.vel.x * (-0.12)
@@ -300,11 +300,11 @@ def main():
                 pfinal3.rect.left = 5
                 pfinal3.rect.top = -2450
                 
-                interromper.pos.y = -100
+                interromper.pos.y = -10
                 falarmal.pos.y = -500
-                gritar.pos.y = -900
-                desrespeitar.pos.y = -1300
-                mentefechada.pos.y = -1600
+                falardemais.pos.y = -1000
+                desrespeitar.pos.y = -1500
+                mentefechada.pos.y = -2000
                 
                 fundo = pygame.image.load("Imagens/Terceira Fase/fundo3.png")
                 for plat in plataformas: 
