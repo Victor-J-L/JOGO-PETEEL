@@ -377,7 +377,7 @@ transicao3grupo.add(botaot3)
 
 interromper = Inimigos3(5, 2000, "Imagens/Terceira Fase/interromper.png") #dai quando clica no botao muda o y pro lugar certo deles"
 falarmal = Inimigos3(450, 2000, "Imagens/Terceira Fase/falarmal.png")
-falardemais = Inimigos3(5, 2000, "Imagens/Terceira Fase/gritar.png")
+falardemais = Inimigos3(5, 2000, "Imagens/Terceira Fase/falardemais.png")
 desrespeitar = Inimigos3(450, 2000, "Imagens/Terceira Fase/desrespeitar.png")
 mentefechada  = Inimigos3(5, 2000, "Imagens/Terceira Fase/mentefechada.png")
 inimigos3grupo.add(interromper, falarmal, falardemais, desrespeitar, mentefechada)

@@ -153,8 +153,10 @@ def main():
         colisao_icone4 = pygame.sprite.spritecollide(personagem, iconef4grupo, True)
         if colisao_icone4:
             transição41.rect.left = -1
-            abrir.rect.left = 350
-            abrir.rect.top = 270
+            abrir.rect.left = 385
+            abrir.rect.top = 285
+            for ini in inimigos3grupo:
+                ini.kill()
 
         if xmouse >= abrir.rect.left and xmouse <= abrir.rect.right and ymouse <= abrir.rect.bottom and ymouse >= abrir.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN:
