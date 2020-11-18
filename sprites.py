@@ -396,6 +396,7 @@ transicao41grupo.add(abrir)
 iconef4 = Icone2()
 iconef4grupo.add(iconef4)
 botaot4 = Botaot()
+botaot4.image = pygame.image.load("Imagens/Quarta Fase/agora.png")
 transicao42grupo.add(botaot4)
 
 #Lista de Plataformas
