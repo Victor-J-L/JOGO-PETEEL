@@ -36,6 +36,9 @@ class Personagem(pygame.sprite.Sprite):
         self.pos = vec(400,530)
         self.vel = vec(0, 0)
         self.acc = vec(0, 0)
+        self.p11 = False
+        self.p22 = False
+        self.p10 = True
 
     def update(self):
         self.acc = vec(0, 0)
@@ -308,6 +311,7 @@ inimigos3grupo = pygame.sprite.Group()
 transicao41grupo = pygame.sprite.Group()
 transicao42grupo = pygame.sprite.Group()
 iconef4grupo = pygame.sprite.Group()
+iconef5grupo = pygame.sprite.Group()
 
 
 #CORES
@@ -318,7 +322,7 @@ pag_inicial= Paginainicial()
 all_sprites.add(pag_inicial)
 botaoplay= Botaoplay()
 all_sprites.add(botaoplay)
-personagem= Personagem()
+personagem = Personagem()
 personagemgrupo.add(personagem)
 personagem1= Personagem1()
 all_sprites.add(personagem1)
@@ -399,6 +403,11 @@ botaot4 = Botaot()
 botaot4.image = pygame.image.load("Imagens/Quarta Fase/agora.png")
 transicao42grupo.add(botaot4)
 
+#Quinta Fase
+
+iconef5 = Icone2()
+iconef5grupo.add(iconef5)
+
 #Lista de Plataformas
 p0 = Chao(-15, 544)
 plataformas.add(p0)
@@ -424,8 +433,11 @@ platfinal.add(pfinal2)
 pfinal3 = PlataformaFinal(800, -2450, "Imagens/Terceira Fase/plataformafinal3.png")
 platfinal.add(pfinal3) 
 
-pfinal4 = PlataformaFinal(800, -2450, "Imagens/Segunda Fase/plataformafinal2.png")
+pfinal4 = PlataformaFinal(800, -2450, "Imagens/Quarta Fase/plataformafinal4.png")
 platfinal.add(pfinal4)
+
+pfinal5 = PlataformaFinal(800, -2450, "Imagens/Quinta Fase/plataformafinal5.png")
+platfinal.add(pfinal5)
 
 capacete = Capacete()
 """all_sprites.add(capacete)"""

@@ -29,12 +29,16 @@ def main():
         (xmouse, ymouse) = pygame.mouse.get_pos()
 
         #Código Página inicial
+
         if xmouse >= personagem1.rect.left and xmouse <= personagem1.rect.right and ymouse <= personagem1.rect.bottom and ymouse >= personagem1.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 personagem.image = pygame.image.load("Imagens/personagem/personagem1frente_min.png") #personagem1frente
                 personagem.rect = personagem.image.get_rect()
                 personagem.rect.midbottom = (800,800)
                 selecao.rect.right = 217
+                personagem.p11 = True
+                personagem.p22 = False
+                personagem.p10 = False
 
         if xmouse >= personagem2.rect.left and xmouse <= personagem2.rect.right and ymouse <= personagem2.rect.bottom and ymouse >= personagem2.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN:
@@ -42,6 +46,9 @@ def main():
                 personagem.rect = personagem.image.get_rect()
                 personagem.rect.midbottom=(800,800)
                 selecao.rect.right = 412
+                personagem.p11 = False
+                personagem.p22 = True
+                personagem.p10 = False
             
         if xmouse >= botaoplay.rect.left and xmouse <= botaoplay.rect.right and ymouse <= 351 and ymouse >= 295:
             if event.type == pygame.MOUSEBUTTONDOWN:
@@ -149,6 +156,8 @@ def main():
             transição3.rect.left = 0
             botaot3.rect.left = 325
             botaot3.rect.top = 585
+            for ini in inimigos3grupo:
+                    ini.kill()
 
         colisao_icone4 = pygame.sprite.spritecollide(personagem, iconef4grupo, True)
         if colisao_icone4:
@@ -203,6 +212,8 @@ def main():
                 ic3.rect.y += abs(personagem.vel.y) 
             for ic4 in iconef4grupo:
                 ic4.rect.y += abs(personagem.vel.y)
+            for ic5 in iconef5grupo:
+                ic5.rect.y += abs(personagem.vel.y)
             for ini in inimigos3grupo:
                 ini.pos.y += abs(personagem.vel.y)
             for ic in iconegrupo:
@@ -211,7 +222,7 @@ def main():
                 platfin.rect.y += abs(personagem.vel.y)
             for plat in plataformas:
                 plat.rect.y += abs(personagem.vel.y)
-                if plat.rect.top >= 610:
+                if plat.rect.top >= 650:
                     plat.kill()
 
         # Spawn novas plat fase 1
@@ -239,6 +250,13 @@ def main():
                 if iconef4.rect.x >= 0 and iconef4.rect.x <= 500: 
                     p = Plataformas(random.randrange(5, 300),
                                     random.randrange(-105, -104), "Imagens/Quarta Fase/plataforma4.png")
+                    plataformas.add(p)
+        
+        if pfinal5.rect.top <-100 and pfinal5.rect.left <= 10:
+            while len(plataformas) < 5:
+                if iconef5.rect.x >= 0 and iconef5.rect.x <= 500: 
+                    p = Plataformas(random.randrange(5, 300),
+                                    random.randrange(-105, -104), "Imagens/Quinta Fase/plataforma5.png")
                     plataformas.add(p)
 
         #Fase 2
@@ -291,7 +309,12 @@ def main():
 
         if xmouse >= botaot2.rect.left and xmouse <= botaot2.rect.right and ymouse <= botaot2.rect.bottom and ymouse >= botaot2.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN:
-                """personagem.image = pygame.image.load("Imagens/personagem/personagem1minespaço.png")"""
+                if personagem.p11 == True:
+                    personagem.image = pygame.image.load("Imagens/personagem/personagem1minespaço.png")
+                if personagem.p10 == True:
+                    personagem.image = pygame.image.load("Imagens/personagem/personagem1minespaço.png")
+                if personagem.p22 == True:
+                    personagem.image = pygame.image.load("Imagens/personagem/personagem2minespaço.png")
                 personagem.pos = vec(400,530)
                 transição2.rect.left= 800
                 botaot2.rect.right = 800
@@ -324,34 +347,16 @@ def main():
                 p4 = Plataformas(235, -30, "Imagens/Terceira Fase/plataforma3.png")
                 plataformas.add(p4)
 
-
-                personagem.rect.midbottom = personagem.pos
-
-                if iconef3.rect.x >= 0 and iconef3.rect.x <= 500: 
-                    capacete.acc = vec(0, 1)
-                    keys = pygame.key.get_pressed()
-                    if keys[pygame.K_LEFT]:
-                        capacete.acc.x = -0.9
-
-                    if keys[pygame.K_RIGHT]:
-                        capacete.acc.x = 0.9
-
-                    capacete.acc.x += capacete.vel.x * (-0.12)
-                    capacete.vel += capacete.acc
-                    capacete.pos += capacete.vel + 0.5 * capacete.acc
-
-
-                    if capacete.pos.x > 500:
-                        capacete.pos.x = 0
-                    if capacete.pos.x < 0:
-                        capacete.pos.x = 500
-
-                    capacete.rect.midbottom = capacete.pos
-                
         #fase 4 
 
         if xmouse >= botaot3.rect.left and xmouse <= botaot3.rect.right and ymouse <= botaot3.rect.bottom and ymouse >= botaot3.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN:
+                if personagem.p11 == True:
+                    personagem.image = pygame.image.load("Imagens/personagem/personagem1frente_min.png")
+                if personagem.p10 == True:
+                    personagem.image = pygame.image.load("Imagens/personagem/personagem1frente_min.png")
+                if personagem.p22 == True:
+                    personagem.image = pygame.image.load("Imagens/personagem/personagem2frente_min.png")
                 fundo = pygame.image.load("Imagens/Quarta Fase/fundo 4.png")
                 personagem.pos = vec(400,530)
                 transição3.rect.left= 800
@@ -367,9 +372,7 @@ def main():
                 for ini in inimigos3grupo:
                     ini.kill()
                 for plat in plataformas: 
-                    plat.kill()
-                for val in valoresgrupo : 
-                    val.kill()      
+                    plat.kill()     
                 p0 = Chao(-15, 544)
                 plataformas.add(p0)
                 p1 = Plataformas(250, 255, "Imagens/Quarta Fase/plataforma4.png")
@@ -381,6 +384,36 @@ def main():
                 p4 = Plataformas(235, -30, "Imagens/Quarta Fase/plataforma4.png")
                 plataformas.add(p4)
 
+        #Fase 5 
+        if xmouse >= botaot4.rect.left and xmouse <= botaot4.rect.right and ymouse <= botaot4.rect.bottom and ymouse >= botaot4.rect.top:
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                fundo = pygame.image.load("Imagens/Quinta Fase/fundo5.png")
+                personagem.pos = vec(400,530)
+                transição42.rect.left= 800
+                botaot4.rect.right = 800
+                pfinal4.rect.left = 800
+                iconef4.rect.x = 800 
+
+                iconef5.rect.x = 50
+                iconef5.rect.y = -2555
+                pfinal5.rect.left = 5
+                pfinal5.rect.top = -2450
+
+                """for ini1 in inimigos4grupo:
+                    ini1.kill()"""
+                for plat in plataformas: 
+                    plat.kill()     
+                p0 = Chao(-15, 544)
+                plataformas.add(p0)
+                p1 = Plataformas(250, 255, "Imagens/Quinta Fase/plataforma5.png")
+                plataformas.add(p1)
+                p2 = Plataformas(10, 395, "Imagens/Quinta Fase/plataforma5.png")
+                plataformas.add(p2)
+                p3 = Plataformas(10, 120, "Imagens/Quinta Fase/plataforma5.png")
+                plataformas.add(p3)
+                p4 = Plataformas(235, -30, "Imagens/Quinta Fase/plataforma5.png")
+                plataformas.add(p4)
+
 
         #Game Over
 
@@ -389,8 +422,50 @@ def main():
             gameover.rect.left = 0
             botaogameover.rect.left = 182.985 
             fundoinicial.rect.left = 0
+            pfinal1.rect.left = 5
+            pfinal1.rect.left = -2450
+            iconefinal.rect.x = 50
+            iconefinal.rect.x = -2555
             for plat in plataformas: 
-                plat.kill()   
+                plat.kill() 
+
+            if iconefinal.rect.x >= 0 and iconefinal.rect.x <= 500: 
+                for bol in bolinhas : 
+                    bol.kill()
+                fundoinicial.image = pygame.image.load("Imagens/Primeira Fase/fundo123desfocado.png")
+
+            if iconef2.rect.x >= 0 and iconef2.rect.x <= 500:
+                for val in valoresgrupo : 
+                    val.kill()   
+                fundoinicial.image = pygame.image.load("Imagens/Primeira Fase/fundo123desfocado.png")
+                pfinal2.rect.left = 800
+                pfinal2.rect.top = -2450
+                iconef2.rect.x = 800
+                iconef2.rect.y = -2555
+
+            if iconef3.rect.x >= 0 and iconef3.rect.x <= 500:
+                for ini in inimigos3grupo:
+                    ini.kill()
+                pfinal3.rect.left = 800
+                pfinal3.rect.top = -2450
+                iconef3.rect.x = 800
+                iconef3.rect.y = -2555
+                fundoinicial.image = pygame.image.load("Imagens/Primeira Fase/fundo123desfocado.png")
+
+            if iconef4.rect.x >= 0 and iconef4.rect.x <= 500:
+                fundoinicial.image = pygame.image.load("Imagens/Primeira Fase/fundo123desfocado.png")
+                pfinal3.rect.left = 800
+                pfinal3.rect.top = -2450
+                iconef3.rect.x = 800
+                iconef3.rect.y = -2555
+                
+            if iconef5.rect.x >= 0 and iconef5.rect.x <= 500: 
+                fundoinicial.image = pygame.image.load("Imagens/Primeira Fase/fundo123desfocado.png")
+                pfinal3.rect.left = 800
+                pfinal3.rect.top = -2450
+                iconef3.rect.x = 800
+                iconef3.rect.y = -2555
+
             p0 = Chao(-15, 544)
             plataformas.add(p0)
             p1 = Plataformas(250, 255, "Imagens/Primeira Fase/plataforma1.png")
@@ -444,6 +519,7 @@ def main():
         transicao41grupo.draw(tela)
         transicao42grupo.draw(tela)
         iconef4grupo.draw(tela)
+        iconef5grupo.draw(tela)
     
 
         #Updates
