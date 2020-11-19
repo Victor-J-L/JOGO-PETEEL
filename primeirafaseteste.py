@@ -355,6 +355,14 @@ def main():
 
         if xmouse >= botaot3.rect.left and xmouse <= botaot3.rect.right and ymouse <= botaot3.rect.bottom and ymouse >= botaot3.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN:
+                coo.x = 200
+                tes.x = random.uniform(100,400)
+                sec.x = random.uniform(100,400)
+                inter.x = random.uniform(100,400)
+                qld.x = random.uniform(100,400)
+                mkt.x = random.uniform(100,400)
+                evt.x = random.uniform(100,400)
+                pep.x = random.uniform(100,400)
                 if personagem.p11 == True:
                     personagem.image = pygame.image.load("Imagens/personagem/personagem1frente_min.png")
                 if personagem.p10 == True:
@@ -388,14 +396,6 @@ def main():
                 p4 = Plataformas(235, -30, "Imagens/Quarta Fase/plataforma4.png")
                 plataformas.add(p4)
 
-                '''coo.rect.x = 200
-                tes.rect.x = random.uniform(100,400)
-                sec.rect.x = random.uniform(100,400)
-                inter.rect.x = random.uniform(100,400)
-                qld.rect.x = random.uniform(100,400)
-                mkt.rect.x = random.uniform(100,400)
-                evt.rect.x = random.uniform(100,400)
-                pep.rect.x = random.uniform(100,400)'''
 
 
         #Fase 5 

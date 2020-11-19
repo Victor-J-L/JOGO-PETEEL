@@ -295,7 +295,7 @@ class Bolinha4(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
-        self.pos = vec(228, 720)
+        #self.pos = vec(228, 720)
         self.vel = vec(0, 0)
         self.acc = vec(0, 0)
 
@@ -415,12 +415,12 @@ botaot4 = Botaot()
 botaot4.image = pygame.image.load("Imagens/Quarta Fase/agora.png")
 transicao42grupo.add(botaot4)
 
-coo = Bolinha4("Imagens/Quarta Fase/obstáculos/COO.png",random.uniform(100,400) ,random.uniform(-400,-200))
-sec = Bolinha4("Imagens/Quarta Fase/obstáculos/SEC.png",random.uniform(100,400) ,random.uniform(-400,-200))
-tes = Bolinha4("Imagens/Quarta Fase/obstáculos/TES.png",random.uniform(100,400) ,random.uniform(-600,-400))
-pep = Bolinha4("Imagens/Quarta Fase/obstáculos/PEP.png",random.uniform(100,400) ,random.uniform(-800,-600))
-mkt = Bolinha4("Imagens/Quarta Fase/obstáculos/MKT.png",random.uniform(100,400) ,random.uniform(-1000,-800))
-evt = Bolinha4("Imagens/Quarta Fase/obstáculos/EVT.png",random.uniform(100,400) ,random.uniform(-1200,-1000))
+coo = Bolinha4("Imagens/Quarta Fase/obstáculos/COO.png",1000 ,random.uniform(400,200))
+sec = Bolinha4("Imagens/Quarta Fase/obstáculos/SEC.png",1000 ,random.uniform(-400,-200))
+tes = Bolinha4("Imagens/Quarta Fase/obstáculos/TES.png",1000 ,random.uniform(-600,-400))
+pep = Bolinha4("Imagens/Quarta Fase/obstáculos/PEP.png",1000 ,random.uniform(-800,-600))
+mkt = Bolinha4("Imagens/Quarta Fase/obstáculos/MKT.png",1000 ,random.uniform(-1000,-800))
+evt = Bolinha4("Imagens/Quarta Fase/obstáculos/EVT.png",1000 ,random.uniform(-1200,-1000))
 inter = Bolinha4("Imagens/Quarta Fase/obstáculos/INTERPET.png",1000,random.uniform(-1400,-1200))
 qld = Bolinha4("Imagens/Quarta Fase/obstáculos/qld.png",1000,random.uniform(-1600,-1400))
 bolinhas4grupo.add(coo, tes, pep, sec, mkt, evt, inter, qld)
