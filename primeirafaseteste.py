@@ -355,14 +355,6 @@ def main():
 
         if xmouse >= botaot3.rect.left and xmouse <= botaot3.rect.right and ymouse <= botaot3.rect.bottom and ymouse >= botaot3.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN:
-                coo.x = 200
-                tes.x = random.uniform(100,400)
-                sec.x = random.uniform(100,400)
-                inter.x = random.uniform(100,400)
-                qld.x = random.uniform(100,400)
-                mkt.x = random.uniform(100,400)
-                evt.x = random.uniform(100,400)
-                pep.x = random.uniform(100,400)
                 if personagem.p11 == True:
                     personagem.image = pygame.image.load("Imagens/personagem/personagem1frente_min.png")
                 if personagem.p10 == True:
@@ -381,6 +373,24 @@ def main():
                 pfinal4.rect.left = 5
                 pfinal4.rect.top = -2450
 
+                coo.rect.x = random.uniform(50,400)
+                sec.rect.x = random.uniform(50,400)
+                tes.rect.x = random.uniform(50,400)
+                qld.rect.x = random.uniform(50,400)
+                pep.rect.x = random.uniform(50,400)
+                mkt.rect.x = random.uniform(50,400)
+                evt.rect.x = random.uniform(50,400)
+                inter.rect.x = random.uniform(50,400)
+
+                coo.rect.y = random.uniform(400,200)
+                sec.rect.y = random.uniform(-400,-200)
+                tes.rect.y = random.uniform(-600,-400)
+                pep.rect.y = random.uniform(-800,-600)
+                mkt.rect.y = random.uniform(-1000,-800)
+                evt.rect.y = random.uniform(-1200,-1000)
+                inter.rect.y = random.uniform(-1400,-1200)
+                qld.rect.y = random.uniform(-1600,-1400)
+
                 for ini in inimigos3grupo:
                     ini.kill()
                 for plat in plataformas: 
@@ -395,7 +405,6 @@ def main():
                 plataformas.add(p3)
                 p4 = Plataformas(235, -30, "Imagens/Quarta Fase/plataforma4.png")
                 plataformas.add(p4)
-
 
 
         #Fase 5 
