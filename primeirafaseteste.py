@@ -139,6 +139,8 @@ def main():
 
         colisao_bolinhas = pygame.sprite.spritecollide(personagem, bolinhas, True)
         colisao_valores = pygame.sprite.spritecollide(personagem, valoresgrupo, True)
+        colisao_bolinhas4 = pygame.sprite.spritecollide(personagem, bolinhas4grupo, True)
+
         colisao_icone1 = pygame.sprite.spritecollide(personagem, iconegrupo, False)
         if colisao_icone1:
             transição1.rect.left = 0
@@ -214,6 +216,8 @@ def main():
                 ic4.rect.y += abs(personagem.vel.y)
             for ic5 in iconef5grupo:
                 ic5.rect.y += abs(personagem.vel.y)
+            for bol in bolinhas4grupo: #bolinhas 4
+                bol.rect.y += abs(personagem.vel.y)
             for ini in inimigos3grupo:
                 ini.pos.y += abs(personagem.vel.y)
             for ic in iconegrupo:
@@ -384,6 +388,16 @@ def main():
                 p4 = Plataformas(235, -30, "Imagens/Quarta Fase/plataforma4.png")
                 plataformas.add(p4)
 
+                '''coo.rect.x = 200
+                tes.rect.x = random.uniform(100,400)
+                sec.rect.x = random.uniform(100,400)
+                inter.rect.x = random.uniform(100,400)
+                qld.rect.x = random.uniform(100,400)
+                mkt.rect.x = random.uniform(100,400)
+                evt.rect.x = random.uniform(100,400)
+                pep.rect.x = random.uniform(100,400)'''
+
+
         #Fase 5 
         if xmouse >= botaot4.rect.left and xmouse <= botaot4.rect.right and ymouse <= botaot4.rect.bottom and ymouse >= botaot4.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN:
@@ -520,6 +534,7 @@ def main():
         transicao42grupo.draw(tela)
         iconef4grupo.draw(tela)
         iconef5grupo.draw(tela)
+        bolinhas4grupo.draw(tela)
     
 
         #Updates
