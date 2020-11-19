@@ -383,13 +383,13 @@ def main():
                 inter.rect.x = random.uniform(50,400)
 
                 coo.rect.y = random.uniform(400,200)
-                sec.rect.y = random.uniform(-400,-200)
-                tes.rect.y = random.uniform(-600,-400)
-                pep.rect.y = random.uniform(-800,-600)
-                mkt.rect.y = random.uniform(-1000,-800)
-                evt.rect.y = random.uniform(-1200,-1000)
-                inter.rect.y = random.uniform(-1400,-1200)
-                qld.rect.y = random.uniform(-1600,-1400)
+                sec.rect.y = random.uniform(200,0)
+                tes.rect.y = random.uniform(-100,-300)
+                pep.rect.y = random.uniform(-400,-600)
+                mkt.rect.y = random.uniform(-800,-1000)
+                evt.rect.y = random.uniform(-1200,-1400)
+                inter.rect.y = random.uniform(-1600,-1800)
+                qld.rect.y = random.uniform(-2000,-2200)
 
                 for ini in inimigos3grupo:
                     ini.kill()
