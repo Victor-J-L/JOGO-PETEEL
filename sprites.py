@@ -299,6 +299,17 @@ class Bolinha4(pygame.sprite.Sprite):
         self.vel = vec(0, 0)
         self.acc = vec(0, 0)
 
+class Inimigos4(pygame.sprite.Sprite):
+    def __init__(self, x, y, image):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load(image)
+        self.rect = self.image.get_rect()
+        self.rect.left = x
+        self.rect.top = y
+        self.pos = vec(x,y)
+        self.vel = vec(0, 0)
+        self.acc = vec(0, 0)
+
 #Variaveis
 cor_azul = (181,244,253)
 #grupos 
@@ -324,6 +335,7 @@ transicao42grupo = pygame.sprite.Group()
 iconef4grupo = pygame.sprite.Group()
 iconef5grupo = pygame.sprite.Group()
 bolinhas4grupo = pygame.sprite.Group()
+inimigos4grupo = pygame.sprite.Group()
 
 
 #CORES
@@ -425,6 +437,13 @@ inter = Bolinha4("Imagens/Quarta Fase/obstáculos/INTERPET.png",random.uniform(-
 qld = Bolinha4("Imagens/Quarta Fase/obstáculos/qld.png",random.uniform(-1600,-1400))
 
 bolinhas4grupo.add(coo, tes, pep, sec, mkt, evt, inter, qld)
+
+respostas = Inimigos4(5, 2000, "Imagens/Quarta Fase/RESPOSTAS.png") #dai quando clica no botao muda o y pro lugar certo deles"
+falta = Inimigos4(450, 2000, "Imagens/Quarta Fase/FALTA.png")
+irdes = Inimigos4(5, 2000, "Imagens/Quarta Fase/irdespreparado.png")
+mentir = Inimigos4(450, 2000, "Imagens/Quarta Fase/mentir.png")
+preguiça  = Inimigos4(5, 2000, "Imagens/Quarta Fase/TERPREGUIÇA.png")
+inimigos4grupo.add(respostas, falta, irdes, mentir, preguiça)
 
 #Quinta Fase
 

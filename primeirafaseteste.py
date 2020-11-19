@@ -123,6 +123,48 @@ def main():
         if mentefechada.pos.x > 500:
             mentefechada.pos.x = 0
 
+        #CODIGO INIMIGOS MOVIMENTO FASE 4 
+
+        respostas.acc = vec(1, 0)
+        #interromper.acc.x += interromper.vel.x * (-0.12)
+        respostas.vel = vec(3,0)
+        respostas.pos += respostas.vel + 0.5 * respostas.acc
+        respostas.rect.midbottom = respostas.pos
+        if respostas.pos.x > 500:
+            respostas.pos.x = 0
+
+        falta.acc = vec(-1, 0)
+        #falarmal.acc.x += falarmal.vel.x * (-0.12)
+        falta.vel = vec(-3,0)
+        falta.pos += falta.vel - 0.5 * falta.acc
+        falta.rect.midbottom = falta.pos
+        if falta.pos.x < 0:
+            falta.pos.x = 500
+
+        irdes.acc = vec(1, 0)
+        #falardemais.acc.x += falardemais.vel.x * (-0.12)
+        irdes.vel = vec(3,0)
+        irdes.pos += irdes.vel + 0.5 * irdes.acc
+        irdes.rect.midbottom = irdes.pos
+        if irdes.pos.x > 500:
+            irdes.pos.x = 0
+
+        mentir.acc = vec(-1, 0)
+        #desrespeitar.acc.x += desrespeitar.vel.x * (-0.12)
+        mentir.vel = vec(-3,0)
+        mentir.pos += mentir.vel - 0.5 * mentir.acc
+        mentir.rect.midbottom = mentir.pos
+        if mentir.pos.x < 0:
+            mentir.pos.x = 500
+
+        preguiça.acc = vec(1, 0)
+        #mentefechada.acc.x += mentefechada.vel.x * (-0.12)
+        preguiça.vel = vec(3,0)
+        preguiça.pos += preguiça.vel + 0.5 * preguiça.acc
+        preguiça.rect.midbottom = preguiça.pos
+        if preguiça.pos.x > 500:
+            preguiça.pos.x = 0
+
         #colisao
     
         if personagem.vel.y > 0.9:
@@ -189,6 +231,19 @@ def main():
                 ini.kill()
             for plat in plataformas: 
                 plat.kill()"""   
+        
+        '''colisao_inimigos4 = pygame.sprite.spritecollide(personagem, inimigos4grupo, False)
+        if colisao_inimigos4:
+            personagem.pos = vec(400,530)
+            gameover.rect.left = 0
+            botaogameover.rect.left = 182.985 
+            fundoinicial.rect.left = 0
+            for ini in inimigos4grupo:
+                ini.kill()
+            for bol in bolinhas4grupo:
+                bol.kill()
+            for plat in plataformas: 
+                plat.kill()'''
 
 
         #pulo
@@ -219,6 +274,8 @@ def main():
             for bol in bolinhas4grupo: #bolinhas 4
                 bol.rect.y += abs(personagem.vel.y)
             for ini in inimigos3grupo:
+                ini.pos.y += abs(personagem.vel.y)
+            for ini in inimigos4grupo:
                 ini.pos.y += abs(personagem.vel.y)
             for ic in iconegrupo:
                 ic.rect.y += abs(personagem.vel.y)
@@ -372,6 +429,12 @@ def main():
                 iconef4.rect.y = -2555
                 pfinal4.rect.left = 5
                 pfinal4.rect.top = -2450
+
+                respostas.pos.y = -10
+                falta.pos.y = -500
+                irdes.pos.y = -1000
+                mentir.pos.y = -1500
+                preguiça.pos.y = -2000
 
                 coo.rect.x = random.uniform(50,400)
                 sec.rect.x = random.uniform(50,400)
@@ -544,6 +607,7 @@ def main():
         iconef4grupo.draw(tela)
         iconef5grupo.draw(tela)
         bolinhas4grupo.draw(tela)
+        inimigos4grupo.draw(tela)
     
 
         #Updates
