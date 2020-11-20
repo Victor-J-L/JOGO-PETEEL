@@ -437,7 +437,7 @@ def main():
             if iconef2.rect.x >= 0 and iconef2.rect.x <= 500:
                 for val in valoresgrupo : 
                     val.kill()   
-                fundoinicial.image = pygame.image.load("Imagens/Primeira Fase/fundo123desfocado.png")
+                fundoinicial.image = pygame.image.load("Imagens/Segunda Fase/Fundo2desfocadp.png")
                 pfinal2.rect.left = 800
                 pfinal2.rect.top = -2450
                 iconef2.rect.x = 800
@@ -450,17 +450,17 @@ def main():
                 pfinal3.rect.top = -2450
                 iconef3.rect.x = 800
                 iconef3.rect.y = -2555
-                fundoinicial.image = pygame.image.load("Imagens/Primeira Fase/fundo123desfocado.png")
+                fundoinicial.image = pygame.image.load("Imagens/Terceira Fase/Fundo3desfocado.png")
 
             if iconef4.rect.x >= 0 and iconef4.rect.x <= 500:
-                fundoinicial.image = pygame.image.load("Imagens/Primeira Fase/fundo123desfocado.png")
+                fundoinicial.image = pygame.image.load("Imagens/Quarta Fase/fundo 4 desfocado.png")
                 pfinal3.rect.left = 800
                 pfinal3.rect.top = -2450
                 iconef3.rect.x = 800
                 iconef3.rect.y = -2555
-                
+
             if iconef5.rect.x >= 0 and iconef5.rect.x <= 500: 
-                fundoinicial.image = pygame.image.load("Imagens/Primeira Fase/fundo123desfocado.png")
+                fundoinicial.image = pygame.image.load("Imagens/Quinta Fase/fundo5desfocado.png")
                 pfinal3.rect.left = 800
                 pfinal3.rect.top = -2450
                 iconef3.rect.x = 800
