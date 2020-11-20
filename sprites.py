@@ -288,6 +288,28 @@ class Inimigos3(pygame.sprite.Sprite):
         self.vel = vec(0, 0)
         self.acc = vec(0, 0)
 
+class Bolinha4(pygame.sprite.Sprite): 
+    def __init__(self, image, y):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load(image)
+        self.rect = self.image.get_rect()
+        self.rect.x = 2000
+        self.rect.y = y
+        #self.pos = vec(228, 720)
+        self.vel = vec(0, 0)
+        self.acc = vec(0, 0)
+
+class Inimigos4(pygame.sprite.Sprite):
+    def __init__(self, x, y, image):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load(image)
+        self.rect = self.image.get_rect()
+        self.rect.left = x
+        self.rect.top = y
+        self.pos = vec(x,y)
+        self.vel = vec(0, 0)
+        self.acc = vec(0, 0)
+
 #Variaveis
 cor_azul = (181,244,253)
 #grupos 
@@ -312,6 +334,8 @@ transicao41grupo = pygame.sprite.Group()
 transicao42grupo = pygame.sprite.Group()
 iconef4grupo = pygame.sprite.Group()
 iconef5grupo = pygame.sprite.Group()
+bolinhas4grupo = pygame.sprite.Group()
+inimigos4grupo = pygame.sprite.Group()
 
 
 #CORES
@@ -402,6 +426,24 @@ iconef4grupo.add(iconef4)
 botaot4 = Botaot()
 botaot4.image = pygame.image.load("Imagens/Quarta Fase/agora.png")
 transicao42grupo.add(botaot4)
+
+coo = Bolinha4("Imagens/Quarta Fase/obstáculos/COO.png",random.uniform(400,200))
+sec = Bolinha4("Imagens/Quarta Fase/obstáculos/SEC.png",random.uniform(-400,-200))
+tes = Bolinha4("Imagens/Quarta Fase/obstáculos/TES.png",random.uniform(-600,-400))
+pep = Bolinha4("Imagens/Quarta Fase/obstáculos/PEP.png",random.uniform(-800,-600))
+mkt = Bolinha4("Imagens/Quarta Fase/obstáculos/MKT.png",random.uniform(-1000,-800))
+evt = Bolinha4("Imagens/Quarta Fase/obstáculos/EVT.png",random.uniform(-1200,-1000))
+inter = Bolinha4("Imagens/Quarta Fase/obstáculos/INTERPET.png",random.uniform(-1400,-1200))
+qld = Bolinha4("Imagens/Quarta Fase/obstáculos/qld.png",random.uniform(-1600,-1400))
+
+bolinhas4grupo.add(coo, tes, pep, sec, mkt, evt, inter, qld)
+
+respostas = Inimigos4(5, 2000, "Imagens/Quarta Fase/RESPOSTAS.png") #dai quando clica no botao muda o y pro lugar certo deles"
+falta = Inimigos4(450, 2000, "Imagens/Quarta Fase/FALTA.png")
+irdes = Inimigos4(5, 2000, "Imagens/Quarta Fase/irdespreparado.png")
+mentir = Inimigos4(450, 2000, "Imagens/Quarta Fase/mentir.png")
+preguiça  = Inimigos4(5, 2000, "Imagens/Quarta Fase/TERPREGUIÇA.png")
+inimigos4grupo.add(respostas, falta, irdes, mentir, preguiça)
 
 #Quinta Fase
 
