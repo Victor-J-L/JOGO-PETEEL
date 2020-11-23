@@ -318,6 +318,16 @@ class Personagemfinal(pygame.sprite.Sprite):
         self.rect.left = x
         self.rect.top = y
 
+
+class Personagensfinais(pygame.sprite.Sprite):
+    def __init__(self, x, y, image):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load(image)
+        self.rect = self.image.get_rect()
+        self.rect.left = x
+        self.rect.top = y
+        self.jaaconteceu = False
+
 #Variaveis
 cor_azul = (181,244,253)
 #grupos 
@@ -345,6 +355,10 @@ iconef5grupo = pygame.sprite.Group()
 bolinhas4grupo = pygame.sprite.Group()
 inimigos4grupo = pygame.sprite.Group()
 transicaofinal = pygame.sprite.Group()
+expetianomarialauragroup=pygame.sprite.Group()
+expetianojoaogroup=pygame.sprite.Group()
+expetianoarthurgroup=pygame.sprite.Group()
+expetianoeduardagroup=pygame.sprite.Group()
 
 
 #CORES
@@ -463,6 +477,23 @@ transiçãofinal.image = pygame.image.load("Imagens/Quinta Fase/transiçãofinal
 transicaofinal.add(transiçãofinal)
 personagemfinal = Personagemfinal(800, 800, "Imagens/Quinta Fase/personagemfinal.png")
 transicaofinal.add(personagemfinal)
+personagemarthur = Personagensfinais(120,-450,"Imagens/Quinta Fase/Expetianoarthur.png")
+expetianoarthurgroup.add(personagemarthur)
+personagemjoao = Personagensfinais(420,-950,"Imagens/Quinta Fase/Expetianojoao.png")
+expetianojoaogroup.add(personagemjoao)
+personagemmarialaura = Personagensfinais(120,-1450,"Imagens/Quinta Fase/Expetianomarialaura.png")
+expetianomarialauragroup.add(personagemmarialaura)
+personagemeduarda = Personagensfinais(420,-1950,"Imagens/Quinta Fase/Expetianoeduarda.png")
+expetianoeduardagroup.add(personagemeduarda)
+"""plataformaarthur=Plataformas(800, -380, "Imagens/Quinta Fase/plataforma5.png")
+plataformas.add(plataformaarthur)
+plataformaeduarda=Plataformas(300, -880, "Imagens/Quinta Fase/plataforma5.png")
+plataformas.add(plataformaeduarda)
+plataformamarialaura=Plataformas(50, -1380, "Imagens/Quinta Fase/plataforma5.png")
+plataformas.add(plataformamarialaura)
+plataformajoao=Plataformas(300, -1880, "Imagens/Quinta Fase/plataforma5.png")
+plataformas.add(plataformajoao)"""
+
 
 #Lista de Plataformas
 p0 = Chao(-15, 544)

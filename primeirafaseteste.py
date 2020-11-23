@@ -246,7 +246,7 @@ def main():
                 plat.kill()'''
 
         colisao_icone5 = pygame.sprite.spritecollide(personagem, iconef5grupo, True)
-        if colisao_icone4:
+        if colisao_icone5:
             transiçãofinal.rect.left = -1
             personagemfinal.rect.x = 210
             personagemfinal.rect.y = 425
@@ -294,6 +294,14 @@ def main():
                 ic.rect.y += abs(personagem.vel.y)
             for platfin in platfinal:
                 platfin.rect.y += abs(personagem.vel.y)
+            for per in personagemarthur:
+                per.rect.y += abs(personagem.vel.y)
+            for per in personagemjoao:
+                per.rect.y += abs(personagem.vel.y)
+            for per in personagemmarialaura:
+                per.rect.y += abs(personagem.vel.y)
+            for per in personagemeduarda :
+                per.rect.y += abs(personagem.vel.y)
             for plat in plataformas:
                 plat.rect.y += abs(personagem.vel.y)
                 if plat.rect.top >= 650:
@@ -327,7 +335,7 @@ def main():
                     plataformas.add(p)
         
         if pfinal5.rect.top <-100 and pfinal5.rect.left <= 10:
-            while len(plataformas) < 5:
+            while len(plataformas) < 9:
                 if iconef5.rect.x >= 0 and iconef5.rect.x <= 500: 
                     p = Plataformas(random.randrange(5, 300),
                                     random.randrange(-105, -104), "Imagens/Quinta Fase/plataforma5.png")
@@ -512,6 +520,15 @@ def main():
                 plataformas.add(p3)
                 p4 = Plataformas(235, -30, "Imagens/Quinta Fase/plataforma5.png")
                 plataformas.add(p4)
+                plataformaarthur=Plataformas(800, -380, "Imagens/Quinta Fase/plataforma5.png")
+                plataformas.add(plataformaarthur)
+                plataformaeduarda=Plataformas(300, -880, "Imagens/Quinta Fase/plataforma5.png")
+                plataformas.add(plataformaeduarda)
+                plataformamarialaura=Plataformas(50, -1380, "Imagens/Quinta Fase/plataforma5.png")
+                plataformas.add(plataformamarialaura)
+                plataformajoao=Plataformas(300, -1880, "Imagens/Quinta Fase/plataforma5.png")
+                plataformas.add(plataformajoao)
+
 
 
         #Game Over
