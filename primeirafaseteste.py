@@ -245,6 +245,19 @@ def main():
             for plat in plataformas: 
                 plat.kill()'''
 
+        colisao_icone5 = pygame.sprite.spritecollide(personagem, iconef5grupo, True)
+        if colisao_icone4:
+            transiçãofinal.rect.left = -1
+            personagemfinal.rect.x = 210
+            personagemfinal.rect.y = 425
+            if personagem.p11 == True:
+                    personagemfinal.image = pygame.image.load("Imagens/Quinta Fase/personagemfinal.png")
+            if personagem.p10 == True:
+                    personagemfinal.image = pygame.image.load("Imagens/Quinta Fase/personagemfinal.png")
+            if personagem.p22 == True:
+                    personagemfinal.image = pygame.image.load("Imagens/Quinta Fase/personagem2final.png")
+        
+
 
         #pulo
         if event.type == pygame.KEYDOWN:
@@ -608,6 +621,7 @@ def main():
         iconef5grupo.draw(tela)
         bolinhas4grupo.draw(tela)
         inimigos4grupo.draw(tela)
+        transicaofinal.draw(tela)
     
 
         #Updates

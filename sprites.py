@@ -310,6 +310,14 @@ class Inimigos4(pygame.sprite.Sprite):
         self.vel = vec(0, 0)
         self.acc = vec(0, 0)
 
+class Personagemfinal(pygame.sprite.Sprite):
+    def __init__(self, x, y, image):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load(image)
+        self.rect = self.image.get_rect()
+        self.rect.left = x
+        self.rect.top = y
+
 #Variaveis
 cor_azul = (181,244,253)
 #grupos 
@@ -336,6 +344,7 @@ iconef4grupo = pygame.sprite.Group()
 iconef5grupo = pygame.sprite.Group()
 bolinhas4grupo = pygame.sprite.Group()
 inimigos4grupo = pygame.sprite.Group()
+transicaofinal = pygame.sprite.Group()
 
 
 #CORES
@@ -449,6 +458,11 @@ inimigos4grupo.add(respostas, falta, irdes, mentir, preguiça)
 
 iconef5 = Icone2()
 iconef5grupo.add(iconef5)
+transiçãofinal = Transicao()
+transiçãofinal.image = pygame.image.load("Imagens/Quinta Fase/transiçãofinal-01.png")
+transicaofinal.add(transiçãofinal)
+personagemfinal = Personagemfinal(800, 800, "Imagens/Quinta Fase/personagemfinal.png")
+transicaofinal.add(personagemfinal)
 
 #Lista de Plataformas
 p0 = Chao(-15, 544)
