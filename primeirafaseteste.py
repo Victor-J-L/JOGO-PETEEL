@@ -485,8 +485,8 @@ def main():
                 pfinal5.rect.left = 5
                 pfinal5.rect.top = -2450
 
-                """for ini1 in inimigos4grupo:
-                    ini1.kill()"""
+                for ini1 in inimigos4grupo:
+                    ini1.kill()
                 for plat in plataformas: 
                     plat.kill()     
                 p0 = Chao(-15, 544)
