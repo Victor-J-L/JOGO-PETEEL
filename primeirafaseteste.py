@@ -258,6 +258,69 @@ def main():
             if personagem.p22 == True:
                     personagemfinal.image = pygame.image.load("Imagens/Quinta Fase/personagem2final.png")
         
+        #Colisão Expetianos
+        colisao_marialaura = pygame.sprite.spritecollide(personagem, expetianomarialauragroup, True)
+        if colisao_marialaura:
+            if personagemmarialaura.jaaconteceu == False:
+                fundo = pygame.image.load("Imagens/Quinta Fase/fundo5desfocado.png")
+                falamarialaura.rect.left=70.504 
+                botaoexpetianos.rect.top = 95
+                botaoexpetianos.rect.left = 80
+                personagemmarialaura.jaaconteceu = True
+        if xmouse >= botaoexpetianos.rect.left and xmouse <= botaoexpetianos.rect.right and ymouse <= botaoexpetianos.rect.bottom and ymouse >= botaoexpetianos.rect.top:
+            if event.type == pygame.MOUSEBUTTONDOWN: 
+                fundo = pygame.image.load("Imagens/Quinta Fase/fundo5.png")
+                falamarialaura.rect.left=800
+                botaoexpetianos.rect.left = 800
+        
+        colisao_eduarda = pygame.sprite.spritecollide(personagem, expetianoeduardagroup, True)
+        if colisao_eduarda:
+            if personagemeduarda.jaaconteceu == False:
+                fundo = pygame.image.load("Imagens/Quinta Fase/fundo5desfocado.png")
+                falaeduarda.rect.left=70.504 
+                botaoexpetianos.rect.top = 95
+                botaoexpetianos.rect.left = 80
+                personagemeduarda.jaaconteceu = True
+        if xmouse >= botaoexpetianos.rect.left and xmouse <= botaoexpetianos.rect.right and ymouse <= botaoexpetianos.rect.bottom and ymouse >= botaoexpetianos.rect.top:
+            if event.type == pygame.MOUSEBUTTONDOWN: 
+                fundo = pygame.image.load("Imagens/Quinta Fase/fundo5.png")
+                falaeduarda.rect.left=800
+                botaoexpetianos.rect.left = 800
+        
+        colisao_arthur = pygame.sprite.spritecollide(personagem, expetianoarthurgroup, True)
+        if colisao_arthur:
+            if personagemarthur.jaaconteceu == False:
+                fundo = pygame.image.load("Imagens/Quinta Fase/fundo5desfocado.png")
+                falaarthur.rect.left=70.504 
+                botaoexpetianos.rect.top = 95
+                botaoexpetianos.rect.left = 80
+                personagemarthur.jaaconteceu = True
+        if xmouse >= botaoexpetianos.rect.left and xmouse <= botaoexpetianos.rect.right and ymouse <= botaoexpetianos.rect.bottom and ymouse >= botaoexpetianos.rect.top:
+            if event.type == pygame.MOUSEBUTTONDOWN: 
+                fundo = pygame.image.load("Imagens/Quinta Fase/fundo5.png")
+                falaarthur.rect.left=1000
+                botaoexpetianos.rect.left = 800
+        
+        colisao_joao = pygame.sprite.spritecollide(personagem, expetianojoaogroup, True)
+        if colisao_joao:
+            if personagemjoao.jaaconteceu == False:
+                fundo = pygame.image.load("Imagens/Quinta Fase/fundo5desfocado.png")
+                falajoao.rect.left=70.504 
+                botaoexpetianos.rect.top = 95
+                botaoexpetianos.rect.left = 80 
+                personagemjoao.jaaconteceu = True
+        if xmouse >= botaoexpetianos.rect.left and xmouse <= botaoexpetianos.rect.right and ymouse <= botaoexpetianos.rect.bottom and ymouse >= botaoexpetianos.rect.top:
+            if event.type == pygame.MOUSEBUTTONDOWN: 
+                fundo = pygame.image.load("Imagens/Quinta Fase/fundo5.png")
+                falajoao.rect.left=800
+                botaoexpetianos.rect.left = 800
+                
+
+
+
+            
+        
+        
 
 
         #pulo
@@ -295,13 +358,13 @@ def main():
                 ic.rect.y += abs(personagem.vel.y)
             for platfin in platfinal:
                 platfin.rect.y += abs(personagem.vel.y)
-            for per in personagemarthur:
+            for per in expetianojoaogroup:
                 per.rect.y += abs(personagem.vel.y)
-            for per in personagemjoao:
+            for per in expetianoarthurgroup:
                 per.rect.y += abs(personagem.vel.y)
-            for per in personagemmarialaura:
+            for per in expetianomarialauragroup:
                 per.rect.y += abs(personagem.vel.y)
-            for per in personagemeduarda :
+            for per in expetianoeduardagroup :
                 per.rect.y += abs(personagem.vel.y)
             for plat in plataformas:
                 plat.rect.y += abs(personagem.vel.y)
@@ -530,6 +593,19 @@ def main():
                 plataformajoao=Plataformas(300, -1880, "Imagens/Quinta Fase/plataforma5.png")
                 plataformas.add(plataformajoao)
 
+                personagemarthur.rect.left=120
+                personagemarthur.rect.top=-450
+
+                personagemmarialaura.rect.left=120
+                personagemmarialaura.rect.top=-1450
+
+                personagemjoao.rect.left=420
+                personagemjoao.rect.top=-950
+
+                personagemeduarda.rect.left=420
+                personagemeduarda.rect.top=-1950
+                
+
 
 
         #Game Over
@@ -640,6 +716,13 @@ def main():
         bolinhas4grupo.draw(tela)
         inimigos4grupo.draw(tela)
         transicaofinal.draw(tela)
+        expetianomarialauragroup.draw(tela)
+        expetianojoaogroup.draw(tela)
+        expetianoarthurgroup.draw(tela)
+        expetianoeduardagroup.draw(tela)
+        falaexpetiano.draw(tela)
+        botaoexpetianosgroup.draw(tela)
+
     
 
         #Updates

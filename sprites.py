@@ -328,6 +328,23 @@ class Personagensfinais(pygame.sprite.Sprite):
         self.rect.top = y
         self.jaaconteceu = False
 
+class FalaExpetiano(pygame.sprite.Sprite):
+    def __init__(self, x, y, image):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load(image)
+        self.rect = self.image.get_rect()
+        self.rect.left = x
+        self.rect.top = y
+        self.jaaconteceu = False
+
+class Botaoexpetiano(pygame.sprite.Sprite):
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load("Imagens/Quinta Fase/botaoexpetianos.png")
+        self.rect = self.image.get_rect()
+        self.rect.top = 0
+        self.rect.left = 800
+
 #Variaveis
 cor_azul = (181,244,253)
 #grupos 
@@ -359,6 +376,8 @@ expetianomarialauragroup=pygame.sprite.Group()
 expetianojoaogroup=pygame.sprite.Group()
 expetianoarthurgroup=pygame.sprite.Group()
 expetianoeduardagroup=pygame.sprite.Group()
+falaexpetiano=pygame.sprite.Group()
+botaoexpetianosgroup = pygame.sprite.Group()
 
 
 #CORES
@@ -486,23 +505,24 @@ transiçãofinal.image = pygame.image.load("Imagens/Quinta Fase/transiçãofinal
 transicaofinal.add(transiçãofinal)
 personagemfinal = Personagemfinal(800, 800, "Imagens/Quinta Fase/personagemfinal.png")
 transicaofinal.add(personagemfinal)
-personagemarthur = Personagensfinais(120,-450,"Imagens/Quinta Fase/Expetianoarthur.png")
+falamarialaura= FalaExpetiano(800, 87.679,"Imagens/Quinta Fase/expetiano_marialaura.png" )
+falaexpetiano.add(falamarialaura)
+falaeduarda= FalaExpetiano(800, 87.679,"Imagens/Quinta Fase/expetiano_eduarda.png" )
+falaexpetiano.add(falaeduarda)
+falaarthur=FalaExpetiano(800, 87.679,"Imagens/Quinta Fase/expetiano_arthur.png" )
+falaexpetiano.add(falaarthur)
+falajoao=FalaExpetiano(800, 87.679,"Imagens/Quinta Fase/expetiano_joao.png" )
+falaexpetiano.add(falajoao)
+botaoexpetianos = Botaoexpetiano()
+botaoexpetianosgroup.add(botaoexpetianos)
+personagemarthur = Personagensfinais(800,-450,"Imagens/Quinta Fase/Expetianoarthur.png")
 expetianoarthurgroup.add(personagemarthur)
-personagemjoao = Personagensfinais(420,-950,"Imagens/Quinta Fase/Expetianojoao.png")
+personagemjoao = Personagensfinais(800,-950,"Imagens/Quinta Fase/Expetianojoao.png")
 expetianojoaogroup.add(personagemjoao)
-personagemmarialaura = Personagensfinais(120,-1450,"Imagens/Quinta Fase/Expetianomarialaura.png")
+personagemmarialaura = Personagensfinais(800,-1450,"Imagens/Quinta Fase/Expetianomarialaura.png")
 expetianomarialauragroup.add(personagemmarialaura)
-personagemeduarda = Personagensfinais(420,-1950,"Imagens/Quinta Fase/Expetianoeduarda.png")
+personagemeduarda = Personagensfinais(800,-1950,"Imagens/Quinta Fase/Expetianoeduarda.png")
 expetianoeduardagroup.add(personagemeduarda)
-"""plataformaarthur=Plataformas(800, -380, "Imagens/Quinta Fase/plataforma5.png")
-plataformas.add(plataformaarthur)
-plataformaeduarda=Plataformas(300, -880, "Imagens/Quinta Fase/plataforma5.png")
-plataformas.add(plataformaeduarda)
-plataformamarialaura=Plataformas(50, -1380, "Imagens/Quinta Fase/plataforma5.png")
-plataformas.add(plataformamarialaura)
-plataformajoao=Plataformas(300, -1880, "Imagens/Quinta Fase/plataforma5.png")
-plataformas.add(plataformajoao)"""
-
 
 #Lista de Plataformas
 p0 = Chao(-15, 544)
