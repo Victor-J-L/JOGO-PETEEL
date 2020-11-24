@@ -54,6 +54,7 @@ def main():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 pag_inicial.rect.left = 800
                 botaoplay.rect.left = 800
+                sobre.rect.right = 1000
                 personagem1.rect.left = 800
                 personagem2.rect.left = 800
                 selecao.rect.right = 800

@@ -102,8 +102,8 @@ class Botaoplay(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.top = 342
         self.rect.bottom = 391
-        self.rect.left = 199
-        self.rect.right = 314
+        self.rect.left = 350
+        self.rect.right = 370
 
 class Bolinha1(pygame.sprite.Sprite): #ensino
     def __init__(self):
@@ -382,6 +382,15 @@ transicaogrupo.add(transição1)
 
 botaot = Botaot()
 transicaogrupo.add(botaot)
+
+sobre = Botaoplay()
+sobre.image = pygame.image.load("Imagens/Página Inicial/sobre.png")
+sobre.rect.top = 342
+sobre.rect.bottom = 400
+sobre.rect.left = 150
+sobre.rect.right = 250
+all_sprites.add(sobre)
+
 
 #bolinhas primeira fase
 
