@@ -61,6 +61,14 @@ def main():
                 fundo = pygame.image.load("Imagens/Primeira Fase/fundo1_1.png")
                 fundoinicial.rect.left = 800 
 
+        if xmouse >= sobre.rect.left and xmouse <= sobre.rect.right and ymouse <= sobre.rect.bottom and ymouse >= sobre.rect.top:
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                sobrejogo.rect.left = 0
+                seta.rect.right = 500
+                seta.rect.bottom = 500
+
+        
+
        #Código Movimento do personagem
         personagem.acc = vec(0, 1)
         keys = pygame.key.get_pressed()
