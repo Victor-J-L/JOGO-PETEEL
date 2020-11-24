@@ -61,6 +61,33 @@ def main():
                 fundo = pygame.image.load("Imagens/Primeira Fase/fundo1_1.png")
                 fundoinicial.rect.left = 800 
 
+        if xmouse >= sobre.rect.left and xmouse <= sobre.rect.right and ymouse <= sobre.rect.bottom and ymouse >= sobre.rect.top:
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                sobrejogo.rect.left = 0
+                seta.rect.top = 500
+                seta.rect.bottom = 650
+                seta.rect.left = 1000
+                seta.rect.right = 150
+
+        if xmouse >= seta.rect.left and xmouse <= seta.rect.right and ymouse <= seta.rect.bottom and ymouse >= seta.rect.top:
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                sobrejogo.rect.left = 1000
+                agradecimento.rect.left = 0
+                botaoexit.rect.right = 480
+                botaoexit.rect.top = 540 
+                seta.rect.bottom = 660
+                seta.rect.left = 1000
+                seta.rect.right = 1000
+
+        if xmouse >= botaoexit.rect.left and xmouse <= botaoexit.rect.right and ymouse <= botaoexit.rect.bottom and ymouse >= botaoexit.rect.top:
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                agradecimento.rect.left = 1000
+                botaoexit.rect.right = 1000
+
+
+
+        
+
        #Código Movimento do personagem
         personagem.acc = vec(0, 1)
         keys = pygame.key.get_pressed()
@@ -716,6 +743,7 @@ def main():
         bolinhas4grupo.draw(tela)
         inimigos4grupo.draw(tela)
         transicaofinal.draw(tela)
+<<<<<<< HEAD
         expetianomarialauragroup.draw(tela)
         expetianojoaogroup.draw(tela)
         expetianoarthurgroup.draw(tela)
@@ -723,6 +751,10 @@ def main():
         falaexpetiano.draw(tela)
         botaoexpetianosgroup.draw(tela)
 
+=======
+        botoesinicio.draw(tela)
+        agradecimentosgrupo.draw(tela)
+>>>>>>> c57f6bf59bc58b58a1e2c03eb5077a44bc34d564
     
 
         #Updates
