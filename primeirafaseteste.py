@@ -72,16 +72,16 @@ def main():
         if xmouse >= seta.rect.left and xmouse <= seta.rect.right and ymouse <= seta.rect.bottom and ymouse >= seta.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 sobrejogo.rect.left = 1000
-                agradecimentos.rect.left = 0
-                botaoexit.rect.top = 342
-                botaoexit.rect.bottom = 660
-                botaoexit.rect.left = 1000
-                botaoexit.rect.right = 480
+                agradecimento.rect.left = 0
+                botaoexit.rect.right = 500
+                botaoexit.rect.top = 500 
+                seta.rect.bottom = 660
+                seta.rect.left = 1000
                 seta.rect.right = 1000
 
         if xmouse >= botaoexit.rect.left and xmouse <= botaoexit.rect.right and ymouse <= botaoexit.rect.bottom and ymouse >= botaoexit.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN:
-                agradecimentos.rect.left = 1000
+                #agradecimento.rect.left = 1000
                 botaoexit.rect.right = 1000
 
 

@@ -393,22 +393,23 @@ sobre.rect.left = 150
 sobre.rect.right = 250
 all_sprites.add(sobre)
 
-agradecimentos = Transicao()
-agradecimentos.image = pygame.image.load("Imagens/Página Inicial/agradecimentos2.png")
+agradecimento = Transicao2()
+agradecimento.image = pygame.image.load("Imagens/Página Inicial/agradecimentos2.png")
+agradecimento.rect.left = -500
+
 sobrejogo = Transicao()
 sobrejogo.image = pygame.image.load("Imagens/Página Inicial/ojogo.png")
 
 botaoexit = Botaoplay()
 botaoexit.image = pygame.image.load("Imagens/Página Inicial/botaoexit.png")
-botaoexit.rect.right = 800
-botaoexit.rect.top = 800
+botaoexit.rect.right = 0
+botaoexit.rect.top = 0
 seta = Botaoplay()
 seta.image = pygame.image.load("Imagens/Página Inicial/seta.png")
 seta.rect.right = 800
 seta.rect.top = 800
-all_sprites.add(seta, botaoexit, sobrejogo, agradecimentos)
-botoesinicio.add(seta, botaoexit)
-agradecimentosgrupo.add(agradecimentos)
+all_sprites.add(seta, botaoexit, sobrejogo)
+botoesinicio.add(agradecimento, seta, botaoexit)
 
 #bolinhas primeira fase
 
