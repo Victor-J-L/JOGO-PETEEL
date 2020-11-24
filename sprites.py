@@ -332,6 +332,8 @@ class Personagensfinais(pygame.sprite.Sprite):
 cor_azul = (181,244,253)
 #grupos 
 
+botoesinicio = pygame.sprite.Group()
+agradecimentosgrupo = pygame.sprite.Group()
 plataformas = pygame.sprite.Group()
 platfinal = pygame.sprite.Group()
 all_sprites = pygame.sprite.Group()
@@ -405,6 +407,8 @@ seta.image = pygame.image.load("Imagens/Página Inicial/seta.png")
 seta.rect.right = 800
 seta.rect.top = 800
 all_sprites.add(seta, botaoexit, sobrejogo, agradecimentos)
+botoesinicio.add(seta, botaoexit)
+agradecimentosgrupo.add(agradecimentos)
 
 #bolinhas primeira fase
 

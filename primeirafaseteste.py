@@ -64,8 +64,27 @@ def main():
         if xmouse >= sobre.rect.left and xmouse <= sobre.rect.right and ymouse <= sobre.rect.bottom and ymouse >= sobre.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 sobrejogo.rect.left = 0
-                seta.rect.right = 500
-                seta.rect.bottom = 500
+                seta.rect.top = 342
+                seta.rect.bottom = 660
+                seta.rect.left = 1000
+                seta.rect.right = 480
+
+        if xmouse >= seta.rect.left and xmouse <= seta.rect.right and ymouse <= seta.rect.bottom and ymouse >= seta.rect.top:
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                sobrejogo.rect.left = 1000
+                agradecimentos.rect.left = 0
+                botaoexit.rect.top = 342
+                botaoexit.rect.bottom = 660
+                botaoexit.rect.left = 1000
+                botaoexit.rect.right = 480
+                seta.rect.right = 1000
+
+        if xmouse >= botaoexit.rect.left and xmouse <= botaoexit.rect.right and ymouse <= botaoexit.rect.bottom and ymouse >= botaoexit.rect.top:
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                agradecimentos.rect.left = 1000
+                botaoexit.rect.right = 1000
+
+
 
         
 
@@ -648,6 +667,8 @@ def main():
         bolinhas4grupo.draw(tela)
         inimigos4grupo.draw(tela)
         transicaofinal.draw(tela)
+        botoesinicio.draw(tela)
+        agradecimentosgrupo.draw(tela)
     
 
         #Updates
