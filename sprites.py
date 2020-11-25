@@ -329,12 +329,12 @@ class Personagensfinais(pygame.sprite.Sprite):
         self.jaaconteceu = False
 
 class FalaExpetiano(pygame.sprite.Sprite):
-    def __init__(self, x, y, image):
+    def __init__(self, image):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.image.load(image)
         self.rect = self.image.get_rect()
-        self.rect.left = x
-        self.rect.top = y
+        self.rect.top =  87.679
+        self.rect.left = 800
         self.jaaconteceu = False
 
 class Botaoexpetiano(pygame.sprite.Sprite):
@@ -524,13 +524,13 @@ transiçãofinal.image = pygame.image.load("Imagens/Quinta Fase/transiçãofinal
 transicaofinal.add(transiçãofinal)
 personagemfinal = Personagemfinal(800, 800, "Imagens/Quinta Fase/personagemfinal.png")
 transicaofinal.add(personagemfinal)
-falamarialaura= FalaExpetiano(800, 87.679,"Imagens/Quinta Fase/expetiano_marialaura.png" )
+falamarialaura= FalaExpetiano("Imagens/Quinta Fase/expetiano_marialaura.png" )
 falaexpetiano.add(falamarialaura)
-falaeduarda= FalaExpetiano(800, 87.679,"Imagens/Quinta Fase/expetiano_eduarda.png" )
+falaeduarda= FalaExpetiano("Imagens/Quinta Fase/expetiano_eduarda.png" )
 falaexpetiano.add(falaeduarda)
-falaarthur=FalaExpetiano(800, 87.679,"Imagens/Quinta Fase/expetiano_arthur.png" )
+falaarthur=FalaExpetiano("Imagens/Quinta Fase/expetiano_arthur.png" )
 falaexpetiano.add(falaarthur)
-falajoao=FalaExpetiano(800, 87.679,"Imagens/Quinta Fase/expetiano_joao.png" )
+falajoao=FalaExpetiano("Imagens/Quinta Fase/expetiano_joao.png" )
 falaexpetiano.add(falajoao)
 botaoexpetianos = Botaoexpetiano()
 botaoexpetianosgroup.add(botaoexpetianos)
