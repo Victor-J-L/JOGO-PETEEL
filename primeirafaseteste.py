@@ -236,7 +236,9 @@ def main():
             transição41.rect.left = -1
             abrir.rect.left = 385
             abrir.rect.top = 285
-            for ini in inimigos3grupo:
+            for bol in bolinhas4grupo:
+                bol.kill()
+            for ini in inimigos4grupo:
                 ini.kill()
 
         if xmouse >= abrir.rect.left and xmouse <= abrir.rect.right and ymouse <= abrir.rect.bottom and ymouse >= abrir.rect.top:
@@ -284,71 +286,6 @@ def main():
                     personagemfinal.image = pygame.image.load("Imagens/Quinta Fase/personagemfinal.png")
             if personagem.p22 == True:
                     personagemfinal.image = pygame.image.load("Imagens/Quinta Fase/personagem2final.png")
-        
-        #Colisão Expetianos
-        colisao_marialaura = pygame.sprite.spritecollide(personagem, expetianomarialauragroup, True)
-        if colisao_marialaura:
-            #if personagemmarialaura.jaaconteceu == False:
-                fundo = pygame.image.load("Imagens/Quinta Fase/fundo5desfocado.png")
-                falamarialaura.rect.left=70.504 
-                botaoexpetianos.rect.top = 95
-                botaoexpetianos.rect.left = 80
-                #personagemmarialaura.jaaconteceu = True
-        if xmouse >= botaoexpetianos.rect.left and xmouse <= botaoexpetianos.rect.right and ymouse <= botaoexpetianos.rect.bottom and ymouse >= botaoexpetianos.rect.top:
-            if event.type == pygame.MOUSEBUTTONDOWN: 
-                fundo = pygame.image.load("Imagens/Quinta Fase/fundo5.png")
-                falamarialaura.rect.left=800
-                botaoexpetianos.rect.left = 800
-        
-        colisao_eduarda = pygame.sprite.spritecollide(personagem, expetianoeduardagroup, True)
-        if colisao_eduarda:
-            #if personagemeduarda.jaaconteceu == False:
-                fundo = pygame.image.load("Imagens/Quinta Fase/fundo5desfocado.png")
-                falaeduarda.rect.left=70.504 
-                botaoexpetianos.rect.top = 95
-                botaoexpetianos.rect.left = 80
-                #personagemeduarda.jaaconteceu = True
-        if xmouse >= botaoexpetianos.rect.left and xmouse <= botaoexpetianos.rect.right and ymouse <= botaoexpetianos.rect.bottom and ymouse >= botaoexpetianos.rect.top:
-            if event.type == pygame.MOUSEBUTTONDOWN: 
-                fundo = pygame.image.load("Imagens/Quinta Fase/fundo5.png")
-                falaeduarda.rect.left=800
-                botaoexpetianos.rect.left = 800
-        
-        colisao_arthur = pygame.sprite.spritecollide(personagem, expetianoarthurgroup, True)
-        if colisao_arthur:
-            #if personagemarthur.jaaconteceu == False:
-                fundo = pygame.image.load("Imagens/Quinta Fase/fundo5desfocado.png")
-                falaarthur.rect.left=70.504 
-                botaoexpetianos.rect.top = 95
-                botaoexpetianos.rect.left = 80
-                #personagemarthur.jaaconteceu = True
-        if xmouse >= botaoexpetianos.rect.left and xmouse <= botaoexpetianos.rect.right and ymouse <= botaoexpetianos.rect.bottom and ymouse >= botaoexpetianos.rect.top:
-            if event.type == pygame.MOUSEBUTTONDOWN: 
-                fundo = pygame.image.load("Imagens/Quinta Fase/fundo5.png")
-                falaarthur.rect.left=1000
-                botaoexpetianos.rect.left = 800
-        
-        colisao_joao = pygame.sprite.spritecollide(personagem, expetianojoaogroup, True)
-        if colisao_joao:
-            #if personagemjoao.jaaconteceu == False:
-                fundo = pygame.image.load("Imagens/Quinta Fase/fundo5desfocado.png")
-                falajoao.rect.left=70.504 
-                botaoexpetianos.rect.top = 95
-                botaoexpetianos.rect.left = 80 
-                #personagemjoao.jaaconteceu = True
-        if xmouse >= botaoexpetianos.rect.left and xmouse <= botaoexpetianos.rect.right and ymouse <= botaoexpetianos.rect.bottom and ymouse >= botaoexpetianos.rect.top:
-            if event.type == pygame.MOUSEBUTTONDOWN: 
-                fundo = pygame.image.load("Imagens/Quinta Fase/fundo5.png")
-                falajoao.rect.left=800
-                botaoexpetianos.rect.left = 800
-                
-
-
-
-            
-        
-        
-
 
         #pulo
         if event.type == pygame.KEYDOWN:
@@ -631,8 +568,44 @@ def main():
 
                 personagemeduarda.rect.left=420
                 personagemeduarda.rect.top=-1950
-                
 
+        #Colisão Expetianos
+        colisao_marialaura = pygame.sprite.spritecollide(personagem, expetianomarialauragroup, True)
+        if colisao_marialaura:
+            fundo = pygame.image.load("Imagens/Quinta Fase/fundo5desfocado.png")
+            falamarialaura.rect.left=  70.504 
+            botaoexpetianos.rect.top = 95
+            botaoexpetianos.rect.left = 80
+        
+        colisao_eduarda = pygame.sprite.spritecollide(personagem, expetianoeduardagroup, True)
+        if colisao_eduarda:
+            fundo = pygame.image.load("Imagens/Quinta Fase/fundo5desfocado.png")
+            falaeduarda.rect.left=70.504 
+            botaoexpetianos.rect.top = 95
+            botaoexpetianos.rect.left = 80
+        
+        colisao_arthur = pygame.sprite.spritecollide(personagem, expetianoarthurgroup, True)
+        if colisao_arthur:
+            fundo = pygame.image.load("Imagens/Quinta Fase/fundo5desfocado.png")
+            falaarthur.rect.left= 70.504 
+            botaoexpetianos.rect.top = 95
+            botaoexpetianos.rect.left = 80
+        
+        colisao_joao = pygame.sprite.spritecollide(personagem, expetianojoaogroup, True)
+        if colisao_joao:
+            fundo = pygame.image.load("Imagens/Quinta Fase/fundo5desfocado.png")
+            falajoao.rect.left=70.504 
+            botaoexpetianos.rect.top = 95
+            botaoexpetianos.rect.left = 80 
+
+        if xmouse >= botaoexpetianos.rect.left and xmouse <= botaoexpetianos.rect.right and ymouse <= botaoexpetianos.rect.bottom and ymouse >= botaoexpetianos.rect.top:
+            if event.type == pygame.MOUSEBUTTONDOWN: 
+                fundo = pygame.image.load("Imagens/Quinta Fase/fundo5.png")
+                falaarthur.rect.left= 1600
+                falaeduarda.rect.left= -800
+                falamarialaura.rect.left= -800
+                botaoexpetianos.rect.left = 800
+                falajoao.rect.left = -800
 
 
         #Game Over
