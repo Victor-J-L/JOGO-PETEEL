@@ -288,12 +288,12 @@ def main():
         #Colisão Expetianos
         colisao_marialaura = pygame.sprite.spritecollide(personagem, expetianomarialauragroup, True)
         if colisao_marialaura:
-            if personagemmarialaura.jaaconteceu == False:
+            #if personagemmarialaura.jaaconteceu == False:
                 fundo = pygame.image.load("Imagens/Quinta Fase/fundo5desfocado.png")
                 falamarialaura.rect.left=70.504 
                 botaoexpetianos.rect.top = 95
                 botaoexpetianos.rect.left = 80
-                personagemmarialaura.jaaconteceu = True
+                #personagemmarialaura.jaaconteceu = True
         if xmouse >= botaoexpetianos.rect.left and xmouse <= botaoexpetianos.rect.right and ymouse <= botaoexpetianos.rect.bottom and ymouse >= botaoexpetianos.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN: 
                 fundo = pygame.image.load("Imagens/Quinta Fase/fundo5.png")
@@ -302,12 +302,12 @@ def main():
         
         colisao_eduarda = pygame.sprite.spritecollide(personagem, expetianoeduardagroup, True)
         if colisao_eduarda:
-            if personagemeduarda.jaaconteceu == False:
+            #if personagemeduarda.jaaconteceu == False:
                 fundo = pygame.image.load("Imagens/Quinta Fase/fundo5desfocado.png")
                 falaeduarda.rect.left=70.504 
                 botaoexpetianos.rect.top = 95
                 botaoexpetianos.rect.left = 80
-                personagemeduarda.jaaconteceu = True
+                #personagemeduarda.jaaconteceu = True
         if xmouse >= botaoexpetianos.rect.left and xmouse <= botaoexpetianos.rect.right and ymouse <= botaoexpetianos.rect.bottom and ymouse >= botaoexpetianos.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN: 
                 fundo = pygame.image.load("Imagens/Quinta Fase/fundo5.png")
@@ -316,12 +316,12 @@ def main():
         
         colisao_arthur = pygame.sprite.spritecollide(personagem, expetianoarthurgroup, True)
         if colisao_arthur:
-            if personagemarthur.jaaconteceu == False:
+            #if personagemarthur.jaaconteceu == False:
                 fundo = pygame.image.load("Imagens/Quinta Fase/fundo5desfocado.png")
                 falaarthur.rect.left=70.504 
                 botaoexpetianos.rect.top = 95
                 botaoexpetianos.rect.left = 80
-                personagemarthur.jaaconteceu = True
+                #personagemarthur.jaaconteceu = True
         if xmouse >= botaoexpetianos.rect.left and xmouse <= botaoexpetianos.rect.right and ymouse <= botaoexpetianos.rect.bottom and ymouse >= botaoexpetianos.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN: 
                 fundo = pygame.image.load("Imagens/Quinta Fase/fundo5.png")
@@ -330,12 +330,12 @@ def main():
         
         colisao_joao = pygame.sprite.spritecollide(personagem, expetianojoaogroup, True)
         if colisao_joao:
-            if personagemjoao.jaaconteceu == False:
+            #if personagemjoao.jaaconteceu == False:
                 fundo = pygame.image.load("Imagens/Quinta Fase/fundo5desfocado.png")
                 falajoao.rect.left=70.504 
                 botaoexpetianos.rect.top = 95
                 botaoexpetianos.rect.left = 80 
-                personagemjoao.jaaconteceu = True
+                #personagemjoao.jaaconteceu = True
         if xmouse >= botaoexpetianos.rect.left and xmouse <= botaoexpetianos.rect.right and ymouse <= botaoexpetianos.rect.bottom and ymouse >= botaoexpetianos.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN: 
                 fundo = pygame.image.load("Imagens/Quinta Fase/fundo5.png")
@@ -743,7 +743,6 @@ def main():
         bolinhas4grupo.draw(tela)
         inimigos4grupo.draw(tela)
         transicaofinal.draw(tela)
-<<<<<<< HEAD
         expetianomarialauragroup.draw(tela)
         expetianojoaogroup.draw(tela)
         expetianoarthurgroup.draw(tela)
@@ -751,10 +750,8 @@ def main():
         falaexpetiano.draw(tela)
         botaoexpetianosgroup.draw(tela)
 
-=======
         botoesinicio.draw(tela)
         agradecimentosgrupo.draw(tela)
->>>>>>> c57f6bf59bc58b58a1e2c03eb5077a44bc34d564
     
 
         #Updates
