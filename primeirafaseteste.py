@@ -245,7 +245,12 @@ def main():
             transição41.rect.left = -1
             abrir.rect.left = 385
             abrir.rect.top = 285
+<<<<<<< HEAD
             pontuação.p = pontuação.p + 150
+=======
+            for bol in bolinhas4grupo:
+                bol.kill()
+>>>>>>> 17d11f2bbc938e634c2a34e948df32030e6d2f51
             for ini in inimigos4grupo:
                 ini.kill()
 
@@ -580,7 +585,7 @@ def main():
                 personagemeduarda.rect.top=-1950
 
         #Colisão Expetianos
-        colisao_marialaura = pygame.sprite.spritecollide(personagem, expetianomarialauragroup, True)
+        colisao_marialaura = pygame.sprite.spritecollide(personagem, expetianomarialauragroup, False)
         if colisao_marialaura:
             fundo = pygame.image.load("Imagens/Quinta Fase/fundo5desfocado.png")
             falamarialaura.rect.left=  70.504 
@@ -588,7 +593,7 @@ def main():
             botaoexpetianos.rect.left = 80
             pontuação.p = pontuação.p + 100
         
-        colisao_eduarda = pygame.sprite.spritecollide(personagem, expetianoeduardagroup, True)
+        colisao_eduarda = pygame.sprite.spritecollide(personagem, expetianoeduardagroup, False)
         if colisao_eduarda:
             fundo = pygame.image.load("Imagens/Quinta Fase/fundo5desfocado.png")
             falaeduarda.rect.left=70.504 
@@ -596,7 +601,7 @@ def main():
             botaoexpetianos.rect.left = 80
             pontuação.p = pontuação.p + 100
         
-        colisao_arthur = pygame.sprite.spritecollide(personagem, expetianoarthurgroup, True)
+        colisao_arthur = pygame.sprite.spritecollide(personagem, expetianoarthurgroup, False)
         if colisao_arthur:
             fundo = pygame.image.load("Imagens/Quinta Fase/fundo5desfocado.png")
             falaarthur.rect.left= 70.504 
@@ -604,7 +609,7 @@ def main():
             botaoexpetianos.rect.left = 80
             pontuação.p = pontuação.p + 100
         
-        colisao_joao = pygame.sprite.spritecollide(personagem, expetianojoaogroup, True)
+        colisao_joao = pygame.sprite.spritecollide(personagem, expetianojoaogroup, False)
         if colisao_joao:
             fundo = pygame.image.load("Imagens/Quinta Fase/fundo5desfocado.png")
             falajoao.rect.left=70.504 
