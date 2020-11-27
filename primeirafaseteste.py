@@ -208,26 +208,35 @@ def main():
                 personagem.vel.y = 0
 
         colisao_bolinhas = pygame.sprite.spritecollide(personagem, bolinhas, True)
+        if colisao_bolinhas:
+            pontuação.p = pontuação.p + 50
         colisao_valores = pygame.sprite.spritecollide(personagem, valoresgrupo, True)
+        if colisao_valores:
+            pontuação.p = pontuação.p + 50
         colisao_bolinhas4 = pygame.sprite.spritecollide(personagem, bolinhas4grupo, True)
+        if colisao_bolinhas4:
+            pontuação.p = pontuação.p + 50
 
         colisao_icone1 = pygame.sprite.spritecollide(personagem, iconegrupo, False)
         if colisao_icone1:
             transição1.rect.left = 0
             botaot.rect.left = 325
             botaot.rect.top = 585
+            pontuação.p = pontuação.p + 150
 
         colisao_icone2 = pygame.sprite.spritecollide(personagem, iconef2grupo, False)
         if colisao_icone2:
             transição2.rect.left = 0
             botaot2.rect.left = 325
             botaot2.rect.top = 585
+            pontuação.p = pontuação.p + 150
 
         colisao_icone3 = pygame.sprite.spritecollide(personagem, iconef3grupo, False)
         if colisao_icone3:
             transição3.rect.left = 0
             botaot3.rect.left = 325
             botaot3.rect.top = 585
+            pontuação.p = pontuação.p + 150
             for ini in inimigos3grupo:
                     ini.kill()
 
@@ -236,6 +245,7 @@ def main():
             transição41.rect.left = -1
             abrir.rect.left = 385
             abrir.rect.top = 285
+            pontuação.p = pontuação.p + 150
             for ini in inimigos4grupo:
                 ini.kill()
 
@@ -278,6 +288,7 @@ def main():
             transiçãofinal.rect.left = -1
             personagemfinal.rect.x = 210
             personagemfinal.rect.y = 425
+            pontuação.p = pontuação.p + 150
             if personagem.p11 == True:
                     personagemfinal.image = pygame.image.load("Imagens/Quinta Fase/personagemfinal.png")
             if personagem.p10 == True:
@@ -332,6 +343,7 @@ def main():
                 plat.rect.y += abs(personagem.vel.y)
                 if plat.rect.top >= 650:
                     plat.kill()
+                    pontuação.p = pontuação.p + 10
 
         # Spawn novas plat fase 1
         if pfinal1.rect.top <-100:
@@ -574,6 +586,7 @@ def main():
             falamarialaura.rect.left=  70.504 
             botaoexpetianos.rect.top = 95
             botaoexpetianos.rect.left = 80
+            pontuação.p = pontuação.p + 100
         
         colisao_eduarda = pygame.sprite.spritecollide(personagem, expetianoeduardagroup, True)
         if colisao_eduarda:
@@ -581,6 +594,7 @@ def main():
             falaeduarda.rect.left=70.504 
             botaoexpetianos.rect.top = 95
             botaoexpetianos.rect.left = 80
+            pontuação.p = pontuação.p + 100
         
         colisao_arthur = pygame.sprite.spritecollide(personagem, expetianoarthurgroup, True)
         if colisao_arthur:
@@ -588,13 +602,15 @@ def main():
             falaarthur.rect.left= 70.504 
             botaoexpetianos.rect.top = 95
             botaoexpetianos.rect.left = 80
+            pontuação.p = pontuação.p + 100
         
         colisao_joao = pygame.sprite.spritecollide(personagem, expetianojoaogroup, True)
         if colisao_joao:
             fundo = pygame.image.load("Imagens/Quinta Fase/fundo5desfocado.png")
             falajoao.rect.left=70.504 
             botaoexpetianos.rect.top = 95
-            botaoexpetianos.rect.left = 80 
+            botaoexpetianos.rect.left = 80
+            pontuação.p = pontuação.p + 100 
 
         if xmouse >= botaoexpetianos.rect.left and xmouse <= botaoexpetianos.rect.right and ymouse <= botaoexpetianos.rect.bottom and ymouse >= botaoexpetianos.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN: 
@@ -685,7 +701,9 @@ def main():
                 gameover.rect.left = 800
                 botaogameover.rect.left = 800
 
-            
+        pontuação1= str(pontuação.p)
+        render_pontuação = fonte_pontuação.render(pontuação1,1, (255,255,255))
+        render_pontuação1 = fonte_pontuação.render("Pontuação: ",1, (255,255,255))
             
 
         #Desenhar
@@ -695,6 +713,8 @@ def main():
         iconegrupo.draw(tela)
         platfinal.draw(tela)
         personagemgrupo.draw(tela)
+        tela.blit(render_pontuação,(120,10))
+        tela.blit(render_pontuação1,(20,10))
         fundoinicialgrupo.draw(tela)
         all_sprites.draw(tela)
         tela.blit(fundoinicial.image, fundoinicial.rect)

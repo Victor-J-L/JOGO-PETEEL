@@ -345,6 +345,11 @@ class Botaoexpetiano(pygame.sprite.Sprite):
         self.rect.top = 0
         self.rect.left = 800
 
+class P():
+    def __init__(self):
+        self.p = 0
+
+
 #Variaveis
 cor_azul = (181,244,253)
 #grupos 
@@ -591,5 +596,9 @@ gameovergrupo.add(gameover)
 botaogameover = BotaoGameOver()
 gameovergrupo.add(botaogameover)
 
-#self.rect.center= (407,511.5)
-#self.pos = vec(407,511.5)
+#Fonte
+pontuação = P()
+pygame.font.init()
+fontepont=pygame.font.match_font('04B_30__')
+fonte_pontuação = pygame.font.SysFont(fontepont, 25)
+
