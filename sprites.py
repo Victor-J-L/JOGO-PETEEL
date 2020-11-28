@@ -267,15 +267,6 @@ class Valoruniao(pygame.sprite.Sprite):
         self.vel = vec(0, 0)
         self.acc = vec(0, 0)
 
-class Capacete(pygame.sprite.Sprite):
-    def __init__(self):
-        pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load("Imagens/Terceira Fase/cpaceteespacial.png")
-        self.rect = self.image.get_rect()
-        self.rect.center= (407,511.5)
-        self.pos = vec(407,511.5)
-        self.vel = vec(0, 0)
-        self.acc = vec(0, 0)
 
 class Inimigos3(pygame.sprite.Sprite):
     def __init__(self, x, y, image):
@@ -345,6 +336,15 @@ class Botaoexpetiano(pygame.sprite.Sprite):
         self.rect.top = 0
         self.rect.left = 800
 
+class PontuacaoObject(pygame.sprite.Sprite):
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load("Imagens/pontuaçãoobject.png")
+        self.rect = self.image.get_rect()
+        self.rect.top = 15
+        self.rect.left = 345
+
+
 class P():
     def __init__(self):
         self.p = 0
@@ -385,7 +385,7 @@ expetianoarthurgroup=pygame.sprite.Group()
 expetianoeduardagroup=pygame.sprite.Group()
 falaexpetiano=pygame.sprite.Group()
 botaoexpetianosgroup = pygame.sprite.Group()
-
+pontuacaogroup = pygame.sprite.Group()
 
 #CORES
 cor_azul = (181,244,253)
@@ -579,8 +579,6 @@ platfinal.add(pfinal4)
 pfinal5 = PlataformaFinal(800, -2450, "Imagens/Quinta Fase/plataformafinal5.png")
 platfinal.add(pfinal5)
 
-capacete = Capacete()
-"""all_sprites.add(capacete)"""
 
 
 
@@ -598,6 +596,9 @@ gameovergrupo.add(botaogameover)
 
 #Fonte
 pontuação = P()
+pontuaçãoobjeto = PontuacaoObject()
+pontuacaogroup.add(pontuaçãoobjeto)
+
 pygame.font.init()
 fontepont=pygame.font.match_font('04B_30__')
 fonte_pontuação = pygame.font.SysFont(fontepont, 25)
