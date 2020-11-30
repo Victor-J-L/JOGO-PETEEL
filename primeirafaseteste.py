@@ -649,14 +649,15 @@ def main():
         #Game Over
 
         if personagem.rect.top > 650:
+            pontuação.p = 0
             personagem.pos = vec(400,530)
             gameover.rect.left = 0
             botaogameover.rect.left = 182.985 
             fundoinicial.rect.left = 0
             pfinal1.rect.left = 5
-            pfinal1.rect.left = -2450
+            pfinal1.rect.top = -2450
             iconefinal.rect.x = 50
-            iconefinal.rect.x = -2555
+            iconefinal.rect.y = -2555
             for plat in plataformas: 
                 plat.kill() 
 
@@ -668,7 +669,7 @@ def main():
             if iconef2.rect.x >= 0 and iconef2.rect.x <= 500:
                 for val in valoresgrupo : 
                     val.kill()   
-                fundoinicial.image = pygame.image.load("Imagens/Segunda Fase/Fundo2desfocadp.png")
+                fundoinicial.image = pygame.image.load("Imagens/Segunda Fase/Fundo2desfocado.png")
                 pfinal2.rect.left = 800
                 pfinal2.rect.top = -2450
                 iconef2.rect.x = 800
