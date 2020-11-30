@@ -369,16 +369,6 @@ def main():
                                     random.randrange(-105, -104), "Imagens/Quarta Fase/plataforma4.png")
                     plataformas.add(p)
         
-        if pfinal5.rect.top <-100 and pfinal5.rect.left <= 10:
-            while len(plataformas) < 9:
-                if iconef5.rect.x >= 0 and iconef5.rect.x <= 500:
-                    if plataformamarialaura.rect.top > -100 and plataformamarialaura.rect.top < -105: 
-                        if plataformajoao.rect.top <-105 and plataformajoao.rect.top > -100: 
-                            if plataformaarthur.rect.top <=-105 and plataformaarthur.rect.top >= -100:
-                                if plataformaeduarda.rect.top <=-105 and plataformaeduarda.rect.top >= -100:
-                                    p = Plataformas(random.randrange(5, 300),
-                                                    random.randrange(-105, -104), "Imagens/Quinta Fase/plataforma5.png")
-                                    plataformas.add(p)
     
         #Fase 2
 
