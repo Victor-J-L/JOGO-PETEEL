@@ -72,12 +72,63 @@ def main():
         if xmouse >= seta.rect.left and xmouse <= seta.rect.right and ymouse <= seta.rect.bottom and ymouse >= seta.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 sobrejogo.rect.left = 1000
-                agradecimento.rect.left = 0
-                botaoexit.rect.right = 480
-                botaoexit.rect.top = 540 
+                tutorial.rect.left = 0
                 seta.rect.bottom = 660
                 seta.rect.left = 1000
                 seta.rect.right = 1000
+                setatut.rect.top = 500
+                setatut.rect.bottom = 650
+                setatut.rect.left = 1000
+                setatut.rect.right = 210
+        
+        if xmouse >= setatut.rect.left and xmouse <= setatut.rect.right and ymouse <= setatut.rect.bottom and ymouse >= setatut.rect.top:
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                tutorial.rect.left = 1000
+                pontuações.rect.left = 0
+                setatut.rect.bottom = 660
+                setatut.rect.left = 1000
+                setatut.rect.right = 1000
+                setapont.rect.top = 500
+                setapont.rect.bottom = 650
+                setapont.rect.left = 1000
+                setapont.rect.right = 270
+
+        if xmouse >= setapont.rect.left and xmouse <= setapont.rect.right and ymouse <= setapont.rect.bottom and ymouse >= setapont.rect.top:
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                pontuações.rect.left = 1000
+                fases1.rect.left = 0
+                setapont.rect.bottom = 660
+                setapont.rect.left = 1000
+                setapont.rect.right = 1000
+                setaf1.rect.top = 500
+                setaf1.rect.bottom = 650
+                setaf1.rect.left = 1000
+                setaf1.rect.right = 340
+
+        if xmouse >= setaf1.rect.left and xmouse <= setaf1.rect.right and ymouse <= setaf1.rect.bottom and ymouse >= setaf1.rect.top:
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                fases1.rect.left = 1000
+                fases4.rect.left = 0
+                setaf1.rect.bottom = 660
+                setaf1.rect.left = 1000
+                setaf1.rect.right = 1000
+                setaf4.rect.top = 500
+                setaf4.rect.bottom = 650
+                setaf4.rect.left = 1000
+                setaf4.rect.right = 400
+        
+        if xmouse >= setaf4.rect.left and xmouse <= setaf4.rect.right and ymouse <= setaf4.rect.bottom and ymouse >= setaf4.rect.top:
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                fases4.rect.left = 1000
+                agradecimento.rect.left = 0
+                setaf4.rect.bottom = 660
+                setaf4.rect.left = 1000
+                setaf4.rect.right = 1000
+                botaoexit.rect.top = 500
+                botaoexit.rect.bottom = 650
+                botaoexit.rect.left = 1000
+                botaoexit.rect.right = 500
+
 
         if xmouse >= botaoexit.rect.left and xmouse <= botaoexit.rect.right and ymouse <= botaoexit.rect.bottom and ymouse >= botaoexit.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN:

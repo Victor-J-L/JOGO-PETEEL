@@ -421,6 +421,47 @@ agradecimento = Transicao2()
 agradecimento.image = pygame.image.load("Imagens/Página Inicial/agradecimentos2.png")
 agradecimento.rect.left = -500
 
+tutorial = Transicao2()
+tutorial.image = pygame.image.load("Imagens/Página Inicial/tutorial.png")
+tutorial.rect.left = -500
+
+pontuações = Transicao2()
+pontuações.image = pygame.image.load("Imagens/Página Inicial/pontuações.png")
+pontuações.rect.left = -500
+
+fases1 = Transicao2()
+fases1.image = pygame.image.load("Imagens/Página Inicial/fases1.png")
+fases1.rect.left = -500
+
+fases4 = Transicao2()
+fases4.image = pygame.image.load("Imagens/Página Inicial/fases4.png")
+fases4.rect.left = -500
+
+setatut = Botaoplay()
+setatut.image = pygame.image.load("Imagens/Página Inicial/seta.png")
+setatut.rect.right = 800
+setatut.rect.top = 800
+
+setapont = Botaoplay()
+setapont.image = pygame.image.load("Imagens/Página Inicial/seta.png")
+setapont.rect.right = 800
+setapont.rect.top = 800
+
+setaf1 = Botaoplay()
+setaf1.image = pygame.image.load("Imagens/Página Inicial/seta.png")
+setaf1.rect.right = 800
+setaf1.rect.top = 800
+
+setaf4 = Botaoplay()
+setaf4.image = pygame.image.load("Imagens/Página Inicial/seta.png")
+setaf4.rect.right = 800
+setaf4.rect.top = 800
+
+#dai agr eh o botao final na de agradecimento
+
+all_sprites.add(setatut, setapont, setaf1, setaf4, tutorial, pontuações, fases1, fases4)
+botoesinicio.add(setatut, setapont, setaf1, setaf4)
+
 sobrejogo = Transicao()
 sobrejogo.image = pygame.image.load("Imagens/Página Inicial/ojogo.png")
 
