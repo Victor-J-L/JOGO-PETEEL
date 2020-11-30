@@ -449,16 +449,6 @@ iconegrupo.add(iconefinal)
 
 #segunda fase
 
-humildade = Valorhumil()
-valoresgrupo.add(humildade)
-uniao = Valoruniao()
-valoresgrupo.add(uniao)
-comprometimento = Valorcomprom()
-valoresgrupo.add(comprometimento)
-capacitacao = Valorcapaci()
-valoresgrupo.add(capacitacao)
-brio = Valorbrio()
-valoresgrupo.add(brio)
 
 iconef2 = Icone2()
 iconef2grupo.add(iconef2)
@@ -501,17 +491,6 @@ iconef4grupo.add(iconef4)
 botaot4 = Botaot()
 botaot4.image = pygame.image.load("Imagens/Quarta Fase/agora.png")
 transicao42grupo.add(botaot4)
-
-coo = Bolinha4("Imagens/Quarta Fase/obstáculos/COO.png",random.uniform(400,200))
-sec = Bolinha4("Imagens/Quarta Fase/obstáculos/SEC.png",random.uniform(-400,-200))
-tes = Bolinha4("Imagens/Quarta Fase/obstáculos/TES.png",random.uniform(-600,-400))
-pep = Bolinha4("Imagens/Quarta Fase/obstáculos/PEP.png",random.uniform(-800,-600))
-mkt = Bolinha4("Imagens/Quarta Fase/obstáculos/MKT.png",random.uniform(-1000,-800))
-evt = Bolinha4("Imagens/Quarta Fase/obstáculos/EVT.png",random.uniform(-1200,-1000))
-inter = Bolinha4("Imagens/Quarta Fase/obstáculos/INTERPET.png",random.uniform(-1400,-1200))
-qld = Bolinha4("Imagens/Quarta Fase/obstáculos/qld.png",random.uniform(-1600,-1400))
-
-bolinhas4grupo.add(coo, tes, pep, sec, mkt, evt, inter, qld)
 
 respostas = Inimigos4(5, 2000, "Imagens/Quarta Fase/RESPOSTAS.png") #dai quando clica no botao muda o y pro lugar certo deles"
 falta = Inimigos4(450, 2000, "Imagens/Quarta Fase/FALTA.png")
