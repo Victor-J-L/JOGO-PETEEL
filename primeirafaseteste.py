@@ -308,29 +308,8 @@ def main():
 
 
 
-        """colisao_inimigos3 = pygame.sprite.spritecollide(personagem, inimigos3grupo, False)
-        if colisao_inimigos3:
-            personagem.pos = vec(400,530)
-            gameover.rect.left = 0
-            botaogameover.rect.left = 182.985 
-            fundoinicial.rect.left = 0
-            for ini in inimigos3grupo:
-                ini.kill()
-            for plat in plataformas: 
-                plat.kill()"""   
-        
-        '''colisao_inimigos4 = pygame.sprite.spritecollide(personagem, inimigos4grupo, False)
-        if colisao_inimigos4:
-            personagem.pos = vec(400,530)
-            gameover.rect.left = 0
-            botaogameover.rect.left = 182.985 
-            fundoinicial.rect.left = 0
-            for ini in inimigos4grupo:
-                ini.kill()
-            for bol in bolinhas4grupo:
-                bol.kill()
-            for plat in plataformas: 
-                plat.kill()'''
+        colisao_inimigos3 = pygame.sprite.spritecollide(personagem, inimigos3grupo, False)   
+        colisao_inimigos4 = pygame.sprite.spritecollide(personagem, inimigos4grupo, False)
 
         colisao_icone5 = pygame.sprite.spritecollide(personagem, iconef5grupo, True)
         if colisao_icone5:
@@ -343,6 +322,10 @@ def main():
                     personagemfinal.image = pygame.image.load("Imagens/Quinta Fase/personagemfinal.png")
             if personagem.p22 == True:
                     personagemfinal.image = pygame.image.load("Imagens/Quinta Fase/personagem2final.png")
+            fimdejogo.rect.left = 0
+            botaofinal.rect.left = 199
+            pontuacaogameover.l = 267
+            pontuacaogameover.o = 180
 
         #pulo
         if event.type == pygame.KEYDOWN:
@@ -488,7 +471,7 @@ def main():
                 if personagem.p10 == True:
                     personagem.image = pygame.image.load("Imagens/personagem/personagem1minespaço.png")
                 if personagem.p22 == True:
-                    personagem.image = pygame.image.load("Imagens/personagem/personagem2minespaço.png")
+                    personagem.image = pygame.image.load("Imagens/personagem/personagem2 minespaço.png")
                 personagem.pos = vec(400,530)
                 pontuação.p = pontuação.p + 150
                 transição2.rect.left= 800
@@ -716,8 +699,11 @@ def main():
 
         #Game Over
 
-        if personagem.rect.top > 650:
-            pontuação.p = 0
+        if personagem.rect.top > 650: 
+            '''or colisao_inimigos3 or colisao_inimigos4'''
+            pontuacaogameover.rect.left = 250
+            pontuacaogameover.l = 265
+            pontuacaogameover.o = 260
             personagem.pos = vec(400,530)
             gameover.rect.left = 0
             botaogameover.rect.left = 182.985 
@@ -800,6 +786,8 @@ def main():
                 falamarialaura.rect.left= -800
                 botaoexpetianos.rect.left = 800
                 falajoao.rect.left = -800
+                iconef4.rect.x = 850
+                iconef4.rect.y = -2555
 
 
             p0 = Chao(-15, 544)
@@ -827,10 +815,65 @@ def main():
                 personagem2.rect.right = 405
                 gameover.rect.left = 800
                 botaogameover.rect.left = 800
+                pontuação.p = 0
+                pontuacaogameover.rect.left = 800
+                pontuacaogameover.l = 800
+
+        if xmouse >= botaofinal.rect.left and xmouse <= botaofinal.rect.right and ymouse <= botaogaofinal.rect.bottom and ymouse >= botaofinal.rect.top:
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                pag_inicial.rect.left= -16
+                botaoplay.rect.right = 314
+                personagem1.rect.right = 210
+                personagem2.rect.right = 405
+                fimdejogo.rect.left = 800
+                botaofinal.rect.left = 800
+                pontuação.p = 0
+                pontuacaogameover.rect.left = 800
+                pontuacaogameover.l = 800
+                p0 = Chao(-15, 544)
+                plataformas.add(p0)
+                p1 = Plataformas(250, 255, "Imagens/Primeira Fase/plataforma1.png")
+                plataformas.add(p1)
+                p2 = Plataformas(10, 395, "Imagens/Primeira Fase/plataforma1.png")
+                plataformas.add(p2)
+                p3 = Plataformas(10, 125, "Imagens/Primeira Fase/plataforma1.png")
+                plataformas.add(p3)
+                p4 = Plataformas(235, -10, "Imagens/Primeira Fase/plataforma1.png")
+                plataformas.add(p4)
+                ensino= Bolinha1()
+                bolinhas.add(ensino)
+                pesquisa = Bolinha2()
+                bolinhas.add(pesquisa)
+                extensao = Bolinha3()
+                bolinhas.add(extensao)
+                pfinal5.rect.left = 800
+                pfinal5.rect.top = -2450
+                iconef5.rect.x = 800
+                iconef5.rect.y = -2555
+                personagemarthur.rect.left=800
+                personagemarthur.rect.top=-800
+                personagemmarialaura.rect.left=800
+                personagemjoao.rect.left=800
+                personagemeduarda.rect.left=800
+                falaarthur.rect.left= 1600
+                falaeduarda.rect.left= -800
+                falamarialaura.rect.left= -800
+                botaoexpetianos.rect.left = 800
+                falajoao.rect.left = -800
+                personagem.pos = vec(400,530)
+                fundoinicial.rect.left = 0
+                pfinal1.rect.left = 5
+                pfinal1.rect.top = -2450
+                iconefinal.rect.x = 50
+                iconefinal.rect.y = -2555
+                fundoinicial.image = pygame.image.load("Imagens/Primeira Fase/fundo123desfocado.png")
+
 
         pontuação1= str(pontuação.p)
         render_pontuação = fonte_pontuação.render(pontuação1,1, (0,0,0))
         render_pontuação1 = fonte_pontuação.render("Pontuação: ",1, (0,0,0))
+        render_pontuação2 = fonte_pontuação.render(pontuação1,1, (0,0,0))
+        render_pontuação3 = fonte_pontuação.render("pts",1, (0,0,0))
             
 
         #Desenhar
@@ -869,6 +912,8 @@ def main():
         botaoexpetianosgroup.draw(tela)
         fundoinicialgrupo.draw(tela)
         gameovergrupo.draw(tela)
+        tela.blit(render_pontuação2,(pontuacaogameover.l,pontuacaogameover.o))
+        tela.blit(render_pontuação3,(pontuacaogameover.l + 45,pontuacaogameover.o))
         all_sprites.draw(tela)
         agradecimentosgrupo.draw(tela)
         botoesinicio.draw(tela)

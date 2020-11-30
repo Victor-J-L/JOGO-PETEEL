@@ -344,6 +344,33 @@ class PontuacaoObject(pygame.sprite.Sprite):
         self.rect.top = 15
         self.rect.left = 345
 
+class Pontuacaogameover(pygame.sprite.Sprite):
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load("Imagens/Game Over/pontosgameover.png")
+        self.rect = self.image.get_rect()
+        self.rect.top = 254
+        self.rect.left = 800
+        self.l = 800
+        self.o = 260
+
+class FimdeJogo(pygame.sprite.Sprite):
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load("Imagens/Quinta Fase/fimdejogo.png")
+        self.rect = self.image.get_rect()
+        self.rect.top = 0
+        self.rect.left = 800
+
+class BotaoFinal(pygame.sprite.Sprite):
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load("Imagens/Quinta Fase/botaofinal.png")
+        self.rect = self.image.get_rect()
+        self.rect.top = 253
+        self.rect.left = 800
+
+
 
 class P():
     def __init__(self):
@@ -568,6 +595,10 @@ expetianomarialauragroup.add(personagemmarialaura)
 personagemeduarda = Personagensfinais(800,-1950,"Imagens/Quinta Fase/Expetianoeduarda.png")
 expetianoeduardagroup.add(personagemeduarda)
 
+fimdejogo = FimdeJogo()
+botaofinal = BotaoFinal()
+gameovergrupo.add(fimdejogo, botaofinal)
+
 #Lista de Plataformas
 p0 = Chao(-15, 544)
 plataformas.add(p0)
@@ -613,6 +644,9 @@ gameover = GameOver()
 gameovergrupo.add(gameover)
 botaogameover = BotaoGameOver()
 gameovergrupo.add(botaogameover)
+pontuacaogameover = Pontuacaogameover()
+gameovergrupo.add(pontuacaogameover)
+
 
 #Fonte
 pontuação = P()
