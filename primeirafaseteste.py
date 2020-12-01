@@ -756,7 +756,7 @@ def main():
                 
 
             if iconef4.rect.x >= 0 and iconef4.rect.x <= 500:
-                fundoinicial.image = pygame.image.load("Imagens/Quarta Fase/fundo 4 desfocado.png")
+                fundoinicial.image = pygame.image.load("Imagens/Quarta Fase/Fundo4desfocado.png")
                 pfinal4.rect.left = 800
                 pfinal4.rect.top = -2450
                 iconef4.rect.x = 800
@@ -922,7 +922,6 @@ def main():
         all_sprites.draw(tela)
         agradecimentosgrupo.draw(tela)
         botoesinicio.draw(tela)
-        iconef4grupo.draw(tela)
     
 
         #Updates
