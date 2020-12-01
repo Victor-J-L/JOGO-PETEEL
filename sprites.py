@@ -1,7 +1,5 @@
 import pygame
 import random
-#from settings import *
-#from random import choice, randrange
 vec = pygame.math.Vector2
 
 class Personagem1(pygame.sprite.Sprite):
@@ -536,7 +534,7 @@ iconef3grupo.add(iconef3)
 botaot3 = Botaot()
 transicao3grupo.add(botaot3)
 
-interromper = Inimigos3(5, 2000, "Imagens/Terceira Fase/interromper.png") #dai quando clica no botao muda o y pro lugar certo deles"
+interromper = Inimigos3(5, 2000, "Imagens/Terceira Fase/interromper.png") 
 falarmal = Inimigos3(450, 2000, "Imagens/Terceira Fase/falarmal.png")
 falardemais = Inimigos3(5, 2000, "Imagens/Terceira Fase/falardemais.png")
 desrespeitar = Inimigos3(450, 2000, "Imagens/Terceira Fase/desrespeitar.png")
@@ -560,7 +558,7 @@ botaot4 = Botaot()
 botaot4.image = pygame.image.load("Imagens/Quarta Fase/agora.png")
 transicao42grupo.add(botaot4)
 
-respostas = Inimigos4(5, 2000, "Imagens/Quarta Fase/RESPOSTAS.png") #dai quando clica no botao muda o y pro lugar certo deles"
+respostas = Inimigos4(5, 2000, "Imagens/Quarta Fase/RESPOSTAS.png") 
 falta = Inimigos4(450, 2000, "Imagens/Quarta Fase/FALTA.png")
 irdes = Inimigos4(5, 2000, "Imagens/Quarta Fase/irdespreparado.png")
 mentir = Inimigos4(450, 2000, "Imagens/Quarta Fase/mentir.png")

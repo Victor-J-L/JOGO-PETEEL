@@ -3,7 +3,6 @@ import random
 from sprites import *
 from os import path
 
-#from configuração import *
 vec = pygame.math.Vector2
 
 
@@ -164,7 +163,6 @@ def main():
         #CODIGO MOVIMENTO INIMIGOS DA FASE 3
 
         interromper.acc = vec(1, 0)
-        #interromper.acc.x += interromper.vel.x * (-0.12)
         interromper.vel = vec(3,0)
         interromper.pos += interromper.vel + 0.5 * interromper.acc
         interromper.rect.midbottom = interromper.pos
@@ -180,7 +178,6 @@ def main():
             falarmal.pos.x = 500
 
         falardemais.acc = vec(1, 0)
-        #falardemais.acc.x += falardemais.vel.x * (-0.12)
         falardemais.vel = vec(3,0)
         falardemais.pos += falardemais.vel + 0.5 * falardemais.acc
         falardemais.rect.midbottom = falardemais.pos
@@ -188,7 +185,6 @@ def main():
             falardemais.pos.x = 0
 
         desrespeitar.acc = vec(-1, 0)
-        #desrespeitar.acc.x += desrespeitar.vel.x * (-0.12)
         desrespeitar.vel = vec(-3,0)
         desrespeitar.pos += desrespeitar.vel - 0.5 * desrespeitar.acc
         desrespeitar.rect.midbottom = desrespeitar.pos
@@ -196,7 +192,6 @@ def main():
             desrespeitar.pos.x = 500
 
         mentefechada.acc = vec(1, 0)
-        #mentefechada.acc.x += mentefechada.vel.x * (-0.12)
         mentefechada.vel = vec(3,0)
         mentefechada.pos += mentefechada.vel + 0.5 * mentefechada.acc
         mentefechada.rect.midbottom = mentefechada.pos
@@ -206,7 +201,6 @@ def main():
         #CODIGO INIMIGOS MOVIMENTO FASE 4 
 
         respostas.acc = vec(1, 0)
-        #interromper.acc.x += interromper.vel.x * (-0.12)
         respostas.vel = vec(3,0)
         respostas.pos += respostas.vel + 0.5 * respostas.acc
         respostas.rect.midbottom = respostas.pos
@@ -214,7 +208,6 @@ def main():
             respostas.pos.x = 0
 
         falta.acc = vec(-1, 0)
-        #falarmal.acc.x += falarmal.vel.x * (-0.12)
         falta.vel = vec(-3,0)
         falta.pos += falta.vel - 0.5 * falta.acc
         falta.rect.midbottom = falta.pos
@@ -222,7 +215,6 @@ def main():
             falta.pos.x = 500
 
         irdes.acc = vec(1, 0)
-        #falardemais.acc.x += falardemais.vel.x * (-0.12)
         irdes.vel = vec(3,0)
         irdes.pos += irdes.vel + 0.5 * irdes.acc
         irdes.rect.midbottom = irdes.pos
@@ -230,7 +222,6 @@ def main():
             irdes.pos.x = 0
 
         mentir.acc = vec(-1, 0)
-        #desrespeitar.acc.x += desrespeitar.vel.x * (-0.12)
         mentir.vel = vec(-3,0)
         mentir.pos += mentir.vel - 0.5 * mentir.acc
         mentir.rect.midbottom = mentir.pos
@@ -238,7 +229,6 @@ def main():
             mentir.pos.x = 500
 
         preguiça.acc = vec(1, 0)
-        #mentefechada.acc.x += mentefechada.vel.x * (-0.12)
         preguiça.vel = vec(3,0)
         preguiça.pos += preguiça.vel + 0.5 * preguiça.acc
         preguiça.rect.midbottom = preguiça.pos
