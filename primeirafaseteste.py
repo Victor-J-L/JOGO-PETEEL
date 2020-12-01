@@ -757,14 +757,16 @@ def main():
                 
 
             if iconef4.rect.x >= 0 and iconef4.rect.x <= 500:
-                fundoinicial.image = pygame.image.load("Imagens/Quarta Fase/fundo 4 desfocado.png")
+                fundoinicial.image = pygame.image.load("Imagens/Quarta Fase/Fundo4desfocado.png")
                 pfinal4.rect.left = 800
                 pfinal4.rect.top = -2450
                 iconef4.rect.x = 800
                 iconef4.rect.y = -2555
+                fundoinicial.image = pygame.image.load("Imagens/Quarta Fase/Fundo4desfocado.png")
+                for ini1 in inimigos4grupo:
+                    ini1.kill()
                 for ini in inimigos4grupo:
                     ini.pos.y = 2000
-
                 for bol in bolinhas4grupo:
                     bol.kill()
 
