@@ -776,11 +776,11 @@ def main():
                 pfinal4.rect.top = -2450
                 iconef4.rect.x = 800
                 iconef4.rect.y = -2555
+                fundoinicial.image = pygame.image.load("Imagens/Quarta Fase/Fundo4desfocado.png")
                 for ini1 in inimigos4grupo:
                     ini1.kill()
                 for ini in inimigos4grupo:
                     ini.pos.y = 2000
-
                 for bol in bolinhas4grupo:
                     bol.kill()
 
@@ -872,6 +872,7 @@ def main():
         all_sprites.draw(tela)
         agradecimentosgrupo.draw(tela)
         botoesinicio.draw(tela)
+        iconef4grupo.draw(tela)
     
 
         #Updates
