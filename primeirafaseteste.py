@@ -15,6 +15,7 @@ def main():
     pygame.display.set_caption("Jogo PETEEL")
     relogio = pygame.time.Clock()
     fundo = pygame.image.load("Imagens/Primeira Fase/fundo123desfocado.png")
+    pygame.mixer.init
     
 
     sair = False
@@ -171,7 +172,7 @@ def main():
             interromper.pos.x = 0
 
         falarmal.acc = vec(-1, 0)
-        #falarmal.acc.x += falarmal.vel.x * (-0.12)
+
         falarmal.vel = vec(-3,0)
         falarmal.pos += falarmal.vel - 0.5 * falarmal.acc
         falarmal.rect.midbottom = falarmal.pos
@@ -587,6 +588,7 @@ def main():
                 pfinal4.rect.left = 800
                 iconef4.rect.x = 800 
                 pontuação.p = pontuação.p + 150
+
 
                 iconef5.rect.x = 50
                 iconef5.rect.y = -2555
