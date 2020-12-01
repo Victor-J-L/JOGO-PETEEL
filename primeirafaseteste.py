@@ -306,11 +306,12 @@ def main():
                 abrir.rect.left = -800
                 botaot4.rect.left = 335
                 botaot4.rect.top = 585
+                iconef4.rect.x = 800
 
 
 
-        colisao_inimigos3 = pygame.sprite.spritecollide(personagem, inimigos3grupo, False)   
-        colisao_inimigos4 = pygame.sprite.spritecollide(personagem, inimigos4grupo, False)
+        colisao_inimigos3 = pygame.sprite.spritecollide(personagem, inimigos3grupo, False)
+        colisao_inimigos4 = pygame.sprite.spritecollide(personagem, inimigos4grupo, False) 
 
         colisao_icone5 = pygame.sprite.spritecollide(personagem, iconef5grupo, True)
         if colisao_icone5:
@@ -472,7 +473,7 @@ def main():
                 if personagem.p10 == True:
                     personagem.image = pygame.image.load("Imagens/personagem/personagem1minespaço.png")
                 if personagem.p22 == True:
-                    personagem.image = pygame.image.load("Imagens/personagem/personagem2 minespaço.png")
+                    personagem.image = pygame.image.load("Imagens/personagem/personagem2minespaço.png")
                 personagem.pos = vec(400,530)
                 pontuação.p = pontuação.p + 150
                 transição2.rect.left= 800
@@ -904,12 +905,12 @@ def main():
         iconef3grupo.draw(tela)
         transicao3grupo.draw(tela)
         inimigos3grupo.draw(tela)
-        transicao41grupo.draw(tela)
-        transicao42grupo.draw(tela)
         iconef4grupo.draw(tela)
         iconef5grupo.draw(tela)
         bolinhas4grupo.draw(tela)
         inimigos4grupo.draw(tela)
+        transicao41grupo.draw(tela)
+        transicao42grupo.draw(tela)
         transicaofinal.draw(tela)
         expetianomarialauragroup.draw(tela)
         expetianojoaogroup.draw(tela)
