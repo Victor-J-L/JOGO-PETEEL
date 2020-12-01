@@ -288,7 +288,7 @@ def main():
             for ini in inimigos3grupo:
                 ini.pos.y = 2000
 
-        colisao_icone4 = pygame.sprite.spritecollide(personagem, iconef4grupo, True)
+        colisao_icone4 = pygame.sprite.spritecollide(personagem, iconef4grupo, False)
         if colisao_icone4:
             transição41.rect.left = -1
             abrir.rect.left = 385
@@ -699,8 +699,7 @@ def main():
 
         #Game Over
 
-        if personagem.rect.top > 650: 
-            '''or colisao_inimigos3 or colisao_inimigos4'''
+        if personagem.rect.top > 650 or colisao_inimigos3 or colisao_inimigos4:
             pontuacaogameover.rect.left = 250
             pontuacaogameover.l = 265
             pontuacaogameover.o = 260
@@ -786,8 +785,10 @@ def main():
                 falamarialaura.rect.left= -800
                 botaoexpetianos.rect.left = 800
                 falajoao.rect.left = -800
-                iconef4.rect.x = 850
-                iconef4.rect.y = -2555
+                falaarthur.jaaconteceu = False
+                falamarialaura.jaaconteceu = False
+                falaeduarda.jaaconteceu = False
+                falajoao.jaaconteceu = False
 
 
             p0 = Chao(-15, 544)
@@ -819,8 +820,11 @@ def main():
                 pontuacaogameover.rect.left = 800
                 pontuacaogameover.l = 800
 
-        if xmouse >= botaofinal.rect.left and xmouse <= botaofinal.rect.right and ymouse <= botaogaofinal.rect.bottom and ymouse >= botaofinal.rect.top:
+        if xmouse >= botaofinal.rect.left and xmouse <= botaofinal.rect.right and ymouse <= botaofinal.rect.bottom and ymouse >= botaofinal.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN:
+                fundoinicial.image = pygame.image.load("Imagens/Primeira Fase/fundo123desfocado.png")
+
+                personagem.pos = vec(400,530)
                 pag_inicial.rect.left= -16
                 botaoplay.rect.right = 314
                 personagem1.rect.right = 210
@@ -830,6 +834,13 @@ def main():
                 pontuação.p = 0
                 pontuacaogameover.rect.left = 800
                 pontuacaogameover.l = 800
+                fundoinicial.rect.left = 0
+                pfinal1.rect.left = 5
+                pfinal1.rect.top = -2450
+                iconefinal.rect.x = 50
+                iconefinal.rect.y = -2555
+                for plat in plataformas: 
+                    plat.kill()
                 p0 = Chao(-15, 544)
                 plataformas.add(p0)
                 p1 = Plataformas(250, 255, "Imagens/Primeira Fase/plataforma1.png")
@@ -856,19 +867,13 @@ def main():
                 personagemjoao.rect.left=800
                 personagemeduarda.rect.left=800
                 falaarthur.rect.left= 1600
-                falaeduarda.rect.left= -800
-                falamarialaura.rect.left= -800
+                falaeduarda.rect.left= 800
+                falamarialaura.rect.left= 800
                 botaoexpetianos.rect.left = 800
-                falajoao.rect.left = -800
-                personagem.pos = vec(400,530)
-                fundoinicial.rect.left = 0
-                pfinal1.rect.left = 5
-                pfinal1.rect.top = -2450
-                iconefinal.rect.x = 50
-                iconefinal.rect.y = -2555
-                fundoinicial.image = pygame.image.load("Imagens/Primeira Fase/fundo123desfocado.png")
-
-
+                falajoao.rect.left = 800
+                transiçãofinal.rect.left = 800
+                personagemfinal.rect.x = 800
+                
         pontuação1= str(pontuação.p)
         render_pontuação = fonte_pontuação.render(pontuação1,1, (0,0,0))
         render_pontuação1 = fonte_pontuação.render("Pontuação: ",1, (0,0,0))
