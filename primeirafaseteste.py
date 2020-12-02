@@ -476,6 +476,8 @@ def main():
                 pfinal2.rect.left = 800
                 pfinal3.rect.left = 5
                 pfinal3.rect.top = -2450
+                mixer.music.load("Som/Músicas/Full of memories.ogg")
+                mixer.music.play(1)
                 
                 
                 interromper.pos.y = -10
@@ -518,6 +520,11 @@ def main():
                 botaot3.rect.right = 800
                 pfinal3.rect.left = 800
                 iconef3.rect.x = 800 #até aqui jogamos pra longe
+
+                pygame.mixer.music.stop()
+                mixer.music.load("Som/Músicas/Air.ogg")
+                mixer.music.play(1)
+
 
                 iconef4.rect.x = 50
                 iconef4.rect.y = -2555
@@ -581,6 +588,8 @@ def main():
                 pfinal4.rect.left = 800
                 iconef4.rect.x = 800 
                 pontuação.p = pontuação.p + 150
+
+                pygame.mixer.music.stop()
                 mixer.music.load("Som/Músicas/Rise of spirit.ogg")
                 mixer.music.play(1)
 
@@ -814,6 +823,7 @@ def main():
                 pontuação.p = 0
                 pontuacaogameover.rect.left = 800
                 pontuacaogameover.l = 800
+                pygame.mixer.music.stop()
 
         if xmouse >= botaofinal.rect.left and xmouse <= botaofinal.rect.right and ymouse <= botaofinal.rect.bottom and ymouse >= botaofinal.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN:
@@ -868,6 +878,8 @@ def main():
                 falajoao.rect.left = 800
                 transiçãofinal.rect.left = 800
                 personagemfinal.rect.x = 800
+
+                pygame.mixer.music.stop()
                 
         pontuação1= str(pontuação.p)
         render_pontuação = fonte_pontuação.render(pontuação1,1, (0,0,0))
