@@ -29,6 +29,8 @@ def main():
         relogio.tick(30)
         tela.fill(cor_azul)
         (xmouse, ymouse) = pygame.mouse.get_pos()
+        mixer.music.load("Som/Músicas/day 33.mp3")
+        mixer.music.play(1)
 
         #Código Página inicial
 
@@ -305,7 +307,7 @@ def main():
         colisao_inimigos3 = pygame.sprite.spritecollide(personagem, inimigos3grupo, False)
         colisao_inimigos4 = pygame.sprite.spritecollide(personagem, inimigos4grupo, False) 
 
-        colisao_icone5 = pygame.sprite.spritecollide(personagem, iconef5grupo, True)
+        colisao_icone5 = pygame.sprite.spritecollide(personagem, iconef5grupo, False)
         if colisao_icone5:
             transiçãofinal.rect.left = -1
             personagemfinal.rect.x = 210
@@ -371,26 +373,26 @@ def main():
                     pontuação.p = pontuação.p + 10
 
         # Spawn novas plat fase 1
-        if pfinal1.rect.top <-100:
+        if pfinal1.rect.top <-160:
             while len(plataformas) < 5:
                 if iconefinal.rect.x >= 0 and iconefinal.rect.x <= 500: 
                     p = Plataformas(random.randrange(5, 300),
                                 random.randrange(-105, -104), "Imagens/Primeira Fase/plataforma1.png")
                     plataformas.add(p)
-        if pfinal2.rect.top <-100 and pfinal2.rect.left <= 10:
+        if pfinal2.rect.top <-160 and pfinal2.rect.left <= 10:
             while len(plataformas) < 5:
                 if iconef2.rect.x >= 0 and iconef2.rect.x <= 500: 
                     p = Plataformas(random.randrange(5, 300),
                                     random.randrange(-105, -104), "Imagens/Segunda Fase/plataforma2.png")
                     plataformas.add(p)
-        if pfinal3.rect.top <-100 and pfinal3.rect.left <= 10:
+        if pfinal3.rect.top <-160 and pfinal3.rect.left <= 10:
             while len(plataformas) < 5:
                 if iconef3.rect.x >= 0 and iconef3.rect.x <= 500: 
                     p = Plataformas(random.randrange(5, 300),
                                     random.randrange(-105, -104), "Imagens/Terceira Fase/plataforma3.png")
                     plataformas.add(p)
 
-        if pfinal4.rect.top <-100 and pfinal4.rect.left <= 10:
+        if pfinal4.rect.top <-160 and pfinal4.rect.left <= 10:
             while len(plataformas) < 5:
                 if iconef4.rect.x >= 0 and iconef4.rect.x <= 500: 
                     p = Plataformas(random.randrange(5, 300),
@@ -416,16 +418,14 @@ def main():
                     plat.kill()
                 for bol in bolinhas : 
                     bol.kill()   
-                p0 = Chao(-15, 544)
+                p0 = Chao(-15, 500)
                 plataformas.add(p0)
-                p1 = Plataformas(250, 255, "Imagens/Segunda Fase/plataforma2.png")
+                p1 = Plataformas(10, 350, "Imagens/Segunda Fase/plataforma2.png")
                 plataformas.add(p1)
-                p2 = Plataformas(10, 395, "Imagens/Segunda Fase/plataforma2.png")
+                p2 = Plataformas(250, 200, "Imagens/Segunda Fase/plataforma2.png")
                 plataformas.add(p2)
-                p3 = Plataformas(10, 120, "Imagens/Segunda Fase/plataforma2.png")
-                plataformas.add(p3)
-                p4 = Plataformas(235, -30, "Imagens/Segunda Fase/plataforma2.png")
-                plataformas.add(p4)  
+                p3 = Plataformas(10, 50, "Imagens/Segunda Fase/plataforma2.png")
+                plataformas.add(p3)  
 
                 humildade = Valorhumil()
                 valoresgrupo.add(humildade)
@@ -491,16 +491,14 @@ def main():
                     plat.kill()
                 for val in valoresgrupo : 
                     val.kill()      
-                p0 = Chao(-15, 544)
+                p0 = Chao(-15, 500)
                 plataformas.add(p0)
-                p1 = Plataformas(250, 255, "Imagens/Terceira Fase/plataforma3.png")
+                p1 = Plataformas(10, 350, "Imagens/Terceira Fase/plataforma3.png")
                 plataformas.add(p1)
-                p2 = Plataformas(10, 395, "Imagens/Terceira Fase/plataforma3.png")
+                p2 = Plataformas(250, 200, "Imagens/Terceira Fase/plataforma3.png")
                 plataformas.add(p2)
-                p3 = Plataformas(10, 120, "Imagens/Terceira Fase/plataforma3.png")
-                plataformas.add(p3)
-                p4 = Plataformas(235, -30, "Imagens/Terceira Fase/plataforma3.png")
-                plataformas.add(p4)
+                p3 = Plataformas(10, 50, "Imagens/Terceira Fase/plataforma3.png")
+                plataformas.add(p3)  
                 
 
         #fase 4 
@@ -566,16 +564,14 @@ def main():
                 qld.rect.y = random.uniform(-2000,-2200)
                 for plat in plataformas: 
                     plat.kill()     
-                p0 = Chao(-15, 544)
+                p0 = Chao(-15, 500)
                 plataformas.add(p0)
-                p1 = Plataformas(250, 255, "Imagens/Quarta Fase/plataforma4.png")
+                p1 = Plataformas(10, 350, "Imagens/Quarta Fase/plataforma4.png")
                 plataformas.add(p1)
-                p2 = Plataformas(10, 395, "Imagens/Quarta Fase/plataforma4.png")
+                p2 = Plataformas(250, 200, "Imagens/Quarta Fase/plataforma4.png")
                 plataformas.add(p2)
-                p3 = Plataformas(10, 120, "Imagens/Quarta Fase/plataforma4.png")
-                plataformas.add(p3)
-                p4 = Plataformas(235, -30, "Imagens/Quarta Fase/plataforma4.png")
-                plataformas.add(p4)
+                p3 = Plataformas(10, 50, "Imagens/Quarta Fase/plataforma4.png")
+                plataformas.add(p3)  
 
 
         #Fase 5 
@@ -601,56 +597,58 @@ def main():
 
                 for plat in plataformas: 
                     plat.kill()     
-                p0 = Chao(-15, 544)
+                p0 = Chao(-15, 500)
                 plataformas.add(p0)
-                p1 = Plataformas(250, 255, "Imagens/Quinta Fase/plataforma5.png")
+                p1 = Plataformas(random.randrange(5, 300), 350, "Imagens/Quinta Fase/plataforma5.png")
                 plataformas.add(p1)
-                p2 = Plataformas(10, 395, "Imagens/Quinta Fase/plataforma5.png")
+                p2 = Plataformas(random.randrange(5, 300), 200, "Imagens/Quinta Fase/plataforma5.png")
                 plataformas.add(p2)
-                p3 = Plataformas(10, 120, "Imagens/Quinta Fase/plataforma5.png")
-                plataformas.add(p3)
-                p4 = Plataformas(235, -30, "Imagens/Quinta Fase/plataforma5.png")
+                p3 = Plataformas(random.randrange(5, 300), 50, "Imagens/Quinta Fase/plataforma5.png")
+                plataformas.add(p3)  
+                p4 = Plataformas(random.randrange(5, 300), -100, "Imagens/Quinta Fase/plataforma5.png")
                 plataformas.add(p4)
-                p6 = Plataformas(130, -240, "Imagens/Quinta Fase/plataforma5.png")
+                p6 = Plataformas(random.randrange(5, 300), -250, "Imagens/Quinta Fase/plataforma5.png")
                 plataformas.add(p6)
-                plataformaarthur=Plataformas(50, -350, "Imagens/Quinta Fase/plataforma5.png")
+                plataformaarthur=Plataformas(50, -400, "Imagens/Quinta Fase/plataforma5.png")
                 plataformas.add(plataformaarthur)
-                p8 = Plataformas(220, -545, "Imagens/Quinta Fase/plataforma5.png")
+                p8 = Plataformas(random.randrange(5, 300), -550, "Imagens/Quinta Fase/plataforma5.png")
                 plataformas.add(p8)
-                p10 = Plataformas(80, -760, "Imagens/Quinta Fase/plataforma5.png")
+                p10 = Plataformas(random.randrange(5, 300), -700, "Imagens/Quinta Fase/plataforma5.png")
                 plataformas.add(p10)
-                plataformaeduarda=Plataformas(300, -860, "Imagens/Quinta Fase/plataforma5.png")
+                plataformaeduarda=Plataformas(300, -850, "Imagens/Quinta Fase/plataforma5.png")
                 plataformas.add(plataformaeduarda)
-                p12 = Plataformas(190, -1055, "Imagens/Quinta Fase/plataforma5.png")
+                p12 = Plataformas(random.randrange(5, 300), -1000, "Imagens/Quinta Fase/plataforma5.png")
                 plataformas.add(p12)
-                p14 = Plataformas(280, -1260, "Imagens/Quinta Fase/plataforma5.png")
+                p14 = Plataformas(random.randrange(5, 300), -1150, "Imagens/Quinta Fase/plataforma5.png")
                 plataformas.add(p14)
-                plataformamarialaura=Plataformas(50, -1370, "Imagens/Quinta Fase/plataforma5.png")
+                plataformamarialaura=Plataformas(50, -1300, "Imagens/Quinta Fase/plataforma5.png")
                 plataformas.add(plataformamarialaura)
-                p16 = Plataformas(290, -1555, "Imagens/Quinta Fase/plataforma5.png")
+                p16 = Plataformas(random.randrange(5, 300), -1450, "Imagens/Quinta Fase/plataforma5.png")
                 plataformas.add(p16)
-                p18 = Plataformas(100, -1760, "Imagens/Quinta Fase/plataforma5.png")
+                p18 = Plataformas(random.randrange(5, 300), -1600, "Imagens/Quinta Fase/plataforma5.png")
                 plataformas.add(p18)
-                plataformajoao=Plataformas(300, -1870, "Imagens/Quinta Fase/plataforma5.png")
+                plataformajoao=Plataformas(300, -1750, "Imagens/Quinta Fase/plataforma5.png")
                 plataformas.add(plataformajoao)
-                p20 = Plataformas(90, -2055, "Imagens/Quinta Fase/plataforma5.png")
+                p20 = Plataformas(random.randrange(5, 300), -1900, "Imagens/Quinta Fase/plataforma5.png")
                 plataformas.add(p20)
-                p22 = Plataformas(380, -2260, "Imagens/Quinta Fase/plataforma5.png")
+                p22 = Plataformas(random.randrange(5, 300), -2050, "Imagens/Quinta Fase/plataforma5.png")
                 plataformas.add(p22)
-                p24 = Plataformas(380, -2450, "Imagens/Quinta Fase/plataforma5.png")
+                p24 = Plataformas(random.randrange(5, 300), -2200, "Imagens/Quinta Fase/plataforma5.png")
                 plataformas.add(p24)
+                p26 = Plataformas(random.randrange(5, 300), -2350, "Imagens/Quinta Fase/plataforma5.png")
+                plataformas.add(p26)
 
                 personagemarthur.rect.left=120
-                personagemarthur.rect.top=-450
+                personagemarthur.rect.top=-475
 
                 personagemmarialaura.rect.left=420
-                personagemmarialaura.rect.top=-950
+                personagemmarialaura.rect.top=-925
 
                 personagemjoao.rect.left=120
-                personagemjoao.rect.top=-1450
+                personagemjoao.rect.top=-1375
 
                 personagemeduarda.rect.left=420
-                personagemeduarda.rect.top=-1950
+                personagemeduarda.rect.top=-1825
 
         #Colisão Expetianos
         colisao_marialaura = pygame.sprite.spritecollide(personagem, expetianomarialauragroup, False)
@@ -794,17 +792,14 @@ def main():
                 falaeduarda.jaaconteceu = False
                 falajoao.jaaconteceu = False
 
-
-            p0 = Chao(-15, 544)
+            p0 = Chao(-15, 500)
             plataformas.add(p0)
-            p1 = Plataformas(250, 255, "Imagens/Primeira Fase/plataforma1.png")
+            p1 = Plataformas(10, 350, "Imagens/Primeira Fase/plataforma1.png")
             plataformas.add(p1)
-            p2 = Plataformas(10, 395, "Imagens/Primeira Fase/plataforma1.png")
+            p2 = Plataformas(250, 200, "Imagens/Primeira Fase/plataforma1.png")
             plataformas.add(p2)
-            p3 = Plataformas(10, 125, "Imagens/Primeira Fase/plataforma1.png")
-            plataformas.add(p3)
-            p4 = Plataformas(235, -10, "Imagens/Primeira Fase/plataforma1.png")
-            plataformas.add(p4)
+            p3 = Plataformas(10, 50, "Imagens/Primeira Fase/plataforma1.png")
+            plataformas.add(p3)  
             ensino= Bolinha1()
             bolinhas.add(ensino)
             pesquisa = Bolinha2()
@@ -854,8 +849,6 @@ def main():
                 plataformas.add(p2)
                 p3 = Plataformas(10, 125, "Imagens/Primeira Fase/plataforma1.png")
                 plataformas.add(p3)
-                p4 = Plataformas(235, -10, "Imagens/Primeira Fase/plataforma1.png")
-                plataformas.add(p4)
                 ensino= Bolinha1()
                 bolinhas.add(ensino)
                 pesquisa = Bolinha2()

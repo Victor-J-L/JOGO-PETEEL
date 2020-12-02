@@ -598,20 +598,15 @@ botaofinal = BotaoFinal()
 gameovergrupo.add(fimdejogo, botaofinal)
 
 #Lista de Plataformas
-p0 = Chao(-15, 544)
+p0 = Chao(-15, 500)
 plataformas.add(p0)
-
-p1 = Plataformas(250, 255, "Imagens/Primeira Fase/plataforma1.png")
+p1 = Plataformas(10, 350, "Imagens/Primeira Fase/plataforma1.png")
 plataformas.add(p1)
-
-p2 = Plataformas(10, 395, "Imagens/Primeira Fase/plataforma1.png")
+p2 = Plataformas(250, 200, "Imagens/Primeira Fase/plataforma1.png")
 plataformas.add(p2)
-
-p3 = Plataformas(10, 120, "Imagens/Primeira Fase/plataforma1.png")
+p3 = Plataformas(10, 50, "Imagens/Primeira Fase/plataforma1.png")
 plataformas.add(p3)
 
-p4 = Plataformas(235, -30, "Imagens/Primeira Fase/plataforma1.png")
-plataformas.add(p4)
 
 pfinal1 = PlataformaFinal(5, -2450, "Imagens/Primeira Fase/plataformafinal.png")
 platfinal.add(pfinal1)
@@ -627,11 +622,6 @@ platfinal.add(pfinal4)
 
 pfinal5 = PlataformaFinal(800, -2450, "Imagens/Quinta Fase/plataformafinal5.png")
 platfinal.add(pfinal5)
-
-
-
-
-Plataforma_lista = [p0, p1, p2, p3, p4]
 
 #Fundo Inicial
 fundoinicial=FundoInicial()
