@@ -2,6 +2,7 @@ import pygame
 import random
 from sprites import *
 from os import path
+from pygame import mixer
 
 vec = pygame.math.Vector2
 
@@ -14,7 +15,8 @@ def main():
     pygame.display.set_caption("Jogo PETEEL")
     relogio = pygame.time.Clock()
     fundo = pygame.image.load("Imagens/Primeira Fase/fundo123desfocado.png")
-    pygame.mixer.init
+    '''mixer.music.load("Som/Músicas/Rise of spirit.ogg")
+    mixer.music.play(1)'''
     
 
     sair = False
@@ -579,6 +581,8 @@ def main():
                 pfinal4.rect.left = 800
                 iconef4.rect.x = 800 
                 pontuação.p = pontuação.p + 150
+                mixer.music.load("Som/Músicas/Rise of spirit.ogg")
+                mixer.music.play(1)
 
 
                 iconef5.rect.x = 50
@@ -755,8 +759,6 @@ def main():
                 iconef4.rect.x = 800
                 iconef4.rect.y = -2555
                 fundoinicial.image = pygame.image.load("Imagens/Quarta Fase/Fundo4desfocado.png")
-                for ini1 in inimigos4grupo:
-                    ini1.kill()
                 for ini in inimigos4grupo:
                     ini.pos.y = 2000
                 for bol in bolinhas4grupo:
