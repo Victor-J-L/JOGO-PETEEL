@@ -15,8 +15,8 @@ def main():
     pygame.display.set_caption("Jogo PETEEL")
     relogio = pygame.time.Clock()
     fundo = pygame.image.load("Imagens/Primeira Fase/fundo123desfocado.png")
-    '''mixer.music.load("Som/Músicas/Rise of spirit.ogg")
-    mixer.music.play(1)'''
+    mixer.music.load("Som/Músicas/day 33.mp3")
+    mixer.music.play(1)
     
 
     sair = False
@@ -29,8 +29,6 @@ def main():
         relogio.tick(30)
         tela.fill(cor_azul)
         (xmouse, ymouse) = pygame.mouse.get_pos()
-        mixer.music.load("Som/Músicas/day 33.mp3")
-        mixer.music.play(1)
 
         #Código Página inicial
 
@@ -64,6 +62,9 @@ def main():
                 selecao.rect.right = 800
                 fundo = pygame.image.load("Imagens/Primeira Fase/fundo1_112.png")
                 fundoinicial.rect.left = 800 
+                pygame.mixer.music.stop()
+                mixer.music.load("Som/Músicas/day 32.mp3")
+                mixer.music.play(1)
 
         if xmouse >= sobre.rect.left and xmouse <= sobre.rect.right and ymouse <= sobre.rect.bottom and ymouse >= sobre.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN:
@@ -301,6 +302,9 @@ def main():
                 botaot4.rect.left = 335
                 botaot4.rect.top = 585
                 iconef4.rect.x = 800
+                pygame.mixer.music.stop()
+                mixer.music.load("Som/Músicas/Rise of spirit.ogg")
+                mixer.music.play(1)
 
 
 
@@ -427,6 +431,10 @@ def main():
                 p3 = Plataformas(10, 50, "Imagens/Segunda Fase/plataforma2.png")
                 plataformas.add(p3)  
 
+                pygame.mixer.music.stop()
+                mixer.music.load("Som/Músicas/day 43.mp3")
+                mixer.music.play(1)
+
                 humildade = Valorhumil()
                 valoresgrupo.add(humildade)
                 uniao = Valoruniao()
@@ -476,6 +484,7 @@ def main():
                 pfinal2.rect.left = 800
                 pfinal3.rect.left = 5
                 pfinal3.rect.top = -2450
+                pygame.mixer.music.stop()
                 mixer.music.load("Som/Músicas/Full of memories.ogg")
                 mixer.music.play(1)
                 
@@ -520,7 +529,7 @@ def main():
                 iconef3.rect.x = 800 #até aqui jogamos pra longe
 
                 pygame.mixer.music.stop()
-                mixer.music.load("Som/Músicas/Air.ogg")
+                mixer.music.load("Som/Músicas/day 34.mp3")
                 mixer.music.play(1)
 
 
@@ -585,9 +594,9 @@ def main():
                 iconef4.rect.x = 800 
                 pontuação.p = pontuação.p + 150
 
-                pygame.mixer.music.stop()
+                '''pygame.mixer.music.stop()
                 mixer.music.load("Som/Músicas/Rise of spirit.ogg")
-                mixer.music.play(1)
+                mixer.music.play(1)'''
 
 
                 iconef5.rect.x = 50
@@ -704,6 +713,9 @@ def main():
         #Game Over
 
         if personagem.rect.top > 650 or colisao_inimigos3 or colisao_inimigos4:
+            pygame.mixer.music.stop()
+            mixer.music.load("Som/Músicas/day 10.mp3")
+            mixer.music.play(1)
             pontuacaogameover.rect.left = 250
             pontuacaogameover.l = 265
             pontuacaogameover.o = 260
@@ -819,6 +831,8 @@ def main():
                 pontuacaogameover.rect.left = 800
                 pontuacaogameover.l = 800
                 pygame.mixer.music.stop()
+                mixer.music.load("Som/Músicas/day 33.mp3")
+                mixer.music.play(1)
 
         if xmouse >= botaofinal.rect.left and xmouse <= botaofinal.rect.right and ymouse <= botaofinal.rect.bottom and ymouse >= botaofinal.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN:
@@ -873,6 +887,8 @@ def main():
                 personagemfinal.rect.x = 800
 
                 pygame.mixer.music.stop()
+                mixer.music.load("Som/Músicas/day 33.mp3")
+                mixer.music.play(1)
                 
         pontuação1= str(pontuação.p)
         render_pontuação = fonte_pontuação.render(pontuação1,1, (0,0,0))
