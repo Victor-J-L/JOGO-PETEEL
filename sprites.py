@@ -90,8 +90,8 @@ class Paginainicial(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.image.load("Imagens/Página inicial/paginainicial2.png")
         self.rect = self.image.get_rect()
-        self.rect.top = -26
-        self.rect.left = -16
+        self.rect.top = 0
+        self.rect.left = 0
 
 class Botaoplay(pygame.sprite.Sprite):
     def __init__(self):
@@ -172,12 +172,13 @@ class FundoInicial(pygame.sprite.Sprite):
         self.rect.left = 0
 
 class BotaoGameOver(pygame.sprite.Sprite):
-    def __init__(self):
+    def __init__(self,x,y,image):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load("Imagens/Game Over/botaogameover.png")
+        self.image = pygame.image.load(image)
         self.rect = self.image.get_rect()
-        self.rect.top = 330 
-        self.rect.left = 800
+        self.rect.top = y 
+        self.rect.left = x
+        self.jaaconteceu = False
 
 class GameOver(pygame.sprite.Sprite):
     def __init__(self):
@@ -339,7 +340,7 @@ class PontuacaoObject(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.image.load("Imagens/pontuaçãoobject.png")
         self.rect = self.image.get_rect()
-        self.rect.top = 15
+        self.rect.top = 10
         self.rect.left = 345
 
 class Pontuacaogameover(pygame.sprite.Sprite):
@@ -366,6 +367,14 @@ class BotaoFinal(pygame.sprite.Sprite):
         self.image = pygame.image.load("Imagens/Quinta Fase/botaofinal.png")
         self.rect = self.image.get_rect()
         self.rect.top = 253
+        self.rect.left = 800
+
+class Créditos(pygame.sprite.Sprite):
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load("Imagens/Página inicial/créditos.png")
+        self.rect = self.image.get_rect()
+        self.rect.top = 570
         self.rect.left = 800
 
 
@@ -629,11 +638,15 @@ fundoinicialgrupo.add(fundoinicial)
 
 #GameOver
 gameover = GameOver()
-gameovergrupo.add(gameover)
-botaogameover = BotaoGameOver()
-gameovergrupo.add(botaogameover)
+botaogameover = BotaoGameOver(800,330,"Imagens/Game Over/botaogameover.png")
 pontuacaogameover = Pontuacaogameover()
-gameovergrupo.add(pontuacaogameover)
+creditos = Créditos()
+'''som = BotaoGameOver(450,50,"Imagens/Página inicial/volume.png")
+som1 = BotaoGameOver(800, 50,"Imagens/Página inicial/volume.png")
+
+all_sprites.add(som)'''
+gameovergrupo.add(gameover,botaogameover,pontuacaogameover,creditos)
+
 
 
 #Fonte

@@ -326,6 +326,7 @@ def main():
             botaofinal.rect.left = 199
             pontuacaogameover.l = 267
             pontuacaogameover.o = 180
+            creditos.rect.left = 10
 
         #pulo
         if event.type == pygame.KEYDOWN:
@@ -334,7 +335,8 @@ def main():
                     colisao_plataforma = pygame.sprite.spritecollide(personagem, plataformas, False)
                     personagem.rect.x -= 1
                     if  colisao_plataforma:
-                        personagem.vel.y = -18
+                        if personagem.pos.y == colisao_plataforma[0].rect.top:
+                            personagem.vel.y = -18
                     
         
          # Scrolling
@@ -377,30 +379,26 @@ def main():
                     pontuação.p = pontuação.p + 10
 
         # Spawn novas plat fase 1
-        if pfinal1.rect.top <-160:
+        if pfinal1.rect.top <-155:
             while len(plataformas) < 5:
                 if iconefinal.rect.x >= 0 and iconefinal.rect.x <= 500: 
-                    p = Plataformas(random.randrange(5, 300),
-                                random.randrange(-105, -104), "Imagens/Primeira Fase/plataforma1.png")
+                    p = Plataformas(random.randrange(5, 300),-105, "Imagens/Primeira Fase/plataforma1.png")
                     plataformas.add(p)
-        if pfinal2.rect.top <-160 and pfinal2.rect.left <= 10:
+        if pfinal2.rect.top <-155 and pfinal2.rect.left <= 10:
             while len(plataformas) < 5:
                 if iconef2.rect.x >= 0 and iconef2.rect.x <= 500: 
-                    p = Plataformas(random.randrange(5, 300),
-                                    random.randrange(-105, -104), "Imagens/Segunda Fase/plataforma2.png")
+                    p = Plataformas(random.randrange(5, 300),-105, "Imagens/Segunda Fase/plataforma2.png")
                     plataformas.add(p)
-        if pfinal3.rect.top <-160 and pfinal3.rect.left <= 10:
+        if pfinal3.rect.top <-155 and pfinal3.rect.left <= 10:
             while len(plataformas) < 5:
                 if iconef3.rect.x >= 0 and iconef3.rect.x <= 500: 
-                    p = Plataformas(random.randrange(5, 300),
-                                    random.randrange(-105, -104), "Imagens/Terceira Fase/plataforma3.png")
+                    p = Plataformas(random.randrange(5, 300),-105, "Imagens/Terceira Fase/plataforma3.png")
                     plataformas.add(p)
 
-        if pfinal4.rect.top <-160 and pfinal4.rect.left <= 10:
+        if pfinal4.rect.top <-155 and pfinal4.rect.left <= 10:
             while len(plataformas) < 5:
                 if iconef4.rect.x >= 0 and iconef4.rect.x <= 500: 
-                    p = Plataformas(random.randrange(5, 300),
-                                    random.randrange(-105, -104), "Imagens/Quarta Fase/plataforma4.png")
+                    p = Plataformas(random.randrange(5, 300),-105, "Imagens/Quarta Fase/plataforma4.png")
                     plataformas.add(p)
         
     
@@ -727,6 +725,7 @@ def main():
             pfinal1.rect.top = -2450
             iconefinal.rect.x = 50
             iconefinal.rect.y = -2555
+            creditos.rect.left = 10
             for plat in plataformas: 
                 plat.kill() 
 
@@ -811,7 +810,7 @@ def main():
             p2 = Plataformas(250, 200, "Imagens/Primeira Fase/plataforma1.png")
             plataformas.add(p2)
             p3 = Plataformas(10, 50, "Imagens/Primeira Fase/plataforma1.png")
-            plataformas.add(p3)  
+            plataformas.add(p3) 
             ensino= Bolinha1()
             bolinhas.add(ensino)
             pesquisa = Bolinha2()
@@ -821,7 +820,7 @@ def main():
 
         if xmouse >= botaogameover.rect.left and xmouse <= botaogameover.rect.right and ymouse <= botaogameover.rect.bottom and ymouse >= botaogameover.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN:
-                pag_inicial.rect.left= -16
+                pag_inicial.rect.left= 0
                 botaoplay.rect.right = 314
                 personagem1.rect.right = 210
                 personagem2.rect.right = 405
@@ -833,13 +832,14 @@ def main():
                 pygame.mixer.music.stop()
                 mixer.music.load("Som/Músicas/day 33.mp3")
                 mixer.music.play(1)
+                creditos.rect.left = 800
 
         if xmouse >= botaofinal.rect.left and xmouse <= botaofinal.rect.right and ymouse <= botaofinal.rect.bottom and ymouse >= botaofinal.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 fundoinicial.image = pygame.image.load("Imagens/Primeira Fase/fundo123desfocado.png")
-
+                creditos.rect.left = 800
                 personagem.pos = vec(400,530)
-                pag_inicial.rect.left= -16
+                pag_inicial.rect.left= 0
                 botaoplay.rect.right = 314
                 personagem1.rect.right = 210
                 personagem2.rect.right = 405
@@ -855,13 +855,13 @@ def main():
                 iconefinal.rect.y = -2555
                 for plat in plataformas: 
                     plat.kill()
-                p0 = Chao(-15, 544)
+                p0 = Chao(-15, 500)
                 plataformas.add(p0)
-                p1 = Plataformas(250, 255, "Imagens/Primeira Fase/plataforma1.png")
+                p1 = Plataformas(10, 350, "Imagens/Primeira Fase/plataforma1.png")
                 plataformas.add(p1)
-                p2 = Plataformas(10, 395, "Imagens/Primeira Fase/plataforma1.png")
+                p2 = Plataformas(250, 200, "Imagens/Primeira Fase/plataforma1.png")
                 plataformas.add(p2)
-                p3 = Plataformas(10, 125, "Imagens/Primeira Fase/plataforma1.png")
+                p3 = Plataformas(10, 50, "Imagens/Primeira Fase/plataforma1.png")
                 plataformas.add(p3)
                 ensino= Bolinha1()
                 bolinhas.add(ensino)
@@ -889,6 +889,8 @@ def main():
                 pygame.mixer.music.stop()
                 mixer.music.load("Som/Músicas/day 33.mp3")
                 mixer.music.play(1)
+        
+
                 
         pontuação1= str(pontuação.p)
         render_pontuação = fonte_pontuação.render(pontuação1,1, (0,0,0))
@@ -905,12 +907,11 @@ def main():
         platfinal.draw(tela)
         personagemgrupo.draw(tela)
         pontuacaogroup.draw(tela)
-        tela.blit(render_pontuação,(450.15,22.5))
-        tela.blit(render_pontuação1,(350.15,22.5))
+        tela.blit(render_pontuação,(450.15,17.5))
+        tela.blit(render_pontuação1,(350.15,17.5))
         all_sprites.draw(tela)
         tela.blit(fundoinicial.image, fundoinicial.rect)
         all_sprites.draw(tela)
-        gameovergrupo.draw(tela)
         transicaogrupo.draw(tela)
         valoresgrupo.draw(tela)
         iconef2grupo.draw(tela)
