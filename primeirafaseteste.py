@@ -29,8 +29,6 @@ def main():
         relogio.tick(30)
         tela.fill(cor_azul)
         (xmouse, ymouse) = pygame.mouse.get_pos()
-        mixer.music.load("Som/Músicas/day 33.mp3")
-        mixer.music.play(1)
 
         #Código Página inicial
 
