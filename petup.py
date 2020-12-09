@@ -707,10 +707,74 @@ def main():
                 botaoexpetianos.rect.left = 800
                 falajoao.rect.left = -800
 
+        
+        if xmouse >= botaofinal.rect.left and xmouse <= botaofinal.rect.right and ymouse <= botaofinal.rect.bottom and ymouse >= botaofinal.rect.top:
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                fundoinicial.image = pygame.image.load("Imagens/Primeira Fase/fundo123desfocado.png")
+                creditos.rect.left = 800
+                personagem.pos = vec(400,530)
+                pag_inicial.rect.left= 0
+                botaoplay.rect.right = 314
+                personagem1.rect.right = 210
+                personagem2.rect.right = 405
+                fimdejogo.rect.left = 800
+                botaofinal.rect.left = 800
+                pontuação.p = 0
+                pontuacaogameover.rect.left = 800
+                pontuacaogameover.l = 800
+                fundoinicial.rect.left = 0
+                pfinal1.rect.left = 5
+                pfinal1.rect.top = -2450
+                iconefinal.rect.x = 50
+                iconefinal.rect.y = -2555
+                som1.jaaconteceu = False
+                som.jaaconteceu = False
+                for plat in plataformas: 
+                    plat.kill()
+                p0 = Chao(-15, 500)
+                plataformas.add(p0)
+                p1 = Plataformas(10, 350, "Imagens/Primeira Fase/plataforma1.png")
+                plataformas.add(p1)
+                p2 = Plataformas(250, 200, "Imagens/Primeira Fase/plataforma1.png")
+                plataformas.add(p2)
+                p3 = Plataformas(10, 50, "Imagens/Primeira Fase/plataforma1.png")
+                plataformas.add(p3)
+                ensino= Bolinha1()
+                bolinhas.add(ensino)
+                pesquisa = Bolinha2()
+                bolinhas.add(pesquisa)
+                extensao = Bolinha3()
+                bolinhas.add(extensao)
+                pfinal5.rect.left = 800
+                pfinal5.rect.top = -2450
+                iconef5.rect.x = 800
+                iconef5.rect.y = -2555
+                personagemarthur.rect.left=800
+                personagemarthur.rect.top=-800
+                personagemmarialaura.rect.left=800
+                personagemjoao.rect.left=800
+                personagemeduarda.rect.left=800
+                falaarthur.rect.left= 1600
+                falaeduarda.rect.left= 800
+                falamarialaura.rect.left= 800
+                botaoexpetianos.rect.left = 800
+                falajoao.rect.left = 800
+                transiçãofinal.rect.left = 800
+                personagemfinal.rect.x = 800
+                falaarthur.jaaconteceu = False
+                falamarialaura.jaaconteceu = False
+                falaeduarda.jaaconteceu = False
+                falajoao.jaaconteceu = False
+
+                pygame.mixer.music.stop()
+                mixer.music.load("Som/Músicas/day 33.mp3")
+                mixer.music.play(1)
+
 
         #Game Over
 
-        if personagem.rect.top > 650 or colisao_inimigos3 or colisao_inimigos4:
+        if personagem.rect.top > 650:
+            ''' or colisao_inimigos3 or colisao_inimigos4:'''
             pygame.mixer.music.stop()
             mixer.music.load("Som/Músicas/day 10.mp3")
             mixer.music.play(1)
@@ -726,6 +790,8 @@ def main():
             iconefinal.rect.x = 50
             iconefinal.rect.y = -2555
             creditos.rect.left = 10
+            som1.jaaconteceu = False
+            som.jaaconteceu = False
             for plat in plataformas: 
                 plat.kill() 
 
@@ -834,27 +900,135 @@ def main():
                 mixer.music.play(1)
                 creditos.rect.left = 800
 
-        if xmouse >= botaofinal.rect.left and xmouse <= botaofinal.rect.right and ymouse <= botaofinal.rect.bottom and ymouse >= botaofinal.rect.top:
+        if som.jaaconteceu == False:
+            if xmouse >= som1.rect.left and xmouse <= som1.rect.right and ymouse <= som1.rect.bottom and ymouse >= som1.rect.top:
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    pygame.mixer.music.stop() 
+                    som1.jaaconteceu = True
+                    som.jaaconteceu = True
+
+        if som1.jaaconteceu == True:
+            if xmouse >= som.rect.left and xmouse <= som.rect.right and ymouse <= som.rect.bottom and ymouse >= som.rect.top:
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    if iconefinal.rect.x >= 0 and iconefinal.rect.x <= 500: 
+                        mixer.music.load("Som/Músicas/day 32.mp3")
+                        mixer.music.play(1)
+                        som1.jaaconteceu = False
+                        som.jaaconteceu = False
+
+                    if iconef2.rect.x >= 0 and iconef2.rect.x <= 500:
+                        mixer.music.load("Som/Músicas/day 43.mp3")
+                        mixer.music.play(1)
+
+                    if iconef3.rect.x >= 0 and iconef3.rect.x <= 500:
+                        mixer.music.load("Som/Músicas/Full of memories.ogg")
+                        mixer.music.play(1)
+
+                    if iconef4.rect.x >= 0 and iconef4.rect.x <= 500:
+                        mixer.music.load("Som/Músicas/day 34.mp3")
+                        mixer.music.play(1)
+                    
+                    if iconef5.rect.x >= 0 and iconef5.rect.x <= 500: 
+                        mixer.music.load("Som/Músicas/Rise of spirit.ogg")
+                        mixer.music.play(1)
+
+        if xmouse >= config.rect.left and xmouse <= config.rect.right and ymouse <= config.rect.bottom and ymouse >= config.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN:
-                fundoinicial.image = pygame.image.load("Imagens/Primeira Fase/fundo123desfocado.png")
-                creditos.rect.left = 800
+                balon.rect.left = 308
+                sim.rect.left = 330
+                nao.rect.left = 398
+        
+        if xmouse >= sim.rect.left and xmouse <= sim.rect.right and ymouse <= sim.rect.bottom and ymouse >= sim.rect.top:
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                balon.rect.left = 800
+                sim.rect.left = 800
+                nao.rect.left = 800
+                pygame.mixer.music.stop()
+                mixer.music.load("Som/Músicas/day 33.mp3")
+                mixer.music.play(1)
                 personagem.pos = vec(400,530)
-                pag_inicial.rect.left= 0
-                botaoplay.rect.right = 314
-                personagem1.rect.right = 210
-                personagem2.rect.right = 405
-                fimdejogo.rect.left = 800
-                botaofinal.rect.left = 800
-                pontuação.p = 0
-                pontuacaogameover.rect.left = 800
-                pontuacaogameover.l = 800
                 fundoinicial.rect.left = 0
                 pfinal1.rect.left = 5
                 pfinal1.rect.top = -2450
                 iconefinal.rect.x = 50
                 iconefinal.rect.y = -2555
                 for plat in plataformas: 
-                    plat.kill()
+                    plat.kill() 
+
+                if iconefinal.rect.x >= 0 and iconefinal.rect.x <= 500: 
+                    for bol in bolinhas : 
+                        bol.kill()
+                    fundoinicial.image = pygame.image.load("Imagens/Primeira Fase/fundo123desfocado.png")
+
+                if iconef2.rect.x >= 0 and iconef2.rect.x <= 500:
+                    for val in valoresgrupo : 
+                        val.kill()   
+                    fundoinicial.image = pygame.image.load("Imagens/Segunda Fase/Fundo2desfocado.png")
+                    pfinal2.rect.left = 800
+                    pfinal2.rect.top = -2450
+                    iconef2.rect.x = 800
+                    iconef2.rect.y = -2555
+                    humildade = Valorhumil()
+                    valoresgrupo.add(humildade)
+                    uniao = Valoruniao()
+                    valoresgrupo.add(uniao)
+                    comprometimento = Valorcomprom()
+                    valoresgrupo.add(comprometimento)
+                    capacitacao = Valorcapaci()
+                    valoresgrupo.add(capacitacao)
+                    brio = Valorbrio()
+                    valoresgrupo.add(brio)
+
+                if iconef3.rect.x >= 0 and iconef3.rect.x <= 500:
+                    pfinal3.rect.left = 800
+                    pfinal3.rect.top = -2450
+                    iconef3.rect.x = 800
+                    iconef3.rect.y = -2555
+                    fundoinicial.image = pygame.image.load("Imagens/Terceira Fase/Fundo3desfocado.png")
+                    for ini in inimigos3grupo:
+                        ini.pos.y = 2000
+                    if personagem.p11 == True:
+                        personagem.image = pygame.image.load("Imagens/personagem/personagem1frente_min.png")
+                    if personagem.p10 == True:
+                        personagem.image = pygame.image.load("Imagens/personagem/personagem1frente_min.png")
+                    if personagem.p22 == True:
+                        personagem.image = pygame.image.load("Imagens/personagem/personagem2frente_min.png")
+
+                    
+
+                if iconef4.rect.x >= 0 and iconef4.rect.x <= 500:
+                    fundoinicial.image = pygame.image.load("Imagens/Quarta Fase/Fundo4desfocado.png")
+                    pfinal4.rect.left = 800
+                    pfinal4.rect.top = -2450
+                    iconef4.rect.x = 800
+                    iconef4.rect.y = -2555
+                    fundoinicial.image = pygame.image.load("Imagens/Quarta Fase/Fundo4desfocado.png")
+                    for ini in inimigos4grupo:
+                        ini.pos.y = 2000
+                    for bol in bolinhas4grupo:
+                        bol.kill()
+
+                if iconef5.rect.x >= 0 and iconef5.rect.x <= 500: 
+                    fundoinicial.image = pygame.image.load("Imagens/Quinta Fase/fundo5desfocado.png")
+                    pfinal5.rect.left = 800
+                    pfinal5.rect.top = -2450
+                    iconef5.rect.x = 800
+                    iconef5.rect.y = -2555
+                    personagemarthur.rect.left=800
+                    personagemarthur.rect.top=-800
+                    personagemmarialaura.rect.left=800
+                    personagemjoao.rect.left=800
+                    personagemeduarda.rect.left=800
+                    falaarthur.rect.left= 1600
+                    falaeduarda.rect.left= -800
+                    falamarialaura.rect.left= -800
+                    botaoexpetianos.rect.left = 800
+                    falajoao.rect.left = -800
+                    falaarthur.jaaconteceu = False
+                    falamarialaura.jaaconteceu = False
+                    falaeduarda.jaaconteceu = False
+                    falajoao.jaaconteceu = False
+
                 p0 = Chao(-15, 500)
                 plataformas.add(p0)
                 p1 = Plataformas(10, 350, "Imagens/Primeira Fase/plataforma1.png")
@@ -862,35 +1036,32 @@ def main():
                 p2 = Plataformas(250, 200, "Imagens/Primeira Fase/plataforma1.png")
                 plataformas.add(p2)
                 p3 = Plataformas(10, 50, "Imagens/Primeira Fase/plataforma1.png")
-                plataformas.add(p3)
+                plataformas.add(p3) 
                 ensino= Bolinha1()
                 bolinhas.add(ensino)
                 pesquisa = Bolinha2()
                 bolinhas.add(pesquisa)
                 extensao = Bolinha3()
                 bolinhas.add(extensao)
-                pfinal5.rect.left = 800
-                pfinal5.rect.top = -2450
-                iconef5.rect.x = 800
-                iconef5.rect.y = -2555
-                personagemarthur.rect.left=800
-                personagemarthur.rect.top=-800
-                personagemmarialaura.rect.left=800
-                personagemjoao.rect.left=800
-                personagemeduarda.rect.left=800
-                falaarthur.rect.left= 1600
-                falaeduarda.rect.left= 800
-                falamarialaura.rect.left= 800
-                botaoexpetianos.rect.left = 800
-                falajoao.rect.left = 800
-                transiçãofinal.rect.left = 800
-                personagemfinal.rect.x = 800
+                pag_inicial.rect.left= 0
+                botaoplay.rect.right = 314
+                personagem1.rect.right = 210
+                personagem2.rect.right = 405
+                pontuação.p = 0
+                pontuacaogameover.rect.left = 800
+                pontuacaogameover.l = 800
+                som1.jaaconteceu = False
+                som.jaaconteceu = False
 
-                pygame.mixer.music.stop()
-                mixer.music.load("Som/Músicas/day 33.mp3")
-                mixer.music.play(1)
-        
+        if xmouse >= nao.rect.left and xmouse <= nao.rect.right and ymouse <= nao.rect.bottom and ymouse >= nao.rect.top:
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    balon.rect.left = 800
+                    sim.rect.left = 800
+                    nao.rect.left = 800
+                    
+                    
 
+                
                 
         pontuação1= str(pontuação.p)
         render_pontuação = fonte_pontuação.render(pontuação1,1, (0,0,0))
@@ -909,29 +1080,29 @@ def main():
         pontuacaogroup.draw(tela)
         tela.blit(render_pontuação,(450.15,17.5))
         tela.blit(render_pontuação1,(350.15,17.5))
-        all_sprites.draw(tela)
         tela.blit(fundoinicial.image, fundoinicial.rect)
         all_sprites.draw(tela)
-        transicaogrupo.draw(tela)
         valoresgrupo.draw(tela)
         iconef2grupo.draw(tela)
-        transicao2grupo.draw(tela)
         iconef3grupo.draw(tela)
-        transicao3grupo.draw(tela)
         inimigos3grupo.draw(tela)
         iconef4grupo.draw(tela)
         iconef5grupo.draw(tela)
         bolinhas4grupo.draw(tela)
         inimigos4grupo.draw(tela)
-        transicao41grupo.draw(tela)
-        transicao42grupo.draw(tela)
-        transicaofinal.draw(tela)
         expetianomarialauragroup.draw(tela)
         expetianojoaogroup.draw(tela)
         expetianoarthurgroup.draw(tela)
         expetianoeduardagroup.draw(tela)
         falaexpetiano.draw(tela)
         botaoexpetianosgroup.draw(tela)
+        setc.draw(tela)
+        transicaogrupo.draw(tela)
+        transicao2grupo.draw(tela)
+        transicao3grupo.draw(tela)
+        transicao41grupo.draw(tela)
+        transicao42grupo.draw(tela)
+        transicaofinal.draw(tela)
         fundoinicialgrupo.draw(tela)
         gameovergrupo.draw(tela)
         tela.blit(render_pontuação2,(pontuacaogameover.l,pontuacaogameover.o))

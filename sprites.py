@@ -367,7 +367,7 @@ class BotaoFinal(pygame.sprite.Sprite):
         self.image = pygame.image.load("Imagens/Quinta Fase/botaofinal.png")
         self.rect = self.image.get_rect()
         self.rect.top = 253
-        self.rect.left = 800
+        self.rect.left =  800
 
 class Créditos(pygame.sprite.Sprite):
     def __init__(self):
@@ -420,6 +420,7 @@ expetianoeduardagroup=pygame.sprite.Group()
 falaexpetiano=pygame.sprite.Group()
 botaoexpetianosgroup = pygame.sprite.Group()
 pontuacaogroup = pygame.sprite.Group()
+setc = pygame.sprite.Group()
 
 #CORES
 cor_azul = (181,244,253)
@@ -641,10 +642,14 @@ gameover = GameOver()
 botaogameover = BotaoGameOver(800,330,"Imagens/Game Over/botaogameover.png")
 pontuacaogameover = Pontuacaogameover()
 creditos = Créditos()
-'''som = BotaoGameOver(450,50,"Imagens/Página inicial/volume.png")
-som1 = BotaoGameOver(800, 50,"Imagens/Página inicial/volume.png")
+som = BotaoGameOver(405,50,"Imagens/Página inicial/volume.png")
+som1 = BotaoGameOver(455, 50,"Imagens/Página inicial/mute.png")
+config = BotaoGameOver(355,50,"Imagens/Página inicial/engine.png")
+balon = BotaoGameOver(800,90,"Imagens/Página inicial/balon.png")
+sim = BotaoGameOver(800, 140,"Imagens/Página inicial/sim.png")
+nao = BotaoGameOver(800,140,"Imagens/Página inicial/nao.png")
 
-all_sprites.add(som)'''
+setc.add(som,som1,config,balon,sim,nao)
 gameovergrupo.add(gameover,botaogameover,pontuacaogameover,creditos)
 
 
