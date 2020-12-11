@@ -330,7 +330,7 @@ def main():
 
         #pulo
         if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_SPACE:
+                if event.key == pygame.K_UP:
                     personagem.rect.x += 1
                     colisao_plataforma = pygame.sprite.spritecollide(personagem, plataformas, False)
                     personagem.rect.x -= 1
@@ -773,8 +773,7 @@ def main():
 
         #Game Over
 
-        if personagem.rect.top > 650:
-            ''' or colisao_inimigos3 or colisao_inimigos4:'''
+        if personagem.rect.top > 650 or colisao_inimigos3 or colisao_inimigos4:
             pygame.mixer.music.stop()
             mixer.music.load("Som/Músicas/day 10.mp3")
             mixer.music.play(1)
