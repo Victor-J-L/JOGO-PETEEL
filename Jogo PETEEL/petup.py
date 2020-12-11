@@ -646,16 +646,16 @@ def main():
                 plataformas.add(p26)
 
                 personagemarthur.rect.left=120
-                personagemarthur.rect.top=-475
+                personagemarthur.rect.top=-470
 
                 personagemmarialaura.rect.left=420
-                personagemmarialaura.rect.top=-925
+                personagemmarialaura.rect.top=-920
 
                 personagemjoao.rect.left=120
-                personagemjoao.rect.top=-1375
+                personagemjoao.rect.top=-1370
 
                 personagemeduarda.rect.left=420
-                personagemeduarda.rect.top=-1825
+                personagemeduarda.rect.top=-1820
 
         #Colisão Expetianos
         colisao_marialaura = pygame.sprite.spritecollide(personagem, expetianomarialauragroup, False)
