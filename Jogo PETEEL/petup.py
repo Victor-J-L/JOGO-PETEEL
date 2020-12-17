@@ -32,8 +32,7 @@ def main():
 
         #Código Página inicial
 
-        if xmouse >= personagem1.rect.left and xmouse <= personagem1.rect.right 
-        and ymouse <= personagem1.rect.bottom and ymouse >= personagem1.rect.top:
+        if xmouse >= personagem1.rect.left and xmouse <= personagem1.rect.right and ymouse <= personagem1.rect.bottom and ymouse >= personagem1.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 personagem.image = pygame.image.load("Imagens/personagem/personagem1frente_min.png") #personagem1frente
                 personagem.rect = personagem.image.get_rect()
@@ -300,8 +299,8 @@ def main():
                 transição42.rect.left = -1
                 transição41.rect.left = 800
                 abrir.rect.left = -800
-                botaot4.rect.left = 335
-                botaot4.rect.top = 585
+                botaot4.rect.left = 385
+                botaot4.rect.top = 450
                 iconef4.rect.x = 800
             if som.jaaconteceu == False:
                 pygame.mixer.music.stop()
