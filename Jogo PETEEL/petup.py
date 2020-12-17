@@ -302,6 +302,7 @@ def main():
                 botaot4.rect.left = 335
                 botaot4.rect.top = 585
                 iconef4.rect.x = 800
+            if som.jaaconteceu == False:
                 pygame.mixer.music.stop()
                 mixer.music.load("Som/Músicas/Rise of spirit.ogg")
                 mixer.music.play(1)
@@ -428,10 +429,10 @@ def main():
                 plataformas.add(p2)
                 p3 = Plataformas(10, 50, "Imagens/Segunda Fase/plataforma2.png")
                 plataformas.add(p3)  
-
-                pygame.mixer.music.stop()
-                mixer.music.load("Som/Músicas/day 43.mp3")
-                mixer.music.play(1)
+                if som.jaaconteceu == False:
+                    pygame.mixer.music.stop()
+                    mixer.music.load("Som/Músicas/day 43.mp3")
+                    mixer.music.play(1)
 
                 humildade = Valorhumil()
                 valoresgrupo.add(humildade)
@@ -482,9 +483,10 @@ def main():
                 pfinal2.rect.left = 800
                 pfinal3.rect.left = 5
                 pfinal3.rect.top = -2450
-                pygame.mixer.music.stop()
-                mixer.music.load("Som/Músicas/Full of memories.ogg")
-                mixer.music.play(1)
+                if som.jaaconteceu == False:
+                    pygame.mixer.music.stop()
+                    mixer.music.load("Som/Músicas/Full of memories.ogg")
+                    mixer.music.play(1)
                 
                 
                 interromper.pos.y = -10
@@ -525,10 +527,10 @@ def main():
                 botaot3.rect.right = 800
                 pfinal3.rect.left = 800
                 iconef3.rect.x = 800 #até aqui jogamos pra longe
-
-                pygame.mixer.music.stop()
-                mixer.music.load("Som/Músicas/day 34.mp3")
-                mixer.music.play(1)
+                if som.jaaconteceu == False:
+                    pygame.mixer.music.stop()
+                    mixer.music.load("Som/Músicas/day 34.mp3")
+                    mixer.music.play(1)
 
 
                 iconef4.rect.x = 50
@@ -591,11 +593,6 @@ def main():
                 pfinal4.rect.left = 800
                 iconef4.rect.x = 800 
                 pontuação.p = pontuação.p + 150
-
-                '''pygame.mixer.music.stop()
-                mixer.music.load("Som/Músicas/Rise of spirit.ogg")
-                mixer.music.play(1)'''
-
 
                 iconef5.rect.x = 50
                 iconef5.rect.y = -2555
@@ -909,11 +906,12 @@ def main():
         if som1.jaaconteceu == True:
             if xmouse >= som.rect.left and xmouse <= som.rect.right and ymouse <= som.rect.bottom and ymouse >= som.rect.top:
                 if event.type == pygame.MOUSEBUTTONDOWN:
+                    som1.jaaconteceu = False
+                    som.jaaconteceu = False
+                    
                     if iconefinal.rect.x >= 0 and iconefinal.rect.x <= 500: 
                         mixer.music.load("Som/Músicas/day 32.mp3")
                         mixer.music.play(1)
-                        som1.jaaconteceu = False
-                        som.jaaconteceu = False
 
                     if iconef2.rect.x >= 0 and iconef2.rect.x <= 500:
                         mixer.music.load("Som/Músicas/day 43.mp3")
