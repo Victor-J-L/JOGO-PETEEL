@@ -32,7 +32,8 @@ def main():
 
         #Código Página inicial
 
-        if xmouse >= personagem1.rect.left and xmouse <= personagem1.rect.right and ymouse <= personagem1.rect.bottom and ymouse >= personagem1.rect.top:
+        if xmouse >= personagem1.rect.left and xmouse <= personagem1.rect.right 
+        and ymouse <= personagem1.rect.bottom and ymouse >= personagem1.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 personagem.image = pygame.image.load("Imagens/personagem/personagem1frente_min.png") #personagem1frente
                 personagem.rect = personagem.image.get_rect()
