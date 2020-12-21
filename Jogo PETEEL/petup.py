@@ -483,11 +483,11 @@ def main():
                 pfinal2.rect.left = 800
                 pfinal3.rect.left = 5
                 pfinal3.rect.top = -2450
+
                 if som.jaaconteceu == False:
                     pygame.mixer.music.stop()
                     mixer.music.load("Som/Músicas/Full of memories.ogg")
                     mixer.music.play(1)
-                
                 
                 interromper.pos.y = -10
                 falarmal.pos.y = -500
@@ -711,7 +711,8 @@ def main():
                 creditos.rect.left = 800
                 personagem.pos = vec(400,530)
                 pag_inicial.rect.left= 0
-                botaoplay.rect.right = 314
+                botaoplay.rect.right = 370
+                sobre.rect.left = 150
                 personagem1.rect.right = 210
                 personagem2.rect.right = 405
                 fimdejogo.rect.left = 800
@@ -883,7 +884,8 @@ def main():
         if xmouse >= botaogameover.rect.left and xmouse <= botaogameover.rect.right and ymouse <= botaogameover.rect.bottom and ymouse >= botaogameover.rect.top:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 pag_inicial.rect.left= 0
-                botaoplay.rect.right = 314
+                botaoplay.rect.right = 370
+                sobre.rect.left = 150
                 personagem1.rect.right = 210
                 personagem2.rect.right = 405
                 gameover.rect.left = 800
@@ -1041,7 +1043,8 @@ def main():
                 extensao = Bolinha3()
                 bolinhas.add(extensao)
                 pag_inicial.rect.left= 0
-                botaoplay.rect.right = 314
+                botaoplay.rect.right = 370
+                sobre.rect.left = 150
                 personagem1.rect.right = 210
                 personagem2.rect.right = 405
                 pontuação.p = 0
